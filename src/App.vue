@@ -29,7 +29,6 @@ import { showNotification } from './utils/notification'
 @Component<Dashboard>({
   metaInfo() {
     return {
-      // title: 'KodaDot - Kusama NFT Market Explorer',
       title: 'PolkaRock - RMRK NFT Market Explorer',
       titleTemplate: '%s | Low Carbon NFTs',
       meta: [
@@ -87,9 +86,9 @@ export default class Dashboard extends Vue {
   }
 
   public mounted(): void {
-    this.mountWasmCrypto()
-    this.fetchIndexer()
-    this.getKsmPrice()
+    // this.mountWasmCrypto()
+    // this.fetchIndexer()
+    // this.getKsmPrice()
   }
 
   private async fetchIndexer() {

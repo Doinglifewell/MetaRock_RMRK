@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <!-- <div class="container footer__wrapper">
+    <div class="container footer__wrapper">
       <div class="icons">
         <ul class="footer__list icons__list">
           <li class="icons__list-item">
@@ -116,7 +116,7 @@
           </router-link>
         </li>
       </ul>
-    </div> -->
+    </div>
   </footer>
 </template>
 
