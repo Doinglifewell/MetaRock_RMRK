@@ -1,5 +1,48 @@
 <template>
-
+  <section class="hero">
+    <div class="hero-body ">
+      <div class="container">
+        <div class="columns level">
+          <div class="column level-item has-text-centered">
+            <img
+              src="/Asset01.png"
+              alt="First NFT market explorer on Kusama and Polkadot"
+              class="logo__img"
+              width="787"
+              height="489"
+              > 
+          </div>
+          <div class="column ml-5">
+            <p class="head-text">Enabling assets to be teleported into the metaverse</p>
+            <b-button type="is-inverte" class="mt-5">Get Started</b-button>
+          </div>
+        </div>
+        <p class="head-text">Explore</p>
+        <div class="columns level" style="display: flex;">
+          <div class="column level-item has-text-centered" style="align-self: flex-end;">
+            <img
+              src="/Asset 11.png"
+              alt="First NFT market explorer on Kusama and Polkadot"
+              class="logo__img"
+              width="653"
+              height="327"
+              > 
+            <b-button type="is-primary" class="mt-5">Real World Assets</b-button>
+          </div>
+          <div class="column level-item has-text-centered" style="align-self: flex-end;">
+            <img
+              src="/Asset 31.png"
+              alt="First NFT market explorer on Kusama and Polkadot"
+              class="logo__img"
+              width="505"
+              height="361"
+              > 
+            <b-button type="is-primary" class="mt-5">Real World Assets</b-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -71,13 +114,6 @@ export default class Landing extends Vue {
       }
     })
 
-    const carousel=  [
-                { text: 'Slide 1', color: 'primary' },
-                { text: 'Slide 2', color: 'info' },
-                { text: 'Slide 3', color: 'success' },
-                { text: 'Slide 4', color: 'warning' },
-                { text: 'Slide 5', color: 'danger' }
-            ]
 
   }
 }
@@ -85,78 +121,8 @@ export default class Landing extends Vue {
 
 <style lang="scss" scoped>
 @import '@/styles/variables';
-
-.homepage {
-  content: '';
-  width: 100%;
-  height: 100%;
-  color: $text;
-
-  @include desktop {
-    background: url('/homepage-bg.jpg') center bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
+  .head-text{
+    font-weight: 600; 
+    font-size: 65px;
   }
-
-  &__title {
-    display: inline-flex;
-    padding: 16px 32px;
-    margin: 0 0 60px;
-    text-transform: uppercase;
-    border: 4px solid $primary;
-  }
-
-  &__heading {
-    font-size: 4rem;
-    color: $text;
-  }
-
-  &__box {
-    max-width: 600px;
-    padding: 40px 48px;
-    margin: 120px 0 132px;
-    background-color: $body-background;
-    border: 4px solid $primary;
-    border-radius: 0;
-
-    @include desktop {
-      box-shadow: 28px -28px $black, 28px -28px 0 4px $primary;
-    }
-  }
-
-  &__box-content {
-    max-width: 464px;
-
-    p, .button {
-      margin-bottom: 32px;
-    }
-
-    p {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-  &__button {
-    &--wrapped {
-      height: auto;
-      white-space: normal;
-    }
-  }
-}
-
-.subtitle {
-  text-decoration: underline;
-}
-
-.truncate {
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-li {
-  list-style-type: square;
-}
 </style>

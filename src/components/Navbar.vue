@@ -39,11 +39,13 @@
       <!-- <LocaleChanger /> -->
         <img
           src="/GB.png"
+          alt="flag"
           width="30"
           height="30"
-          style="margin-right:20px;"
+          class="logo__img"
+          style="margin-right:20px; background:white;"
         >
-      <b-button type="is-primary" inverted outlined >Create NFT</b-button>
+      <b-button type="is-inverte">Create NFT</b-button>
       <NavbarProfileDropdown />
     </template>
   </b-navbar>

@@ -1,5 +1,6 @@
 @import "initial-variables";
 
+// $primary: #ff149366;
 $primary: #ff149366;
 $head-background: #6200E9;
 $button-text : #2E0EF4;
@@ -83,7 +84,7 @@ $link: $white;
 // $link-dark: findDarkColor($link);
 // $link-visited: $purple;
 
-$link-hover: $primary;
+$link-hover: #ff149366;
 // $link-hover-border: red;
 
 // $link-focus: $grey-darker;

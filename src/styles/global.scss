@@ -2,24 +2,38 @@ body {
     .button {
         // text-transform: uppercase;
         font-weight: 500;
-        transition: all 0.3s;
+        // transition: all 0.3s;
         // color: $scheme-invert;   
         // box-shadow: 0px 0px 3px 0.3px $white!important;
+        // box-sizing: border-box;
+        // filter: drop-shadow(-10px 4px 20px rgba(0, 0, 0, 0.5));
         border: 2px solid #FFFFFF;
-        box-sizing: border-box;
-        filter: drop-shadow(-10px 4px 20px rgba(0, 0, 0, 0.5));
+        box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.3);
         border-radius: 16px;
         font-size: 18px;
-
-        &.is-primary {
+        color: #2E0EF4;
+        border-color: $white;
+        background-color: $white;
+        
+        // &.is-primary {
+        //     border-color: $white;
+        //     background-color: $white;
+        //     color: #2E0EF4;
+        //     // &:hover,
+        //     // &:focus {
+        //     //     border-color: $white;
+        //     //     background-color: $primary;
+        //     // }
+        // }
+        &.is-inverte {
             border-color: $white;
-            background-color: $white;
-            color: $button-text;
-            &:hover,
-            &:focus {
-                border-color: $white;
-                background-color: $primary;
-            }
+            background-color: $head-background;
+            color: $white;
+            // &:hover,
+            // &:focus {
+            //     border-color: $white;
+            //     background-color: $primary;
+            // }
         }
     }
 
@@ -114,9 +128,9 @@ body {
     //   }
     // }
 
-    .icon.is-primary {
-        color: $primary !important;
-    }
+    // .icon.is-primary {
+    //     color: $primary !important;
+    // }
     .navbar-start  {
         .router-link-active {
             color: $white;

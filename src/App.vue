@@ -5,7 +5,7 @@
       is-flex-direction-column
       min-h-full
     "
-  >
+    style="background:linear-gradient(#6200E9, #1B003B);"  >
     <Navbar v-if="isNavbarVisible" />
     <main class="is-flex-grow-1 mt-6">
       <router-view />
