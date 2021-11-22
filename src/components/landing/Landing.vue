@@ -1,43 +1,59 @@
 <template>
   <section class="hero">
-    <div class="hero-body ">
+    <div class="hero-body">
       <div class="container">
-        <div class="columns is-mobile level">
+        <div class="columns level">
           <div class="column level-item has-text-centered">
-            <img
+            <b-image
               src="/Asset01.png"
               alt="First NFT market explorer on Kusama and Polkadot"
-              class="logo__img"
-              width="787"
-              height="489"
-              > 
+              ratio="6by4"
+            />
           </div>
-          <div class="column ml-5">
-            <p class="head-text">Enabling assets to be teleported into the metaverse</p>
-            <b-button tag="router-link"  to="/getStarted" type="is-inverte" class="mt-5">Get Started</b-button>
+          <div class="column">
+            <p class="head-text">
+              Enabling assets to be teleported into the metaverse
+            </p>
+            <b-button
+              tag="router-link"
+              to="/getStarted"
+              type="is-inverte"
+              class="mt-5"
+              >Get Started</b-button
+            >
           </div>
         </div>
         <p class="head-text">Explore</p>
         <div class="columns level">
-          <div class="column level-item has-text-centered" style="align-self: flex-end;">
-            <img
+          <div
+            class="column level-item has-text-centered"
+            style="align-self: flex-end"
+          >
+            <b-image
               src="/Asset 11.png"
               alt="First NFT market explorer on Kusama and Polkadot"
-              class="logo__img"
-              width="653"
-              height="327"
-              > 
-            <b-button type="is-primary" class="mt-5">Real World Assets</b-button>
+              ratio="6by4"
+            />
+            <b-button type="is-primary" class="mt-5"
+              >Real World Assets</b-button
+            >
           </div>
-          <div class="column level-item has-text-centered" style="align-self: flex-end;">
-            <img
-              src="/Asset 31.png"
-              alt="First NFT market explorer on Kusama and Polkadot"
-              class="logo__img"
-              width="505"
-              height="361"
-              > 
-            <b-button type="is-primary" class="mt-5">Real World Assets</b-button>
+          <div
+            class="column level-item has-text-centered"
+            style="align-self: flex-end"
+          >
+            <div>
+              <b-image
+                src="/Asset 31.png"
+                alt="First NFT market explorer on Kusama and Polkadot"
+                ratio="6by4"
+              />
+            </div>
+            <div>
+              <b-button type="is-primary" class="mt-5"
+                >Real World Assets</b-button
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -46,11 +62,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import nftListWithSearch from '@/queries/nftListWithSearch.graphql'
-import { denyList } from '@/constants'
-import { getMany, update } from 'idb-keyval'
-import { fetchNFTMetadata } from '../rmrk/utils'
+import { Component, Vue } from "vue-property-decorator";
+import nftListWithSearch from "@/queries/nftListWithSearch.graphql";
+import { denyList } from "@/constants";
+import { getMany, update } from "idb-keyval";
+import { fetchNFTMetadata } from "../rmrk/utils";
 @Component<Landing>({
   // metaInfo() {
   //   return {
@@ -66,7 +82,6 @@ import { fetchNFTMetadata } from '../rmrk/utils'
   // },
 })
 export default class Landing extends Vue {
- 
   // public mounted() {
   //   this.fetchFirstGalleryPage()
   // }
@@ -78,40 +93,43 @@ export default class Landing extends Vue {
         first: 12,
         offset: 0,
         denyList,
-        search: []
-      }
-    })
+        search: [],
+      },
+    });
 
     const {
-      data: { nFTEntities: { nodes: nftList } }
-    } = await nfts
+      data: {
+        nFTEntities: { nodes: nftList },
+      },
+    } = await nfts;
 
-    const storedPromise = getMany(
-      nftList.map(({ metadata }: any) => metadata)
-    )
+    const storedPromise = getMany(nftList.map(({ metadata }: any) => metadata));
 
-    const storedMetadata = await storedPromise
+    const storedMetadata = await storedPromise;
 
     storedMetadata.forEach(async (m, i) => {
       if (!m) {
         try {
-          const meta = await fetchNFTMetadata(nftList[i])
-          update(nftList[i].metadata, () => meta)
+          const meta = await fetchNFTMetadata(nftList[i]);
+          update(nftList[i].metadata, () => meta);
         } catch (e) {
-          console.warn('[ERR] unable to get metadata')
+          console.warn("[ERR] unable to get metadata");
         }
       }
-    })
-
-
+    });
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/variables';
-  .head-text{
-    font-weight: 600; 
+@import "@/styles/variables";
+.head-text {
+  font-weight: 600;
+  @include desktop {
     font-size: 65px;
   }
+  @include mobile {
+    font-size: 28px;
+  }
+}
 </style>
