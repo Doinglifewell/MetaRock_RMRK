@@ -19,18 +19,18 @@
     <template v-slot:start class="start">
       <b-navbar-item
         tag="router-link"
-        :to="{ name: 'collections'}">
-        {{ $t('Collections') }}
+        :to="{ path: '/'}">
+        {{ $t('My Space') }}
       </b-navbar-item>
       <b-navbar-item
         tag="router-link"
-        :to="{ name: 'nft'}">
-        {{ $t('Gallery') }}
+        :to="{ path: '/'}">
+        {{ $t('Explore') }}
       </b-navbar-item>
       <b-navbar-item
         tag="router-link"
-        :to="{ name: 'spotlight'}">
-        {{ $t('Spotlight') }}
+        :to="{ name: '/'}">
+        {{ $t('Info') }}
       </b-navbar-item>
     </template>
     <template v-slot:end>

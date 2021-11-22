@@ -1,113 +1,12 @@
 <template>
   <footer class="footer">
     <div class="container footer__wrapper">
-      <div class="icons">
-        <ul class="footer__list icons__list">
-          <li class="icons__list-item">
-            <a
-              href="https://kodadot.substack.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <b-icon
-                icon="envelope"
-                size="is-medium"
-              >
-              </b-icon>
-            </a>
-          </li>
-          <li class="icons__list-item">
-            <a
-              href="https://medium.com/kodadot"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <b-icon
-                pack="fab"
-                icon="medium"
-                size="is-medium"
-              >
-              </b-icon>
-            </a>
-          </li>
-          <li class="icons__list-item">
-            <a
-              href="https://discord.gg/u6ymnbz4PR"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <b-icon
-                pack="fab"
-                icon="discord"
-                size="is-medium"
-              >
-              </b-icon>
-            </a>
-          </li>
-          <li class="icons__list-item">
-            <a
-              href="https://www.youtube.com/channel/UCEULduld5NrqOL49k1KVjoA/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <b-icon
-                pack="fab"
-                icon="youtube"
-                size="is-medium"
-              >
-              </b-icon>
-            </a>
-          </li>
-          <li class="icons__list-item">
-            <a
-              href="https://t.me/kodadot"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <b-icon
-                pack="fab"
-                icon="telegram"
-                size="is-medium"
-              >
-              </b-icon>
-            </a>
-          </li>
-          <li class="icons__list-item">
-            <a
-              href="https://twitter.com/KodaDot"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <b-icon
-                pack="fab"
-                icon="twitter"
-                size="is-medium"
-              >
-              </b-icon>
-            </a>
-          </li>
-
-          <li class="icons__list-item">
-            <a
-              href="https://www.reddit.com/r/KodaDot/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <b-icon
-                pack="fab"
-                icon="reddit-alien"
-                size="is-medium"
-              >
-              </b-icon>
-            </a>
-          </li>
-        </ul>
-      </div>
       <ul class="footer__list">
         <li
           v-for="item in menu"
           :key="item.name"
           class="footer__list-item"
+          type="is-white"
         >
           <router-link
             :to="item.url"
@@ -116,6 +15,40 @@
           </router-link>
         </li>
       </ul>
+      <div class="icons">
+        <ul class="footer__list icons__list">
+          <li class="icons__list-item">
+            <a
+              href="https://t.me/PolkaRock"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <b-icon
+                pack="fab"
+                icon="telegram"
+                size="is-medium"
+                type="is-white"
+              >
+              </b-icon>
+            </a>
+          </li>
+          <li class="icons__list-item">
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <b-icon
+                pack="fab"
+                icon="twitter"
+                size="is-medium"
+                type="is-white"
+              >
+              </b-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </footer>
 </template>
@@ -135,20 +68,16 @@ interface Menu {
 export default class Footer extends Vue {
   public menu: Menu[] = [
     {
-      name: i18n.t('About'),
-      url: '/about'
+      name: i18n.t('© 2021 Polka Rock'),
+      url: '/'
     },
     {
-      name: i18n.t('FAQ'),
-      url: '/rmrk/faq'
+      name: i18n.t('Privacy Policy'),
+      url: '/'
     },
-    // {
-    //   name: i18n.t('Contact'),
-    //   url: '/contact'
-    // },
     {
-      name: i18n.t('Partnerships & Ambassadors'),
-      url: '/partnership'
+      name: i18n.t('Privacy Policy'),
+      url: '/'
     }
   ]
 }
