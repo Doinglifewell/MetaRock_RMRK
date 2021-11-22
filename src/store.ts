@@ -77,44 +77,44 @@ export default new Vuex.Store({
       langsFlags: [
         {
           value: 'en',
-          flag: '🇬🇧',
+          flag: '/PolkaRock_Logosvg.svg',
           label: 'English'
         },
-        {
-          value: 'bn',
-          flag: '🇧🇩',
-          label: 'বাংলা'
-        },
-        {
-          value: 'cn',
-          flag: '🇨🇳',
-          label: '中文'
-        },
-        {
-          value: 'cz',
-          flag: '🇨🇿',
-          label: 'Česky'
-        },
-        {
-          value: 'es',
-          flag: '🇪🇸',
-          label: 'Español'
-        },
+        // {
+        //   value: 'bn',
+        //   flag: '🇧🇩',
+        //   label: 'বাংলা'
+        // },
         {
           value: 'fr',
           flag: '🇫🇷',
           label: 'Français'
         },
         {
+          value: 'cn',
+          flag: '🇨🇳',
+          label: '中文'
+        },
+        // {
+        //   value: 'cz',
+        //   flag: '🇨🇿',
+        //   label: 'Česky'
+        // },
+        {
+          value: 'es',
+          flag: '🇪🇸',
+          label: 'Español'
+        },
+        {
           value: 'jp',
           flag: '🇯🇵',
           label: '日本語'
         },
-        {
-          value: 'ko',
-          flag: '🇰🇷',
-          label: '한국어'
-        },
+        // {
+        //   value: 'ko',
+        //   flag: '🇰🇷',
+        //   label: '한국어'
+        // },
         {
           value: 'nl',
           flag: '🇳🇱',
@@ -130,31 +130,31 @@ export default new Vuex.Store({
           flag: '🇵🇹',
           label: 'Português'
         },
-        {
-          value: 'sk',
-          flag: '🇸🇰',
-          label: 'Slovenčina'
-        },
-        {
-          value: 'tu',
-          flag: '🇹🇷',
-          label: 'Türkçe'
-        },
+        // {
+        //   value: 'sk',
+        //   flag: '🇸🇰',
+        //   label: 'Slovenčina'
+        // },
+        // {
+        //   value: 'tu',
+        //   flag: '🇹🇷',
+        //   label: 'Türkçe'
+        // },
         {
           value: 'ur',
           flag: '🇵🇰',
           label: 'اردو'
         },
-        {
-          value: 'vt',
-          flag: '🇻🇳',
-          label: 'Tiếng Việt'
-        },
-        {
-          value: 'ru',
-          flag: '🇷🇺',
-          label: 'Русский'
-        },
+        // {
+        //   value: 'vt',
+        //   flag: '🇻🇳',
+        //   label: 'Tiếng Việt'
+        // },
+        // {
+        //   value: 'ru',
+        //   flag: '🇷🇺',
+        //   label: 'Русский'
+        // },
         // {
         //   value: 'de',
         //   flag: '🇩🇪',
@@ -239,7 +239,7 @@ export default new Vuex.Store({
     getUserLang: ({ language }) => language.userLang || 'en',
     getLangsFlags: ({ language }) => language.langsFlags,
     getUserFlag: ({ language }) => language.langsFlags.find((lang: {value: string}) => lang.value === language.userLang).flag,
-    getCurrentKSMValue: ({ fiatPrice }) => fiatPrice['kusama']['usd'],
+    getCurrentKSMValue: ({ fiatPrice }) => fiatPrice['Crab']['usd'],
     getCurrentChain: ({ explorer }) => explorer.chain,
     getIndexer: ({ indexer }) => indexer,
     getLayoutClass: ({ layoutClass }) => layoutClass,

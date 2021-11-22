@@ -2,11 +2,19 @@
   <div class="language-switcher">
     <b-dropdown aria-role="list">
       <template #trigger="{ active }">
+                <img
+          src="/PolkaRock_Logosvg.svg"
+          alt="First NFT market explorer on Kusama and Polkadot"
+          class="logo__img"
+          width="100"
+          height="100"
+        >
         <b-button
           type="is-primary"
           :label="userFlag"
           :icon-right="active ? 'caret-up' : 'caret-down'"
-        />
+        >
+        </b-button>
       </template>
       <b-dropdown-item
         aria-role="listitem"

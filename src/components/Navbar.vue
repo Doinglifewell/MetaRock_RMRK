@@ -4,6 +4,7 @@
     spaced
     wrapper-class="container"
     close-on-click
+    transparent
     style="background: #6200E9"
     >
     <template #brand>
@@ -35,7 +36,14 @@
       </b-navbar-item>
     </template>
     <template v-slot:end>
-      <LocaleChanger />
+      <!-- <LocaleChanger /> -->
+        <img
+          src="/GB.png"
+          width="30"
+          height="30"
+          style="margin-right:20px;"
+        >
+      <b-button type="is-primary" inverted outlined >Create NFT</b-button>
       <NavbarProfileDropdown />
     </template>
   </b-navbar>
@@ -55,55 +63,6 @@ import i18n from '@/i18n'
   }
 })
 export default class NavbarMenu extends Vue {
-  private color: string = getCurrentColor()
-  public navbar: any = [
-    {
-      name: i18n.t('Gallery'),
-      tag: 'router-link',
-      to: { name: 'nft' },
-      strong: true
-    },
-  ]
-  public navbarExtra: any = [
-    {
-      name: i18n.t('Accounts'),
-      icon: 'users',
-      to: { name: 'accounts' },
-      tag: 'router-link',
-    },
-    {
-      name: i18n.t('Credit'),
-      icon: 'users',
-      to: { name: 'rmrkCredit' },
-      tag: 'router-link',
-      strong: true
-    },
-    {
-      name: i18n.t('Transfer'),
-      icon: 'paper-plane',
-      to: { name: 'transfer' },
-      tag: 'router-link',
-    },
-    {
-      name: i18n.t('Settings'),
-      icon: 'cogs',
-      tag: 'router-link',
-      to: { name: 'settings' },
-    },
-  ]
-  private navbarExternal: any = [
-    {
-      name: 'Twitter',
-      tag: 'a',
-      href: 'https://twitter.com/Kodadot'
-    }
-  ]
-
-  // get chainColor() {
-  //   return {
-  //     'border-bottom': `4px ${this.color} solid`
-  //   }
-  // }
 }
 </script>
 
@@ -139,8 +98,8 @@ export default class NavbarMenu extends Vue {
   .burger {
     margin-right: 0.5rem;
   }
-  .navbar-dropdown{
-    box-shadow: 0px 0px 5px 0.5px #d32e79 !important;
-  }
+  // .navbar-dropdown{
+  //   box-shadow: 0px 0px 5px 0.5px #d32e79 !important;
+  // }
 }
 </style>

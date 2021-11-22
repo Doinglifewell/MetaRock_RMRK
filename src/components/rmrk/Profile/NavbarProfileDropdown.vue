@@ -10,11 +10,11 @@
         <!-- <span class="navbar__identity subtitle is-4 is-align-self-center"><Identity :address="account" :inline="true"/></span> -->
       </span>
       <template v-else>
-        <b-button type="is-primary" class="navbar__button ml-3 my-3" @click="checkExtension()">Log in</b-button>
+        <b-button type="is-primary" class="navbar__button ml-3 my-3" @click="checkExtension()">Connect Wallet</b-button>
       </template>
     </template>
 
-    <template v-if="account">
+    <!-- <template v-if="account">
       <b-dropdown-item has-link aria-role="menuitem">
         <router-link :to="{ name: 'profile', params: { id: account } }">
           Profile
@@ -49,7 +49,7 @@
         </a>
       </b-dropdown-item>
       <hr class="dropdown-divider" aria-role="menuitem" />
-    </template>
+    </template> -->
     <b-dropdown-item v-if="account" custom aria-role="menuitem">
       <b-button
         type="is-primary"

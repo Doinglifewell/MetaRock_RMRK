@@ -86,7 +86,7 @@ export default class Dashboard extends Vue {
   }
 
   public mounted(): void {
-    this.mountWasmCrypto()
+    // this.mountWasmCrypto()
     // this.fetchIndexer()
     // this.getKsmPrice()
   }

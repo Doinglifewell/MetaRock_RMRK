@@ -1,19 +1,23 @@
 body {
     .button {
-        text-transform: uppercase;
-        border-radius: 0;
+        // text-transform: uppercase;
         font-weight: 500;
         transition: all 0.3s;
-        color: $scheme-invert;
-        box-shadow: 0px 0px 3px 0.3px $primary!important;
+        // color: $scheme-invert;   
+        // box-shadow: 0px 0px 3px 0.3px $white!important;
+        border: 2px solid #FFFFFF;
+        box-sizing: border-box;
+        filter: drop-shadow(-10px 4px 20px rgba(0, 0, 0, 0.5));
+        border-radius: 16px;
+        font-size: 18px;
 
         &.is-primary {
-            border-color: $primary;
-            background-color: $scheme-main;
-            color: $light-text;
+            border-color: $white;
+            background-color: $white;
+            color: $button-text;
             &:hover,
             &:focus {
-                border-color: $primary;
+                border-color: $white;
                 background-color: $primary;
             }
         }
