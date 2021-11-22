@@ -7,7 +7,7 @@
         </div>
         <div class="columns is-mobile">
           <div class="column is-6">
-            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button tag="router-link"  to="/chooseStandard" type="is-inverte" class="mr-3 mt-2 chain_button"
               >Kusama</b-button
             >
             <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
@@ -45,6 +45,10 @@ export default class ChooseChain extends Vue {}
   box-shadow: none;
   position: relative;
   padding: 0 8px;
+
+  &:hover{
+    border : none;
+  }
 
   &:not(:last-child) {
     &:after {

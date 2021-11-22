@@ -248,5 +248,6 @@ export default new Vuex.Store({
     setting: SettingModule,
     identity: IdentityModule,
   },
-  plugins: [vuexLocalStorage.plugin, apiPlugin, myPlugin ],
+  // plugins: [vuexLocalStorage.plugin, apiPlugin, myPlugin ],
+  plugins: [vuexLocalStorage.plugin ],
 })

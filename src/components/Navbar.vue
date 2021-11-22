@@ -31,7 +31,7 @@
       </b-navbar-item>
       <b-navbar-item
         tag="router-link"
-        :to="{ name: '/'}">
+        :to="{ path: '/'}">
         {{ $t('Info') }}
       </b-navbar-item>
     </template>
