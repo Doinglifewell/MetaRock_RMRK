@@ -6,12 +6,6 @@ import Connector from '@vue-polkadot/vue-api'
 import IdentityModule from './vuex/IdentityModule'
 import correctFormat from './utils/ss58Format'
 
-import darwiniaApiOptions from "@darwinia/api-options"
-import{ typesBundleForPolkadotApps } from "@darwinia/types/mix"
-import { RegistryTypes } from '@polkadot/types/types';
-import { ApiPromise, WsProvider } from "@polkadot/api";
-
-
 const vuexLocalStorage = new VuexPersist({
   key: 'vuex',
   storage: window.sessionStorage,
@@ -52,14 +46,6 @@ const apiPlugin = (store: any) => {
 const myPlugin = (store: any) => {
   const { getInstance: Api } = Connector
   Api().connect(store.state.setting.apiUrl)
-  // const RegistryTypes_temp  = typesBundleForPolkadotApps.spec.Pangolin.types[0].types
-  // console.log("RegistryTypes_temp:",RegistryTypes_temp)
-  // const wsProvider = new WsProvider("wss://crab-rpc.darwinia.network");
-  // console.log("darwiniaApiOptions().types : ", darwiniaApiOptions().types)
-  // const typesss = darwiniaApiOptions({provider: wsProvider}).types
-  // console.log("typesss : ", typesss)
-  // Api().connect('wss://pangolin-rpc.darwinia.network', RegistryTypes_temp)
-  // Api().connect(store.state.setting.apiUrl)
 
 
   store.subscribeAction(({type, payload}: ChangeUrlAction, _: any) => {

@@ -5,41 +5,18 @@
     wrapper-class="container"
     close-on-click
     >
-    <!-- <template #brand>
+    <template #brand>
       <b-navbar-item tag="router-link" :to="{ path: '/' }" class="logo">
         <img
-          src="/koda300x300.svg"
+          src="/PolkaRock_Logosvg.svg"
           alt="First NFT market explorer on Kusama and Polkadot"
           class="logo__img"
-          width="60"
-          height="60"
+          width="100"
+          height="100"
         >
       </b-navbar-item>
-    </template> -->
+    </template>
     <template v-slot:start class="start">
-      <!-- <b-navbar-dropdown
-          arrowless
-          collapsible
-          >
-          <template #label>
-            <span>{{ $t('Create') }}</span>
-          </template>
-          <b-navbar-item
-            tag="router-link"
-            :to="{ name: 'rmrk'}">
-            {{ $t('Classic') }}
-          </b-navbar-item>
-          <b-navbar-item
-            tag="router-link"
-            :to="{ name: 'simpleMint'}">
-            {{ $t('Simple') }}
-          </b-navbar-item>
-          <b-navbar-item
-            tag="router-link"
-            :to="{ name: 'permafrost'}">
-            {{ $t('Permafrost') }}
-          </b-navbar-item>
-      </b-navbar-dropdown> -->
       <b-navbar-item
         tag="router-link"
         :to="{ name: 'collections'}">
@@ -55,46 +32,6 @@
         :to="{ name: 'spotlight'}">
         {{ $t('Spotlight') }}
       </b-navbar-item>
-      <b-navbar-item
-        tag="router-link"
-        :to="{ name: 'series'}">
-        Series
-      </b-navbar-item>
-      <!-- <b-navbar-dropdown
-          arrowless
-          collapsible
-          label="Extra">
-          <b-navbar-item
-            tag="router-link"
-            :to="{ name: 'rmrkCredit' }">
-            {{ $t('Credit') }}
-          </b-navbar-item>
-          <b-navbar-item
-            tag="router-link"
-            :to="{ name: 'rmrkFaq'}">
-            {{ $t('FAQ') }}
-          </b-navbar-item>
-          <b-navbar-item
-            tag="router-link"
-            :to="{ name: 'admin'}">
-            {{ $t('Admin') }}
-          </b-navbar-item>
-          <b-navbar-item
-            tag="router-link"
-            :to="{ name: 'transfer'}">
-            {{ $t('Transfer') }}
-          </b-navbar-item>
-          <b-navbar-item
-            tag="router-link"
-            :to="{ name: 'settings'}">
-            {{ $t('Settings') }}
-          </b-navbar-item>
-      </b-navbar-dropdown> -->
-      <!-- <b-navbar-item
-        tag='router-link'
-        :to="{ name: 'tutorials'}">
-        {{ $t('Tutorial') }}
-      </b-navbar-item> -->
     </template>
     <template v-slot:end>
       <LocaleChanger />
@@ -190,8 +127,8 @@ export default class NavbarMenu extends Vue {
   }
 
   .navbar-item {
-    text-transform: uppercase;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
   }
 
   .navbar-brand {

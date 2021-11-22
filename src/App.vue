@@ -29,13 +29,13 @@ import { showNotification } from './utils/notification'
 @Component<Dashboard>({
   metaInfo() {
     return {
-      title: 'PolkaRock - RMRK NFT Market Explorer',
+      title: 'PolkaRock - NFT Market Explorer',
       titleTemplate: '%s | Low Carbon NFTs',
       meta: [
         { property: 'og:type', content: 'website' },
         // { property: 'og:url', content: 'https://nft.kodadot.xyz'},
         { property: 'og:locale', content: 'en_US' },
-        // { property: 'twitter:card', content: 'summary_large_image' },
+        { property: 'twitter:card', content: 'summary_large_image' },
         // { property: 'twitter:site', content: '@KodaDot' }
       ]
     }
@@ -86,9 +86,9 @@ export default class Dashboard extends Vue {
   }
 
   public mounted(): void {
-    // this.mountWasmCrypto()
-    // this.fetchIndexer()
-    // this.getKsmPrice()
+    this.mountWasmCrypto()
+    this.fetchIndexer()
+    this.getKsmPrice()
   }
 
   private async fetchIndexer() {

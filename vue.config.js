@@ -9,7 +9,7 @@ module.exports = {
   // https://cli.vuejs.org/config/#devserver
   devServer: {
     // host: '127.0.0.1',
-    port: 8080,
+    port: 9090,
     hot: true,
     disableHostCheck: true,
     proxy: {

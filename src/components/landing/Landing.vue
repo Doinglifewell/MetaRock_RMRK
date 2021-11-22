@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-dark homepage">
+  <section class="hero  homepage">
     <div class="hero-body">
       <div class="container">
         <div class="columns">

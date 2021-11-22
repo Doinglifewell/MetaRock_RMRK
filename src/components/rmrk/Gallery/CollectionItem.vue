@@ -122,8 +122,7 @@ const components = {
 @Component<CollectionItem>({
   metaInfo() {
     return {
-      // title: 'KodaDot cares about environmental impact',
-      title: 'PolkaRock cares about environmental impact',
+      title: 'KodaDot cares about environmental impact',
       titleTemplate: '%s | Low Carbon NFTs',
       meta: [
         { name: 'description', content: 'Creating Carbonless NFTs on Kusama' },
