@@ -92,23 +92,23 @@ body {
     }
 
     a {
-        color: lightpink;
+        color: $white;
     }
 
     .message.is-primary {
         background-color: #ffebfa !important;
     }
 
-    .button.is-text {
-      &:hover {
-        background-color: #363636;
-      }
+    // .button.is-text {
+    //   &:hover {
+    //     background-color: #363636;
+    //   }
 
-      &:focus {
-        background-color: #363636;
-        border: none;
-      }
-    }
+    //   &:focus {
+    //     background-color: #363636;
+    //     border: none;
+    //   }
+    // }
 
     .icon.is-primary {
         color: $primary !important;

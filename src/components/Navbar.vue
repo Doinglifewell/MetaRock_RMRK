@@ -4,6 +4,7 @@
     spaced
     wrapper-class="container"
     close-on-click
+    style="background: #6200E9"
     >
     <template #brand>
       <b-navbar-item tag="router-link" :to="{ path: '/' }" class="logo">

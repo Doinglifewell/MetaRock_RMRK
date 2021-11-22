@@ -6,7 +6,6 @@
           v-for="item in menu"
           :key="item.name"
           class="footer__list-item"
-          type="is-white"
         >
           <router-link
             :to="item.url"
