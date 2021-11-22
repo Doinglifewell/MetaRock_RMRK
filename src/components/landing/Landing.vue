@@ -2,7 +2,7 @@
   <section class="hero">
     <div class="hero-body ">
       <div class="container">
-        <div class="columns level">
+        <div class="columns is-mobile level">
           <div class="column level-item has-text-centered">
             <img
               src="/Asset01.png"
@@ -14,11 +14,11 @@
           </div>
           <div class="column ml-5">
             <p class="head-text">Enabling assets to be teleported into the metaverse</p>
-            <b-button type="is-inverte" class="mt-5">Get Started</b-button>
+            <b-button tag="router-link"  to="/getStarted" type="is-inverte" class="mt-5">Get Started</b-button>
           </div>
         </div>
         <p class="head-text">Explore</p>
-        <div class="columns level" style="display: flex;">
+        <div class="columns level">
           <div class="column level-item has-text-centered" style="align-self: flex-end;">
             <img
               src="/Asset 11.png"
@@ -51,33 +51,22 @@ import nftListWithSearch from '@/queries/nftListWithSearch.graphql'
 import { denyList } from '@/constants'
 import { getMany, update } from 'idb-keyval'
 import { fetchNFTMetadata } from '../rmrk/utils'
-
-const components = {
-  Identity: () => import('@/components/shared/format/Identity.vue'),
-}
 @Component<Landing>({
-  metaInfo() {
-    return {
-      meta: [
-        { property: 'og:title', content: 'KodaDot - Kusama NFT Market explorer'},
-        { property: 'og:image', content: this.defaultLandingMetaImage},
-        { property: 'og:description', content: 'Low carbon NFT gallery on Kusama'},
-        { property: 'twitter:title', content: 'KodaDot - Kusama NFT Market Explorer' },
-        { property: 'twitter:description', content: 'Low carbon NFT gallery on Kusama'},
-        { property: 'twitter:image', content: this.defaultLandingMetaImage},
-      ]
-    }
-  },
-  components
+  // metaInfo() {
+  //   return {
+  //     meta: [
+  //       { property: 'og:title', content: 'KodaDot - Kusama NFT Market explorer'},
+  //       { property: 'og:image', content: this.defaultLandingMetaImage},
+  //       { property: 'og:description', content: 'Low carbon NFT gallery on Kusama'},
+  //       { property: 'twitter:title', content: 'KodaDot - Kusama NFT Market Explorer' },
+  //       { property: 'twitter:description', content: 'Low carbon NFT gallery on Kusama'},
+  //       { property: 'twitter:image', content: this.defaultLandingMetaImage},
+  //     ]
+  //   }
+  // },
 })
 export default class Landing extends Vue {
-  get defaultLandingMetaImage(): string {
-    const url = new URL(window.location.href)
-    return (
-      `${url.protocol}//${url.hostname}/Kodadot_Card_Standard.jpg`
-    )
-  }
-
+ 
   // public mounted() {
   //   this.fetchFirstGalleryPage()
   // }

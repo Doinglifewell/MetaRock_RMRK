@@ -6,11 +6,15 @@
         <b-button type="is-primary" class="navbar__button">
           <Identity :address="account" :inline="true" class="navbar__address" />
         </b-button>
-
         <!-- <span class="navbar__identity subtitle is-4 is-align-self-center"><Identity :address="account" :inline="true"/></span> -->
       </span>
       <template v-else>
-        <b-button type="is-primary" class="navbar__button ml-3 my-3" @click="checkExtension()">Connect Wallet</b-button>
+        <b-button
+          type="is-primary"
+          class="navbar__button ml-3 my-3"
+          @click="checkExtension()"
+          >Connect Wallet</b-button
+        >
       </template>
     </template>
 
@@ -72,17 +76,32 @@
     </b-dropdown-item>
     <template v-if="isExtension && (changeAccount || !account)">
       <b-dropdown-item has-link aria-role="menuitem">
-        <a href="https://polkadot.js.org/extension/" rel="noopener noreferrer" target="_blank" class="is-flex is-align-items-center pl-3">
+        <a
+          href="https://polkadot.js.org/extension/"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="is-flex is-align-items-center pl-3"
+        >
           Install Desktop Wallet Extension
         </a>
       </b-dropdown-item>
       <b-dropdown-item has-link aria-role="menuitem">
-        <a href="https://chrome.google.com/webstore/detail/polkadot%7Bjs%7D-extension/mopnmbcafieddcagagdcbnhejhlodfdd" rel="noopener noreferrer" target="_blank" class="is-flex is-align-items-center pl-3">
+        <a
+          href="https://chrome.google.com/webstore/detail/polkadot%7Bjs%7D-extension/mopnmbcafieddcagagdcbnhejhlodfdd"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="is-flex is-align-items-center pl-3"
+        >
           Install Chrome Wallet Extension
         </a>
       </b-dropdown-item>
       <b-dropdown-item has-link aria-role="menuitem">
-        <a href="https://addons.mozilla.org/en-US/firefox/addon/polkadot-js-extension/" rel="noopener noreferrer" target="_blank" class="is-flex is-align-items-center pl-3">
+        <a
+          href="https://addons.mozilla.org/en-US/firefox/addon/polkadot-js-extension/"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="is-flex is-align-items-center pl-3"
+        >
           Install Firefox Wallet Extension
         </a>
       </b-dropdown-item>
@@ -90,15 +109,15 @@
   </b-dropdown>
 </template>
 
-<script lang="ts" >
-import { Component, Prop, Vue } from 'vue-property-decorator'
-import Avatar from '@/components/shared/Avatar.vue'
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
+import Avatar from "@/components/shared/Avatar.vue";
 
 const components = {
   Avatar,
-  AccountSelect: () => import('@/components/shared/AccountSelect.vue'),
-  Identity: () => import('@/components/shared/format/Identity.vue')
-}
+  AccountSelect: () => import("@/components/shared/AccountSelect.vue"),
+  Identity: () => import("@/components/shared/format/Identity.vue"),
+};
 
 @Component({ components })
 export default class NavbarProfileDropdown extends Vue {
@@ -107,21 +126,21 @@ export default class NavbarProfileDropdown extends Vue {
   protected isExtension = false;
 
   set account(account: string) {
-    console.log('setAuth', account)
-    this.$store.dispatch('setAuth', { address: account })
+    console.log("setAuth", account);
+    this.$store.dispatch("setAuth", { address: account });
   }
 
   get account() {
-    return this.$store.getters.getAuthAddress
+    return this.$store.getters.getAuthAddress;
   }
 
   checkExtension() {
-    if (!(window as any).injectedWeb3['polkadot-js']) {
-      this.isExtension = true
+    if (!(window as any).injectedWeb3["polkadot-js"]) {
+      this.isExtension = true;
       this.$buefy.toast.open({
-        message:  'You need to install the browser extension - polkadot.js!',
-        duration: 90000
-      })
+        message: "You need to install the browser extension - polkadot.js!",
+        duration: 90000,
+      });
     }
   }
 }
@@ -130,6 +149,9 @@ export default class NavbarProfileDropdown extends Vue {
 <style lang="scss">
 @import "bulma/bulma.sass";
 
+.dropdown-content {
+  background: $white !important;
+}
 .navbar {
   &__identity {
     @include from($desktop) {

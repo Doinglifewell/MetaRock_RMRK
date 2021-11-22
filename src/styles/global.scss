@@ -1,7 +1,7 @@
 body {
     .button {
         // text-transform: uppercase;
-        font-weight: 500;
+        font-weight: 800;
         // transition: all 0.3s;
         // color: $scheme-invert;   
         // box-shadow: 0px 0px 3px 0.3px $white!important;
@@ -9,22 +9,22 @@ body {
         // filter: drop-shadow(-10px 4px 20px rgba(0, 0, 0, 0.5));
         border: 2px solid #FFFFFF;
         box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.3);
-        border-radius: 16px;
+        border-radius: 16px;    
         font-size: 18px;
         color: #2E0EF4;
         border-color: $white;
         background-color: $white;
         
-        // &.is-primary {
-        //     border-color: $white;
-        //     background-color: $white;
-        //     color: #2E0EF4;
-        //     // &:hover,
-        //     // &:focus {
-        //     //     border-color: $white;
-        //     //     background-color: $primary;
-        //     // }
-        // }
+        &.is-primary {
+            border-color: $white;
+            background-color: $white;
+            color: #2E0EF4;
+            // &:hover,
+            // &:focus {
+            //     border-color: $white;
+            //     background-color: $primary;
+            // }
+        }
         &.is-inverte {
             border-color: $white;
             background-color: $head-background;

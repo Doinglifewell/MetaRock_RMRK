@@ -45,7 +45,7 @@
           class="logo__img"
           style="margin-right:20px; background:white;"
         >
-      <b-button type="is-inverte">Create NFT</b-button>
+      <b-button type="is-inverte" class="mr-3">Create NFT</b-button>
       <NavbarProfileDropdown />
     </template>
   </b-navbar>
@@ -90,7 +90,7 @@ export default class NavbarMenu extends Vue {
 
   .navbar-item {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 800;
   }
 
   .navbar-brand {

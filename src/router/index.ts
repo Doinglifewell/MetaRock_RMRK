@@ -8,6 +8,7 @@ import Rmrk from '@/router/rmrk'
 import Profile from '@/router/profile'
 
 const Landing = () => import('@/components/landing/Landing.vue')
+const GetStarted = () => import('@/components/landing/GetStarted.vue')
 const Sustainability = () => import('@/components/landing/Sustainability.vue')
 const EsSustainability = () => import('@/components/landing/EsSustainability.vue')
 const Carbonless = () => import('@/components/landing/Carbonless.vue')
@@ -30,6 +31,11 @@ export default new Router({
       path: '/',
       name: 'landing',
       component: Landing,
+    },
+    {
+      path: '/getStarted',
+      name: 'getStarted',
+      component: GetStarted,
     },
     {
       path: '/sustainability',
