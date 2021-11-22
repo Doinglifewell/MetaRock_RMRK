@@ -75,7 +75,7 @@ export default class Footer extends Vue {
       url: '/'
     },
     {
-      name: i18n.t('Privacy Policy'),
+      name: i18n.t('Terms and Conditions'),
       url: '/'
     }
   ]

@@ -19,7 +19,7 @@
 <script lang="ts">
 import { Vue } from "vue-property-decorator";
 
-export default class ChooseStandard extends Vue {}
+export default class CreateStandard extends Vue {}
 </script>
 
 <style lang="scss" scoped>

@@ -10,7 +10,7 @@ import Profile from '@/router/profile'
 const Landing = () => import('@/components/landing/Landing.vue')
 const GetStarted = () => import('@/components/landing/GetStarted.vue')
 const ChooseChain = () => import('@/components/landing/ChooseChain.vue')
-const ChooseStandard = () => import('@/components/landing/ChooseStandard.vue')
+const CreateStandard = () => import('@/components/landing/CreateStandard.vue')
 const Sustainability = () => import('@/components/landing/Sustainability.vue')
 const EsSustainability = () => import('@/components/landing/EsSustainability.vue')
 const Carbonless = () => import('@/components/landing/Carbonless.vue')
@@ -45,9 +45,9 @@ export default new Router({
       component: ChooseChain,
     },
     {
-      path: '/chooseStandard',
-      name: 'chooseStandard',
-      component: ChooseStandard,
+      path: '/createStandard',
+      name: 'createStandard',
+      component: CreateStandard,
     },
     {
       path: '/sustainability',

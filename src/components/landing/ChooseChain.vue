@@ -7,17 +7,20 @@
         </div>
         <div class="columns is-mobile">
           <div class="column is-6">
-            <b-button tag="router-link"  to="/chooseStandard" type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
               >Kusama</b-button
             >
             <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
               >Darwinia</b-button
             >
             <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
+              >Crab</b-button
+            >
+            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
               >Moonbeam</b-button
             >
             <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
-              >Crab</b-button
+              >Ethereum</b-button
             >
           </div>
         </div>
@@ -33,7 +36,6 @@ export default class ChooseChain extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/variables";
 .head-text {
   font-weight: 600;
   font-size: 65px;
@@ -46,8 +48,11 @@ export default class ChooseChain extends Vue {}
   position: relative;
   padding: 0 8px;
 
-  &:hover{
-    border : none;
+  &:hover,
+  &:focus,
+  &:active {
+    border: none;
+    box-shadow: none;
   }
 
   &:not(:last-child) {
