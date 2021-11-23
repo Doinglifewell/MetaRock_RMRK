@@ -7,19 +7,19 @@
         </div>
         <div class="columns is-mobile">
           <div class="column is-6">
-            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button tag="router-link" :to="{ name: 'createStandard'}" type="is-inverte" class="mr-3 mt-2 chain_button"
               >Kusama</b-button
             >
-            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button tag="router-link" :to="{ name: 'createStandard'}" type="is-inverte" class="mr-3 mt-2 chain_button"
               >Darwinia</b-button
             >
-            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button tag="router-link" :to="{ name: 'createStandard'}" type="is-inverte" class="mr-3 mt-2 chain_button"
               >Crab</b-button
             >
-            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button tag="router-link" :to="{ name: 'createStandard'}" type="is-inverte" class="mr-3 mt-2 chain_button"
               >Moonbeam</b-button
             >
-            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button tag="router-link" :to="{ name: 'createStandard'}" type="is-inverte" class="mr-3 mt-2 chain_button"
               >Ethereum</b-button
             >
           </div>
@@ -30,8 +30,10 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 
+@Component<ChooseChain>({
+})
 export default class ChooseChain extends Vue {}
 </script>
 
