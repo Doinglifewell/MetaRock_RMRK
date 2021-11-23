@@ -17,9 +17,11 @@ body {
         &.is-primary {
             border-color: $white;
             background-color: $white;
-            color: #2E0EF4 !important;
+            color: #2E0EF4;
             &:hover,
             &:focus {
+                border-color: white;
+                color:white;
                 background-color: $primary;
             }
         }
@@ -27,11 +29,11 @@ body {
             border-color: $white;
             background-color: $head-background;
             color: $white;
-            // &:hover,
-            // &:focus {
-            //     border-color: $white;
-            //     background-color: $primary;
-            // }
+            &:hover,
+            &:focus {
+                color: $white;
+                background-color: $primary;
+            }
         }
     }
 
