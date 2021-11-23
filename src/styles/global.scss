@@ -11,19 +11,17 @@ body {
         box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.3);
         border-radius: 16px;    
         font-size: 18px;
-        color: #2E0EF4;
         border-color: $white;
         background-color: $white;
         
         &.is-primary {
             border-color: $white;
             background-color: $white;
-            color: #2E0EF4;
-            // &:hover,
-            // &:focus {
-            //     border-color: $white;
-            //     background-color: $primary;
-            // }
+            color: #2E0EF4 !important;
+            &:hover,
+            &:focus {
+                background-color: $primary;
+            }
         }
         &.is-inverte {
             border-color: $white;
@@ -135,6 +133,20 @@ body {
         .router-link-active {
             color: $white;
             // background-color: #121212;
+        }
+       
+    }
+    .navbar-menu{
+        a:hover,
+        a:active,
+        a:focus
+        a::selection{
+            background: $head-background;
+        }
+        .navbar-end{
+            .navbar-item{
+                background: $head-background;
+            }
         }
     }
 
