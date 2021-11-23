@@ -7,20 +7,33 @@
         </div>
         <div class="columns is-mobile">
           <div class="column is-6">
-            <b-button tag="router-link" :to="{ name: 'createStandard'}" type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
               >Kusama</b-button
             >
-            <b-button tag="router-link" :to="{ name: 'createStandard'}" type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
               >Darwinia</b-button
             >
-            <b-button tag="router-link" :to="{ name: 'createStandard'}" type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
               >Crab</b-button
             >
-            <b-button tag="router-link" :to="{ name: 'createStandard'}" type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
               >Moonbeam</b-button
             >
-            <b-button tag="router-link" :to="{ name: 'createStandard'}" type="is-inverte" class="mr-3 mt-2 chain_button"
+            <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
               >Ethereum</b-button
+            >
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="columns is-mobile">
+          <p class="head-text column is-6">What would you like to create ?</p>
+        </div>
+        <div class="columns is-mobile">
+          <div class="column is-6">
+            <b-button type="is-inverte" class="mr-3 mt-2">Simple NFT</b-button>
+            <b-button type="is-inverte" class="mr-3 mt-2"
+              >Advanced NFT</b-button
             >
           </div>
         </div>
@@ -32,8 +45,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-@Component<ChooseChain>({
-})
+@Component<ChooseChain>({})
 export default class ChooseChain extends Vue {}
 </script>
 
