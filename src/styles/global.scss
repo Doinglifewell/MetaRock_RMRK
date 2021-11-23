@@ -1,4 +1,13 @@
 body {
+    .head-text {
+        font-weight: 600;
+        @include desktop {
+          font-size: 65px;
+        }
+        @include mobile {
+          font-size: 28px;
+        }
+      }
     .button {
         // text-transform: uppercase;
         font-weight: 800;

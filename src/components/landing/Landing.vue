@@ -123,13 +123,5 @@ export default class Landing extends Vue {
 
 <style lang="scss" scoped>
 @import "@/styles/variables";
-.head-text {
-  font-weight: 600;
-  @include desktop {
-    font-size: 65px;
-  }
-  @include mobile {
-    font-size: 28px;
-  }
-}
+
 </style>

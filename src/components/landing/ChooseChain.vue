@@ -3,10 +3,10 @@
     <div class="hero-body">
       <div class="container">
         <div class="columns is-mobile">
-          <p class="head-text column is-6">Choose Chain</p>
+          <p class="head-text column">Choose Chain</p>
         </div>
         <div class="columns is-mobile">
-          <div class="column is-6">
+          <div class="column">
             <b-button type="is-inverte" class="mr-3 mt-2 chain_button"
               >Kusama</b-button
             >
@@ -27,10 +27,10 @@
       </div>
       <div class="container">
         <div class="columns is-mobile">
-          <p class="head-text column is-6">What would you like to create ?</p>
+          <p class="head-text column">What would you like to create ?</p>
         </div>
         <div class="columns is-mobile">
-          <div class="column is-6">
+          <div class="column">
             <b-button type="is-inverte" class="mr-3 mt-2">Simple NFT</b-button>
             <b-button type="is-inverte" class="mr-3 mt-2"
               >Advanced NFT</b-button
@@ -50,10 +50,6 @@ export default class ChooseChain extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-.head-text {
-  font-weight: 600;
-  font-size: 65px;
-}
 .chain_button {
   border: none;
   border-radius: 0;
