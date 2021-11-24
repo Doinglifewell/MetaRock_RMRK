@@ -10,7 +10,7 @@
               ratio="6by4"
             />
           </div>
-          <div class="column">
+          <div class="column pl-5">
             <p class="head-text">
               Enabling assets to be teleported into the metaverse
             </p>
@@ -23,7 +23,7 @@
             >
           </div>
         </div>
-        <p class="head-text">Explore</p>
+        <!-- <p class="head-text">Explore</p>
         <div class="columns level">
           <div
             class="column level-item has-text-centered"
@@ -55,7 +55,7 @@
               >
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

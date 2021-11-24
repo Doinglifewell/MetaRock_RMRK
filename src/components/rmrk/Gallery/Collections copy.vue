@@ -132,7 +132,6 @@ export default class Collections extends Vue {
   public async created() {
     this.$apollo.addSmartQuery('collection', {
       query: collectionListWithSearch,
-      client: 'pangolinClient',
       manual: true,
       loadingKey: 'isLoading',
       result: this.handleResult,
@@ -194,7 +193,6 @@ export default class Collections extends Vue {
           first: this.first,
           offset,
         },
-         client: 'pangolinClient',
       })
 
       const {
