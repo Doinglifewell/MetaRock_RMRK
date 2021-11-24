@@ -57,7 +57,7 @@ import { Component, Vue } from "vue-property-decorator";
 export default class ExploreChain extends Vue {
   public switchExploreChain(data: string) {
     console.log("switchExploreChain:", data)
-    this.$router.push('/rmrk/collections') 
+    this.$router.push('/rmrk/gallery') 
     this.$store.dispatch("setExploreChain", data);
   }
 }
