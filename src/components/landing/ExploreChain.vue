@@ -7,19 +7,40 @@
         </div>
         <div class="columns is-mobile">
           <div class="column">
-            <b-button  tag="router-link" to="/rmrk/collections" type="is-primary" class="mr-3 mt-2"
+            <b-button
+              @click="switchExploreChain('kusama')"
+              type="is-primary"
+              class="mr-3 mt-2"
               >Kusama</b-button
             >
-            <b-button  tag="router-link" to="/rmrk/collections" type="is-primary" class="mr-3 mt-2"
+            <b-button
+              @click="switchExploreChain('darwinia')"
+              type="is-primary"
+              class="mr-3 mt-2"
               >Darwinia</b-button
             >
-            <b-button  tag="router-link" to="/rmrk/collections" type="is-primary" class="mr-3 mt-2"
+            <b-button
+              @click="switchExploreChain('crab')"
+              type="is-primary"
+              class="mr-3 mt-2"
               >Crab</b-button
             >
-            <b-button  tag="router-link" to="/rmrk/collections" type="is-primary" class="mr-3 mt-2"
+            <b-button
+              @click="switchExploreChain('pangolin')"
+              type="is-primary"
+              class="mr-3 mt-2"
+              >Pangolin</b-button
+            >
+            <b-button
+              @click="switchExploreChain('moonbeam')"
+              type="is-primary"
+              class="mr-3 mt-2"
               >Moonbeam</b-button
             >
-            <b-button  tag="router-link" to="/rmrk/collections" type="is-primary" class="mr-3 mt-2"
+            <b-button
+              @click="switchExploreChain('ethereum')"
+              type="is-primary"
+              class="mr-3 mt-2"
               >Ethereum</b-button
             >
           </div>
@@ -33,36 +54,13 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component<ExploreChain>({})
-export default class ExploreChain extends Vue {}
-</script>
-
-<style lang="scss" scoped>
-.chain_button {
-  border: none;
-  border-radius: 0;
-  background-color: transparent !important;
-  box-shadow: none;
-  position: relative;
-  padding: 0 8px;
-
-  &:hover,
-  &:focus,
-  &:active {
-    border: none;
-    box-shadow: none;
-  }
-
-  &:not(:last-child) {
-    &:after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 0;
-      width: 1px;
-      height: 12px;
-      background: #fff;
-    }
+export default class ExploreChain extends Vue {
+  public switchExploreChain(data: string) {
+    console.log("switchExploreChain:", data)
+    this.$router.push('/rmrk/collections') 
+    this.$store.dispatch("setExploreChain", data);
   }
 }
-</style>
+</script>
+
+<style lang="scss" scoped></style>

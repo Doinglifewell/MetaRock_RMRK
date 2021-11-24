@@ -7,9 +7,8 @@
         </div>
         <div class="columns is-mobile">
           <div class="column is-6">
-            <b-button tag="router-link" :to="{ name: 'chooseChain'}" type="is-inverte" class="mr-3 mt-2">Creater</b-button>
-            <b-button tag="router-link" :to="{ name: 'chooseChain'}" type="is-inverte" class="mr-3 mt-2">Collector</b-button>
-            <b-button tag="router-link" :to="{ name: 'chooseChain'}" type="is-inverte" class="mr-3 mt-2">Both</b-button>
+            <b-button tag="router-link" to="/chooseChain" type="is-inverte" class="mr-3 mt-2">Creater</b-button>
+            <b-button tag="router-link" to="/exploreChain" type="is-inverte" class="mr-3 mt-2">Collector</b-button>
           </div>
         </div>
       </div>

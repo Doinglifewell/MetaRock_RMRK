@@ -129,10 +129,15 @@ export default class Collections extends Vue {
     return this.currentValue * this.first - this.first
   }
 
+  get exploreChain(): string {
+    return this.$store.getters.getExploreChain
+  }
+
   public async created() {
+    const apolloClient = this.exploreChain
     this.$apollo.addSmartQuery('collection', {
       query: collectionListWithSearch,
-      client: 'pangolinClient',
+      client: apolloClient,
       manual: true,
       loadingKey: 'isLoading',
       result: this.handleResult,
