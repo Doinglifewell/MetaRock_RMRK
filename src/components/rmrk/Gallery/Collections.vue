@@ -5,7 +5,6 @@
     <b-field class="column">
       <Pagination hasMagicBtn simple :total="total" v-model="currentValue" :perPage="perPage" replace class="is-right" />
     </b-field>
-
     <div>
       <div class="columns is-multiline">
         <div class="column is-4" v-for="collection in results" :key="collection.id">

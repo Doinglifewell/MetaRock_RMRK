@@ -57,7 +57,8 @@
         <b-button type="is-inverte">Create NFT</b-button>
       </b-navbar-item>
       <b-navbar-item>
-        <b-button type="is-primary">Connect Wallet</b-button>
+        <!-- <b-button type="is-primary">Connect Wallet</b-button> -->
+        <NavbarProfileDropdown />
       </b-navbar-item>
     </template>
   </b-navbar>

@@ -162,10 +162,6 @@ export default class NavbarProfileDropdown extends Vue {
   &__avatar {
     display: flex;
     align-items: center;
-
-    @include until($desktop) {
-      padding: 0.5rem 0.75rem;
-    }
   }
 
   &__avatar-icon {
