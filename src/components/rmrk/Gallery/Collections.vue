@@ -194,7 +194,6 @@ export default class Collections extends Vue {
           first: this.first,
           offset,
         },
-         client: 'pangolinClient',
       })
 
       const {

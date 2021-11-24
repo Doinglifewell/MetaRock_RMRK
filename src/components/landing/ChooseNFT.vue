@@ -3,24 +3,13 @@
     <div class="hero-body">
       <div class="container">
         <div class="columns is-mobile">
-          <p class="head-text column">Choose Chain</p>
+          <p class="head-text column">What would you like to create ?</p>
         </div>
         <div class="columns is-mobile">
           <div class="column">
-            <b-button  tag="router-link" to="/chooseNFT" type="is-primary" class="mr-3 mt-2"
-              >Kusama</b-button
-            >
-            <b-button  tag="router-link" to="/chooseNFT" type="is-primary" class="mr-3 mt-2"
-              >Darwinia</b-button
-            >
-            <b-button  tag="router-link" to="/chooseNFT" type="is-primary" class="mr-3 mt-2"
-              >Crab</b-button
-            >
-            <b-button  tag="router-link" to="/chooseNFT" type="is-primary" class="mr-3 mt-2"
-              >Moonbeam</b-button
-            >
-            <b-button  tag="router-link" to="/chooseNFT" type="is-primary" class="mr-3 mt-2"
-              >Ethereum</b-button
+            <b-button type="is-primary " class="mr-3 mt-2">Simple NFT</b-button>
+            <b-button type="is-primary " class="mr-3 mt-2"
+              >Advanced NFT</b-button
             >
           </div>
         </div>
@@ -32,8 +21,8 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-@Component<ChooseChain>({})
-export default class ChooseChain extends Vue {}
+@Component<ChooseNFT>({})
+export default class ChooseNFT extends Vue {}
 </script>
 
 <style lang="scss" scoped>

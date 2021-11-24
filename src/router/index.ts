@@ -10,6 +10,8 @@ import Profile from '@/router/profile'
 const Landing = () => import('@/components/landing/Landing.vue')
 const GetStarted = () => import('@/components/landing/GetStarted.vue')
 const ChooseChain = () => import('@/components/landing/ChooseChain.vue')
+const ChooseNFT = () => import('@/components/landing/ChooseNFT.vue')
+const ExploreChain = () => import('@/components/landing/ExploreChain.vue')
 const Sustainability = () => import('@/components/landing/Sustainability.vue')
 const EsSustainability = () => import('@/components/landing/EsSustainability.vue')
 const Carbonless = () => import('@/components/landing/Carbonless.vue')
@@ -42,6 +44,16 @@ export default new Router({
       path: '/chooseChain',
       name: 'chooseChain',
       component: ChooseChain,
+    },
+    {
+      path: '/chooseNFT',
+      name: 'chooseNFT',
+      component: ChooseNFT,
+    },
+    {
+      path: '/exploreChain',
+      name: 'exploreChain',
+      component: ExploreChain,
     },
     {
       path: '/sustainability',

@@ -7,19 +7,19 @@
         </div>
         <div class="columns is-mobile">
           <div class="column">
-            <b-button  tag="router-link" to="/chooseNFT" type="is-primary" class="mr-3 mt-2"
+            <b-button  tag="router-link" to="/rmrk/collections" type="is-primary" class="mr-3 mt-2"
               >Kusama</b-button
             >
-            <b-button  tag="router-link" to="/chooseNFT" type="is-primary" class="mr-3 mt-2"
+            <b-button  tag="router-link" to="/rmrk/collections" type="is-primary" class="mr-3 mt-2"
               >Darwinia</b-button
             >
-            <b-button  tag="router-link" to="/chooseNFT" type="is-primary" class="mr-3 mt-2"
+            <b-button  tag="router-link" to="/rmrk/collections" type="is-primary" class="mr-3 mt-2"
               >Crab</b-button
             >
-            <b-button  tag="router-link" to="/chooseNFT" type="is-primary" class="mr-3 mt-2"
+            <b-button  tag="router-link" to="/rmrk/collections" type="is-primary" class="mr-3 mt-2"
               >Moonbeam</b-button
             >
-            <b-button  tag="router-link" to="/chooseNFT" type="is-primary" class="mr-3 mt-2"
+            <b-button  tag="router-link" to="/rmrk/collections" type="is-primary" class="mr-3 mt-2"
               >Ethereum</b-button
             >
           </div>
@@ -32,8 +32,8 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-@Component<ChooseChain>({})
-export default class ChooseChain extends Vue {}
+@Component<ExploreChain>({})
+export default class ExploreChain extends Vue {}
 </script>
 
 <style lang="scss" scoped>

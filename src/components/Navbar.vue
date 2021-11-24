@@ -22,7 +22,7 @@
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
         {{ $t("My Space") }}
       </b-navbar-item>
-      <b-navbar-item tag="router-link" :to="{ path: '/' }">
+      <b-navbar-item tag="router-link" :to="{ path: '/exploreChain' }">
         {{ $t("Explore") }}
       </b-navbar-item>
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
