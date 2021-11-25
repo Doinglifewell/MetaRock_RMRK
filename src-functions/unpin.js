@@ -1,4 +1,5 @@
 import axios from 'axios'
+import pinata from './pinata.json';
 
 exports.handler = async (event) => {
 
@@ -18,8 +19,8 @@ exports.handler = async (event) => {
     const { status, data } = await axios.delete(BASE_URL, {
       headers: {
         'Content-Type': 'application/json',
-        pinata_api_key: process.env.PINATA_API_KEY,
-        pinata_secret_api_key: process.env.PINATA_SECRET_API_KEY
+        pinata_api_key: pinata.PINATA_API_KEY,
+        pinata_secret_api_key: pinata.PINATA_SECRET_API_KEY
       },
     })
     console.log('[PINATA] Pin HASH', status, data)

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import pinata from './pinata.json';
 
 exports.handler = async (event) => {
   const BASE_URL = 'https://api.pinata.cloud/users/revokeApiKey'
@@ -19,7 +20,8 @@ exports.handler = async (event) => {
     const { status, data } = await axios.put(BASE_URL, object, {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.PINATA_MASTER}`
+        pinata_api_key: pinata.PINATA_API_KEY,
+        pinata_secret_api_key: pinata.PINATA_SECRET_API_KEY,
       },
     })
     console.log('[PINATA] Revoke Key', status, data)

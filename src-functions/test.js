@@ -1,9 +1,10 @@
 import axios from 'axios'
+import pinata from './pinata.json';
 
 exports.handler = async () => {
 
   const BASE_URL = 'https://api.pinata.cloud/data/testAuthentication'
-  const { PINATA_API_KEY, PINATA_SECRET_API_KEY } = process.env
+  const { PINATA_API_KEY, PINATA_SECRET_API_KEY } = pinata
 
   console.log(PINATA_API_KEY, PINATA_SECRET_API_KEY)
 

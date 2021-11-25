@@ -1,4 +1,5 @@
 import axios from 'axios'
+import pinata from './pinata.json';
 
 exports.handler = async (event) => {
 
