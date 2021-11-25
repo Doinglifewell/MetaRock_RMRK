@@ -7,7 +7,7 @@
         </div>
         <div class="columns is-mobile">
           <div class="column">
-            <b-button type="is-primary " class="mr-3 mt-2">Simple NFT</b-button>
+            <b-button tag="router-link" to="/rmrk/create" type="is-primary " class="mr-3 mt-2">Simple NFT</b-button>
             <b-button type="is-primary " class="mr-3 mt-2"
               >Advanced NFT</b-button
             >

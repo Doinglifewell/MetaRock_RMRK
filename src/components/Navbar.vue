@@ -53,8 +53,8 @@
           style="background: white"
         />
       </b-navbar-item>
-      <b-navbar-item>
-        <b-button type="is-inverte">Create NFT</b-button>
+      <b-navbar-item >
+        <b-button tag="router-link" :to="{ path: '/chooseChain' }" type="is-inverte">Create NFT</b-button>
       </b-navbar-item>
       <b-navbar-item>
         <!-- <b-button type="is-primary">Connect Wallet</b-button> -->

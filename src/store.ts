@@ -20,6 +20,7 @@ const apiPlugin = (store: any) => {
   const { getInstance: Api } = Connector
 
   Api().on('connect', async (api: any) => {
+    console.log("api:", api)
     const { chainSS58, chainDecimals, chainTokens  } = api.registry
     const {genesisHash} = api
     console.log('[API] Connect to <3', store.state.setting.apiUrl,
@@ -32,7 +33,8 @@ const apiPlugin = (store: any) => {
     })
 
     const nodeInfo = store.getters.availableNodes
-      .filter((o:any) => o.value === store.state.setting.apiUrl)
+      // .filter((o:any) => o.value === store.state.setting.apiUrl)
+      .filter((o:any) => o.value === 'wss://pangolin-rpc.darwinia.network')
       .map((o:any) => {return o.info})[0]
     store.commit('setExplorer', { 'chain': nodeInfo })
   })
@@ -45,8 +47,8 @@ const apiPlugin = (store: any) => {
 
 const myPlugin = (store: any) => {
   const { getInstance: Api } = Connector
-  Api().connect(store.state.setting.apiUrl)
-
+  // Api().connect(store.state.setting.apiUrl)
+  Api().connect('wss://pangolin-rpc.darwinia.network')
 
   store.subscribeAction(({type, payload}: ChangeUrlAction, _: any) => {
     if (type === 'setApiUrl' && payload) {
@@ -178,6 +180,7 @@ export default new Vuex.Store({
       ]
     },
     exploreChain : 'kusama',
+    createChain : 'kusama',
     explorerOptions: {},
     development: {},
     error: null,
@@ -226,6 +229,9 @@ export default new Vuex.Store({
     setExploreChain(state: any, data) {
       state.exploreChain = data
     },
+    setCreateChain(state: any, data) {
+      state.createChain = data
+    },
   },
   actions: {
     setFiatPrice({ commit }: any, data) {
@@ -240,17 +246,21 @@ export default new Vuex.Store({
     setExploreChain({ commit }: any, data) {
       commit('setExploreChain', data)
     },
+    setCreateChain({ commit }: any, data) {
+      commit('setCreateChain', data)
+    },
   },
   getters: {
     getChainProperties: ({ chainProperties }) => chainProperties,
     getUserLang: ({ language }) => language.userLang || 'en',
     getLangsFlags: ({ language }) => language.langsFlags,
     getUserFlag: ({ language }) => language.langsFlags.find((lang: {value: string}) => lang.value === language.userLang).flag,
-    getCurrentKSMValue: ({ fiatPrice }) => fiatPrice['Crab']['usd'],
+    getCurrentKSMValue: ({ fiatPrice }) => fiatPrice['kusama']['usd'],
     getCurrentChain: ({ explorer }) => explorer.chain,
     getIndexer: ({ indexer }) => indexer,
     getLayoutClass: ({ layoutClass }) => layoutClass,
     getExploreChain: ({ exploreChain }) => exploreChain,
+    getCreateChain: ({ createChain }) => createChain,
   },
   modules: {
     setting: SettingModule,

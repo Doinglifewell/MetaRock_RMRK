@@ -32,13 +32,11 @@
               >Pangolin</b-button
             >
             <b-button
-              @click="switchExploreChain('moonbeam')"
               type="is-primary"
               class="mr-3 mt-2"
               >Moonbeam</b-button
             >
             <b-button
-              @click="switchExploreChain('ethereum')"
               type="is-primary"
               class="mr-3 mt-2"
               >Ethereum</b-button
@@ -56,7 +54,6 @@ import { Component, Vue } from "vue-property-decorator";
 @Component<ExploreChain>({})
 export default class ExploreChain extends Vue {
   public switchExploreChain(data: string) {
-    console.log("switchExploreChain:", data)
     this.$router.push('/rmrk/gallery') 
     this.$store.dispatch("setExploreChain", data);
   }
