@@ -107,7 +107,7 @@ export default class NavbarMenu extends Vue {}
 
   .navbar-item {
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .navbar-brand {
