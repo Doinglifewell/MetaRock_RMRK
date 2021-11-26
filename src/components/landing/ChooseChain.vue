@@ -72,16 +72,16 @@ export default class ChooseChain extends Vue {
 
     const { getInstance: Api } = Connector;
     Api().disconnect();
-    // Api().connect(network_endpoint);
+    Api().connect(network_endpoint);
 
-    // this.$store.subscribeAction(
-    //   ({ type, payload }: ChangeUrlAction, _: any) => {
-    //     if (type === "setApiUrl" && payload) {
-    //       this.$store.commit("setLoading", true);
-    //       Api().connect(payload);
-    //     }
-    //   }
-    // );
+    this.$store.subscribeAction(
+      ({ type, payload }: ChangeUrlAction, _: any) => {
+        if (type === "setApiUrl" && payload) {
+          this.$store.commit("setLoading", true);
+          Api().connect(payload);
+        }
+      }
+    );
 
     Api().on("connect", async (api: any) => {
       const { chainSS58, chainDecimals, chainTokens } = api.registry;

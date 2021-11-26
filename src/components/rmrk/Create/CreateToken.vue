@@ -99,7 +99,7 @@ import { Component, Watch, Mixins } from 'vue-property-decorator'
 import CreateItem from './CreateItem.vue'
 import Tooltip from '@/components/shared/Tooltip.vue'
 import Support from '@/components/shared/Support.vue'
-import Connector from '@vue-polkadot/vue-api'
+import Connector from "@/utils/vue-api2/dist";
 import exec, {
   execResultValue,
   txCb,

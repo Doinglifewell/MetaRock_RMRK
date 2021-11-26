@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
 import SettingModule from '@vue-polkadot/vue-settings'
-import Connector from '@vue-polkadot/vue-api'
+// import Connector from "@/utils/vue-api2/dist";
 import IdentityModule from './vuex/IdentityModule'
-import correctFormat from './utils/ss58Format'
+// import correctFormat from './utils/ss58Format'
 
 const vuexLocalStorage = new VuexPersist({
   key: 'vuex',
@@ -16,47 +16,45 @@ interface ChangeUrlAction {
   payload: string;
 }
 
-const apiPlugin = (store: any) => {
-  const { getInstance: Api } = Connector
+// const apiPlugin = (store: any) => {
+//   const { getInstance: Api } = Connector
 
-  Api().on('connect', async (api: any) => {
-    console.log("api:", api)
-    const { chainSS58, chainDecimals, chainTokens  } = api.registry
-    const {genesisHash} = api
-    console.log('[API] Connect to <3', store.state.setting.apiUrl,
-      { chainSS58, chainDecimals, chainTokens, genesisHash})
-    store.commit('setChainProperties', {
-      ss58Format: correctFormat(chainSS58),
-      tokenDecimals: chainDecimals[0] || 12,
-      tokenSymbol: chainTokens[0] || 'Unit',
-      genesisHash: genesisHash || '',
-    })
+//   Api().on('connect', async (api: any) => {
+//     const { chainSS58, chainDecimals, chainTokens  } = api.registry
+//     const {genesisHash} = api
+//     console.log('[API] Connect to <3', store.state.setting.apiUrl,
+//       { chainSS58, chainDecimals, chainTokens, genesisHash})
+//     store.commit('setChainProperties', {
+//       ss58Format: correctFormat(chainSS58),
+//       tokenDecimals: chainDecimals[0] || 12,
+//       tokenSymbol: chainTokens[0] || 'Unit',
+//       genesisHash: genesisHash || '',
+//     })
 
-    const nodeInfo = store.getters.availableNodes
-      // .filter((o:any) => o.value === store.state.setting.apiUrl)
-      .filter((o:any) => o.value === 'wss://pangolin-rpc.darwinia.network')
-      .map((o:any) => {return o.info})[0]
-    store.commit('setExplorer', { 'chain': nodeInfo })
-  })
-  Api().on('error', async (error: Error) => {
-    store.commit('setError', error)
-    console.warn('[API] error', error)
-    // Api().disconnect()
-  })
-}
+//     const nodeInfo = store.getters.availableNodes
+//       .filter((o:any) => o.value === store.state.setting.apiUrl)
+//       .map((o:any) => {return o.info})[0]
+//     store.commit('setExplorer', { 'chain': nodeInfo })
+//   })
+//   Api().on('error', async (error: Error) => {
+//     store.commit('setError', error)
+//     console.warn('[API] error', error)
+//     // Api().disconnect()
+//   })
+// }
 
-const myPlugin = (store: any) => {
-  const { getInstance: Api } = Connector
-  // Api().connect(store.state.setting.apiUrl)
-  Api().connect('wss://pangolin-rpc.darwinia.network')
+// const myPlugin = (store: any) => {
+//   const { getInstance: Api } = Connector
+//   Api().connect(store.state.setting.apiUrl)
 
-  store.subscribeAction(({type, payload}: ChangeUrlAction, _: any) => {
-    if (type === 'setApiUrl' && payload) {
-      store.commit('setLoading', true)
-      Api().connect(payload)
-    }
-  })
-}
+
+//   store.subscribeAction(({type, payload}: ChangeUrlAction, _: any) => {
+//     if (type === 'setApiUrl' && payload) {
+//       store.commit('setLoading', true)
+//       Api().connect(payload)
+//     }
+//   })
+// }
 
 // TODO: create instance of Texitle here as plugin
 
@@ -255,7 +253,7 @@ export default new Vuex.Store({
     getUserLang: ({ language }) => language.userLang || 'en',
     getLangsFlags: ({ language }) => language.langsFlags,
     getUserFlag: ({ language }) => language.langsFlags.find((lang: {value: string}) => lang.value === language.userLang).flag,
-    getCurrentKSMValue: ({ fiatPrice }) => fiatPrice['kusama']['usd'],
+    getCurrentKSMValue: ({ fiatPrice }) => fiatPrice['Crab']['usd'],
     getCurrentChain: ({ explorer }) => explorer.chain,
     getIndexer: ({ indexer }) => indexer,
     getLayoutClass: ({ layoutClass }) => layoutClass,
@@ -266,6 +264,6 @@ export default new Vuex.Store({
     setting: SettingModule,
     identity: IdentityModule,
   },
-  plugins: [vuexLocalStorage.plugin, apiPlugin, myPlugin ],
-  // plugins: [vuexLocalStorage.plugin ],
+  // plugins: [vuexLocalStorage.plugin, apiPlugin, myPlugin ],
+  plugins: [vuexLocalStorage.plugin ],
 })

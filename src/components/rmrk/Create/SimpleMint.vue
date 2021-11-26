@@ -188,7 +188,7 @@ import { Component, Mixins } from 'vue-property-decorator'
 import { MediaType } from '../types'
 import { emptyObject } from '@/utils/empty'
 import Support from '@/components/shared/Support.vue'
-import Connector from '@vue-polkadot/vue-api'
+import Connector from "@/utils/vue-api2/dist";
 import exec, {
   execResultValue,
   txCb,

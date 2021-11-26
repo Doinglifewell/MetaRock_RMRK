@@ -89,7 +89,7 @@
 import { Component, Mixins } from 'vue-property-decorator'
 import { emptyObject } from '@/utils/empty'
 
-import Connector from '@vue-polkadot/vue-api'
+import Connector from "@/utils/vue-api2/dist";
 import exec, { execResultValue, txCb } from '@/utils/transactionExecutor'
 import { notificationTypes, showNotification } from '@/utils/notification'
 import SubscribeMixin from '@/utils/mixins/subscribeMixin'

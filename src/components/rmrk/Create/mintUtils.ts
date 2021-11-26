@@ -1,7 +1,7 @@
 import { Attribute, MassMintNFT } from '../service/scheme'
 import { MediaType } from '../types'
 import { resolveMedia } from '../utils'
-import Connector from '@vue-polkadot/vue-api'
+import Connector from "@/utils/vue-api2/dist";
 import { min } from 'date-fns'
 type Range = [number, number]
 
