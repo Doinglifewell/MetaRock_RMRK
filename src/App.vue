@@ -29,7 +29,7 @@ import { showNotification } from './utils/notification'
 @Component<Dashboard>({
   metaInfo() {
     return {
-      title: 'PolkaRock - NFT Market Explorer',
+      title: 'MetaRock - NFT Market Explorer',
       titleTemplate: '%s | Low Carbon NFTs',
       meta: [
         { property: 'og:type', content: 'website' },

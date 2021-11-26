@@ -87,7 +87,7 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component<EsCarbonless>({
   metaInfo() {
     return {
-      title: 'KodaDOT se preocupa por el impacto medioambiental',
+      title: 'MetaRock se preocupa por el impacto medioambiental',
       titleTemplate: '%s | NFT bajos en carbono',
       meta: [
         { name: 'description', content: 'Creación de NFT autocopiativos en Kusama' },

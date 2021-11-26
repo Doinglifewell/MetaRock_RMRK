@@ -97,7 +97,7 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component<Sustainibility>({
   metaInfo() {
     return {
-      title: 'KodaDot Kusama NFT explorer',
+      title: 'MetaRock NFT explorer',
       titleTemplate: '%s | Low Carbon NFTs',
       meta: [
         { name: 'description', content: 'KodaDot: Sustainibility mission' },

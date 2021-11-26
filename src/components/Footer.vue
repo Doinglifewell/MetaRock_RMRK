@@ -67,7 +67,7 @@ interface Menu {
 export default class Footer extends Vue {
   public menu: Menu[] = [
     {
-      name: i18n.t('© 2021 Polka Rock'),
+      name: i18n.t('© 2021 Meta Rock'),
       url: '/'
     },
     {

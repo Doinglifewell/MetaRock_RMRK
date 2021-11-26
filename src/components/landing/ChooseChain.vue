@@ -48,68 +48,60 @@ import correctFormat from "@/utils/ss58Format";
 @Component<ChooseChain>({})
 export default class ChooseChain extends Vue {
   public switchCreateChain(data: string) {
-    interface ChangeUrlAction {
-      type: string;
-      payload: string;
-    }
+    this.$router.push("/chooseNFT");
+    // interface ChangeUrlAction {
+    //   type: string;
+    //   payload: string;
+    // }
 
-    // const network_endpoint = {
-    //   kuasama: "wss://kusama-rpc.polkadot.io",
-    //   darwinia: "wss://rpc.darwinia.network",
-    //   crab: "wss://crab-rpc.darwinia.network",
-    //   pangolin: "wss://pangolin-rpc.darwinia.network"
-    // };
+    // let network_endpoint = "wss://kusama-rpc.polkadot.io";
+    // let networkOption = 1;
+    // if (data == "kusama") network_endpoint = "wss://kusama-rpc.polkadot.io", networkOption = 1;
+    // else if (data == "darwinia") network_endpoint = "wss://rpc.darwinia.network", networkOption = 2;
+    // else if (data == "crab") network_endpoint = "wss://crab-rpc.darwinia.network", networkOption = 2;
+    // else if (data == "pangolin") network_endpoint = "wss://pangolin-rpc.darwinia.network", networkOption = 2;
 
-    let network_endpoint = "wss://kusama-rpc.polkadot.io";
-    let networkOption = 1;
-    if (data == "kusama") network_endpoint = "wss://kusama-rpc.polkadot.io", networkOption = 1;
-    else if (data == "darwinia") network_endpoint = "wss://rpc.darwinia.network", networkOption = 2;
-    else if (data == "crab") network_endpoint = "wss://crab-rpc.darwinia.network", networkOption = 2;
-    else if (data == "pangolin") network_endpoint = "wss://pangolin-rpc.darwinia.network", networkOption = 2;
 
-  console.log("network:",network_endpoint)
 
-    this.$store.dispatch("setCreateChain", data);
+    // this.$store.dispatch("setCreateChain", data);
 
-    const { getInstance: Api } = Connector;
-    Api().disconnect();
-    Api().connect(network_endpoint, networkOption);
+    // const { getInstance: Api } = Connector;
+    // Api().disconnect();
+    // Api().connect(network_endpoint, networkOption);
 
-    this.$store.subscribeAction(
-      ({ type, payload }: ChangeUrlAction, _: any) => {
-        if (type === "setApiUrl" && payload) {
-          this.$store.commit("setLoading", true);
-          Api().connect(payload, networkOption);
-        }
-      }
-    );
+    // this.$store.subscribeAction(
+    //   ({ type, payload }: ChangeUrlAction, _: any) => {
+    //     if (type === "setApiUrl" && payload) {
+    //       this.$store.commit("setLoading", true);
+    //       Api().connect(payload, networkOption);
+    //     }
+    //   }
+    // );
 
-    Api().on("connect", async (api: any) => {
-      const { chainSS58, chainDecimals, chainTokens } = api.registry;
-      const { genesisHash } = api;
-      console.log("[API] Connect to <3", network_endpoint, {
-        chainSS58,
-        chainDecimals,
-        chainTokens,
-        genesisHash,
-      });
-      this.$store.commit("setChainProperties", {
-        ss58Format: correctFormat(chainSS58),
-        tokenDecimals: chainDecimals[0] || 12,
-        tokenSymbol: chainTokens[0] || "Unit",
-        genesisHash: genesisHash || "",
-      });
+    // Api().on("connect", async (api: any) => {
+    //   const { chainSS58, chainDecimals, chainTokens } = api.registry;
+    //   const { genesisHash } = api;
+    //   console.log("[API] Connect to <3", network_endpoint, {
+    //     chainSS58,
+    //     chainDecimals,
+    //     chainTokens,
+    //     genesisHash,
+    //   });
+    //   this.$store.commit("setChainProperties", {
+    //     ss58Format: correctFormat(chainSS58),
+    //     tokenDecimals: chainDecimals[0] || 12,
+    //     tokenSymbol: chainTokens[0] || "Unit",
+    //     genesisHash: genesisHash || "",
+    //   });
 
-      this.$store.commit("setExplorer", { chain: data });
-      this.$router.push("/chooseNFT");
-    });
-    Api().on("error", async (error: Error) => {
-      this.$store.commit("setError", error);
-      console.warn("[API] error", error);
-      // Api().disconnect()
-    });
-
-    
+    //   this.$store.commit("setExplorer", { chain: data });
+    //   this.$router.push("/chooseNFT");
+    // });
+    // Api().on("error", async (error: Error) => {
+    //   this.$store.commit("setError", error);
+    //   console.warn("[API] error", error);
+    //   // Api().disconnect()
+    // });
   }
 }
 </script>

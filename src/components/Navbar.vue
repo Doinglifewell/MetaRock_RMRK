@@ -10,8 +10,8 @@
     <template #brand>
       <b-navbar-item tag="router-link" :to="{ path: '/' }" class="logo">
         <img
-          src="/PolkaRock_Logosvg.svg"
-          alt="First NFT market explorer on Kusama and Polkadot"
+          src="/MetaRock_Logo.png"
+          alt="First NFT market explorer"
           class="logo__img"
           width="100"
           height="100"

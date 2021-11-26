@@ -122,7 +122,7 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component<Carbonless>({
   metaInfo() {
     return {
-      title: 'KodaDot cares about environmental impact',
+      title: 'MetaRock cares about environmental impact',
       titleTemplate: '%s | Low Carbon NFTs',
       meta: [
         { name: 'description', content: 'Creating Carbonless NFTs on Kusama' },
