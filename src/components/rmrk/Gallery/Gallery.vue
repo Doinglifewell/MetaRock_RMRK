@@ -176,7 +176,7 @@ export default class Gallery extends Vue {
     return this.currentValue * this.first - this.first
   }
 
-get exploreChain(): string {
+  get exploreChain(): string {
     return this.$store.getters.getExploreChain
   }
 

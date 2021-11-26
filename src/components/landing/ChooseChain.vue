@@ -61,10 +61,11 @@ export default class ChooseChain extends Vue {
     // };
 
     let network_endpoint = "wss://kusama-rpc.polkadot.io";
-    if (data == "kusama") network_endpoint = "wss://kusama-rpc.polkadot.io";
-    else if (data == "darwinia") network_endpoint = "wss://rpc.darwinia.network";
-    else if (data == "crab") network_endpoint = "wss://crab-rpc.darwinia.network";
-    else if (data == "pangolin") network_endpoint = "wss://pangolin-rpc.darwinia.network";
+    let networkOption = 1;
+    if (data == "kusama") network_endpoint = "wss://kusama-rpc.polkadot.io", networkOption = 1;
+    else if (data == "darwinia") network_endpoint = "wss://rpc.darwinia.network", networkOption = 2;
+    else if (data == "crab") network_endpoint = "wss://crab-rpc.darwinia.network", networkOption = 2;
+    else if (data == "pangolin") network_endpoint = "wss://pangolin-rpc.darwinia.network", networkOption = 2;
 
   console.log("network:",network_endpoint)
 
@@ -72,13 +73,13 @@ export default class ChooseChain extends Vue {
 
     const { getInstance: Api } = Connector;
     Api().disconnect();
-    Api().connect(network_endpoint);
+    Api().connect(network_endpoint, networkOption);
 
     this.$store.subscribeAction(
       ({ type, payload }: ChangeUrlAction, _: any) => {
         if (type === "setApiUrl" && payload) {
           this.$store.commit("setLoading", true);
-          Api().connect(payload);
+          Api().connect(payload, networkOption);
         }
       }
     );
