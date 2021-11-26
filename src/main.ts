@@ -23,7 +23,7 @@ Vue.use(AudioVisual)
 Vue.use(VueSocialSharing)
 Vue.use(VueApollo)
 
-import Connector from "@/utils/vue-api2/dist";
+import Connector from '@vue-polkadot/vue-api';
 import { enableExtension } from './extension'
 import { web3FromAddress } from '@polkadot/extension-dapp'
 import 'setimmediate'

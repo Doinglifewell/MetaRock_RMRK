@@ -119,7 +119,7 @@
 import { Component, Mixins } from 'vue-property-decorator'
 import { emptyObject } from '@/utils/empty'
 import Support from '@/components/shared/Support.vue'
-import Connector from "@/utils/vue-api2/dist";
+import Connector from '@vue-polkadot/vue-api';
 import exec, {
   execResultValue,
   txCb

@@ -66,7 +66,7 @@
 
 <script lang="ts">
 import { Component, Mixins, Watch } from 'vue-property-decorator'
-import Connector from "@/utils/vue-api2/dist";
+import Connector from '@vue-polkadot/vue-api';
 import exec, {
   execResultValue,
   txCb,

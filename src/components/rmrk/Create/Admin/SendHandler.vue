@@ -14,7 +14,7 @@
 import { ProcessFunction, sendFunction, SendType, shuffleFunction } from '@/components/accounts/utils'
 import shouldUpdate from '@/utils/shouldUpdate'
 import { Debounce } from 'vue-debounce-decorator'
-import Connector from "@/utils/vue-api2/dist";
+import Connector from '@vue-polkadot/vue-api';
 import { Component, Emit, Vue, Watch } from 'vue-property-decorator'
 
 const components = {

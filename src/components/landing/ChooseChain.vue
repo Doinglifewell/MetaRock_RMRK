@@ -42,7 +42,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Connector from "@/utils/vue-api2/dist";
+import Connector from '@vue-polkadot/vue-api';
 import correctFormat from "@/utils/ss58Format";
 
 @Component<ChooseChain>({})

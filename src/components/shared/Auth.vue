@@ -18,7 +18,7 @@
 
 <script lang="ts" >
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import Connector from "@/utils/vue-api2/dist";
+import Connector from '@vue-polkadot/vue-api';
 
 const components = {
   Avatar: () => import('@/components/shared/Avatar.vue'),

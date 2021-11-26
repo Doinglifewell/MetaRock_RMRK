@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { Component, Prop, Watch, Mixins, Emit } from 'vue-property-decorator'
-import Connector from "@/utils/vue-api2/dist";
+import Connector from '@vue-polkadot/vue-api';
 import InlineMixin from '@/utils/mixins/inlineMixin'
 import { GenericAccountId } from '@polkadot/types/generic/AccountId'
 import { hexToString, isHex } from '@polkadot/util'

@@ -18,7 +18,7 @@
         <ul class="footer__list icons__list">
           <li class="icons__list-item">
             <a
-              href="https://t.me/PolkaRock"
+              href="https://t.me/MetaRockApp"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -33,7 +33,7 @@
           </li>
           <li class="icons__list-item">
             <a
-              href="#"
+              href="https://twitter.com/MetaRockApp?t=NJJbd0eIDgieRqFgyXSnDA&s=09"
               target="_blank"
               rel="noopener noreferrer"
             >

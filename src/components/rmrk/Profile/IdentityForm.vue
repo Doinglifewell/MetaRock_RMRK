@@ -70,7 +70,7 @@ import { Component, Mixins } from 'vue-property-decorator'
 import exec, { execResultValue, txCb } from '@/utils/transactionExecutor'
 import { notificationTypes, showNotification } from '@/utils/notification'
 import { DispatchError } from '@polkadot/types/interfaces'
-import Connector from "@/utils/vue-api2/dist";
+import Connector from '@vue-polkadot/vue-api';
 import TransactionMixin from '@/utils/mixins/txMixin'
 import AuthMixin from '@/utils/mixins/authMixin'
 import { update } from 'idb-keyval'

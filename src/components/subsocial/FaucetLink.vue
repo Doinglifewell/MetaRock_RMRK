@@ -7,7 +7,7 @@
 import { Component, Mixins, Watch } from 'vue-property-decorator'
 import AuthMixin from '@/utils/mixins/authMixin'
 import shouldUpdate from '@/utils/shouldUpdate'
-import Connector from "@/utils/vue-api2/dist";
+import Connector from '@vue-polkadot/vue-api';
 import { requestFaucet } from '@/proxy'
 import { showNotification, notificationTypes } from '@/utils/notification'
 
