@@ -2,7 +2,7 @@ body {
   .head-text {
     font-weight: 600;
     @include desktop {
-      font-size: 60px;
+      font-size: 50px;
     }
     @include mobile {
       font-size: 30px;
@@ -39,7 +39,7 @@ body {
     border: 2px solid #ffffff;
     box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.3);
     border-radius: 16px;
-    font-size: 18px;
+    font-size: 16px;
     border-color: $white;
     background-color: $white;
 

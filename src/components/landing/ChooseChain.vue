@@ -42,32 +42,30 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Connector from '@vue-polkadot/vue-api';
+import { ApiPromise, WsProvider } from "@polkadot/api";
+import Connector from "@/utils/vue-api2";
 import correctFormat from "@/utils/ss58Format";
 
 @Component<ChooseChain>({})
 export default class ChooseChain extends Vue {
-  public switchCreateChain(data: string) {
+  public async switchCreateChain(data: string) {
+
+    const NETWORK_ENDPOINTS = {
+      "kusama"   : { endpoints: "wss://kusama-rpc.polkadot.io", option: 1 },
+      "darwinia" : { endpoints: "wss://rpc.darwinia.network", option: 2 },
+      "crab"     : { endpoints: "wss://crab-rpc.darwinia.network", option: 2 },
+      "pangolin" : { endpoints: "wss://pangolin-rpc.darwinia.network", option: 2 },
+    };
+
+    this.$store.dispatch("setCreateChain", data);
     this.$router.push("/chooseNFT");
-    // interface ChangeUrlAction {
-    //   type: string;
-    //   payload: string;
-    // }
-
-    // let network_endpoint = "wss://kusama-rpc.polkadot.io";
-    // let networkOption = 1;
-    // if (data == "kusama") network_endpoint = "wss://kusama-rpc.polkadot.io", networkOption = 1;
-    // else if (data == "darwinia") network_endpoint = "wss://rpc.darwinia.network", networkOption = 2;
-    // else if (data == "crab") network_endpoint = "wss://crab-rpc.darwinia.network", networkOption = 2;
-    // else if (data == "pangolin") network_endpoint = "wss://pangolin-rpc.darwinia.network", networkOption = 2;
-
-
-
-    // this.$store.dispatch("setCreateChain", data);
-
+    interface ChangeUrlAction {
+      type: string;
+      payload: string;
+    }
     // const { getInstance: Api } = Connector;
     // Api().disconnect();
-    // Api().connect(network_endpoint, networkOption);
+    // Api().connect(NETWORK_ENDPOINTS[data].endpoints, NETWORK_ENDPOINTS[data].option);
 
     // this.$store.subscribeAction(
     //   ({ type, payload }: ChangeUrlAction, _: any) => {

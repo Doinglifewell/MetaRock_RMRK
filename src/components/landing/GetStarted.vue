@@ -26,8 +26,5 @@ export default class GetStarted extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.head-text {
-  font-weight: 600;
-  font-size: 65px;
-}
+
 </style>
