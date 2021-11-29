@@ -4,13 +4,13 @@
     <div v-if="total == 0">
       <p class="head-text">Please create collection</p>
       <p class="head-text">Or select your account</p>
-       <b-button
-          tag="router-link"
-          to="/rmrk/createCollection"
-          type="is-primary"
-          class="mb-5"
-          >Create Collection</b-button
-        > 
+      <b-button
+        tag="router-link"
+        to="/rmrk/createCollection"
+        type="is-primary"
+        class="mb-5"
+        >Create Collection</b-button
+      >
     </div>
     <div v-else>
       <div>
@@ -31,29 +31,35 @@
             :key="collection.id"
           >
             <div class="card_outside p-5">
-              <div class="p-1">
-                <div class="card collection-card p-3">
-                  <div class="card-image">
-                    <BasicImage
-                      :src="collection.image"
-                      :alt="collection.name"
-                      customClass="collection__image-wrapper"
-                    />
-                  </div>
-                  <!-- <div class="card-content">
+              <router-link
+                :to="{ name: 'createNFT', params: { id: collection.id } }"
+                tag="div"
+                class="collection-card__skeleton"
+              >
+                <div class="p-1">
+                  <div class="card collection-card p-3">
+                    <div class="card-image">
+                      <BasicImage
+                        :src="collection.image"
+                        :alt="collection.name"
+                        customClass="collection__image-wrapper"
+                      />
+                    </div>
+                    <!-- <div class="card-content">
                     <CollectionDetail
                       :nfts="collection.nfts.nodes"
                       :name="collection.name"
                     />
                   <b-skeleton :active="isLoading"> </b-skeleton>
                 </div> -->
+                  </div>
+                  <div class="level mt-5">
+                    <p class="level-item has-text-centered collection-name">
+                      {{ collection.name }}
+                    </p>
+                  </div>
                 </div>
-                <div class="level mt-5">
-                  <p class="level-item has-text-centered collection-name">
-                    {{ collection.name }}
-                  </p>
-                </div>
-              </div>
+              </router-link>
             </div>
           </div>
         </div>

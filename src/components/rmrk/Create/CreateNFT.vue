@@ -85,7 +85,7 @@
           </template>
         </b-button>
       </b-field>
-      <!-- <b-field>
+      <b-field>
         <Support v-model="hasSupport" :price="filePrice" />
       </b-field>
       <b-field>
@@ -96,7 +96,7 @@
           passiveMessage="I don't want to have carbonless NFT"
         />
       </b-field>
-      <ArweaveUploadSwitch v-model="arweaveUpload" /> -->
+      <ArweaveUploadSwitch v-model="arweaveUpload" />
     </div>
   </div>
 </template>
@@ -161,7 +161,7 @@ type MintedCollection = {
     BasicSwitch: () => import("@/components/shared/form/BasicSwitch.vue"),
   },
 })
-export default class CreateToken extends Mixins(
+export default class CreateNFT extends Mixins(
   RmrkVersionMixin,
   TransactionMixin,
   ChainMixin
@@ -192,6 +192,10 @@ export default class CreateToken extends Mixins(
     return this.$store.getters.getAuthAddress;
   }
 
+  get createChain(): string {
+    return this.$store.getters.getCreateChain;
+  }
+
   @Watch("accountId", { immediate: true })
   hasAccount(value: string, oldVal: string) {
     if (shouldUpdate(value, oldVal)) {
@@ -199,12 +203,9 @@ export default class CreateToken extends Mixins(
     }
   }
 
-  get createChain(): string {
-    return this.$store.getters.getCreateChain;
-  }
-
   public async fetchCollections() {
     const apolloClient = this.createChain;
+    console.log("apolloClient:", apolloClient);
     const collections = await this.$apollo.query({
       query: collectionForMint,
       variables: {

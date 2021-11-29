@@ -1,6 +1,7 @@
 <template>
   <section class="hero">
     <div class="hero-body">
+      <Loader v-model="checkLoading" />
       <div class="container">
         <div class="columns is-mobile">
           <p class="head-text column">Choose Chain</p>
@@ -68,25 +69,31 @@
 import { Component, Vue } from "vue-property-decorator";
 import Connector from "@/utils/vue-api2";
 import correctFormat from "@/utils/ss58Format";
-@Component<ChooseNFT>({})
+const components = {
+  Loader: () => import("@/components/shared/Loader.vue"),
+};
+@Component<ChooseNFT>({
+  components,
+})
 export default class ChooseNFT extends Vue {
   public switch_chain: string = "Choose";
   public null_chian = false;
+  public checkLoading = false;
+  public NETWORK_ENDPOINTS = {
+    Kusama: { endpoints: "wss://kusama-rpc.polkadot.io", option: "kusama" },
+    Darwinia: { endpoints: "wss://rpc.darwinia.network", option: "darwinia" },
+    Crab: {
+      endpoints: "wss://crab-rpc.darwinia.network",
+      option: "darwinia",
+    },
+    Pangolin: {
+      endpoints: "wss://pangolin-rpc.darwinia.network",
+      option: "darwinia",
+    },
+  };
 
   public async switchCreateChain(data: string) {
     this.switch_chain = data;
-    const NETWORK_ENDPOINTS = {
-      Kusama: { endpoints: "wss://kusama-rpc.polkadot.io", option: "kusama" },
-      Darwinia: { endpoints: "wss://rpc.darwinia.network", option: "darwinia" },
-      Crab: {
-        endpoints: "wss://crab-rpc.darwinia.network",
-        option: "darwinia",
-      },
-      Pangolin: {
-        endpoints: "wss://pangolin-rpc.darwinia.network",
-        option: "darwinia",
-      },
-    };
 
     this.$store.dispatch("setCreateChain", data);
     interface ChangeUrlAction {
@@ -96,52 +103,56 @@ export default class ChooseNFT extends Vue {
     const { getInstance: Api } = Connector;
     Api().disconnect();
     Api().connect(
-      NETWORK_ENDPOINTS[data].endpoints,
-      NETWORK_ENDPOINTS[data].option
+      this.NETWORK_ENDPOINTS[data].endpoints,
+      this.NETWORK_ENDPOINTS[data].option
     );
 
     this.$store.subscribeAction(
       ({ type, payload }: ChangeUrlAction, _: any) => {
         if (type === "setApiUrl" && payload) {
           this.$store.commit("setLoading", true);
-          Api().connect(payload, NETWORK_ENDPOINTS[data].option);
+          Api().connect(payload, this.NETWORK_ENDPOINTS[data].option);
         }
       }
     );
-
-    Api().on("connect", async (api: any) => {
-      const { chainSS58, chainDecimals, chainTokens } = api.registry;
-      const { genesisHash } = api;
-      console.log("[API] Connect to <3", NETWORK_ENDPOINTS[data].endpoints, {
-        chainSS58,
-        chainDecimals,
-        chainTokens,
-        genesisHash,
-      });
-      this.$store.commit("setChainProperties", {
-        ss58Format: correctFormat(chainSS58),
-        tokenDecimals: chainDecimals[0] || 12,
-        tokenSymbol: chainTokens[0] || "Unit",
-        genesisHash: genesisHash || "",
-      });
-
-      this.$store.commit("setExplorer", { chain: data });
-    });
-    Api().on("error", async (error: Error) => {
-      this.$store.commit("setError", error);
-      console.warn("[API] error", error);
-      // Api().disconnect()
-    });
   }
 
   public createNFT(type: number) {
-    console.log("type");
     if (this.switch_chain == "Choose") {
       this.null_chian = true;
     } else {
       this.null_chian = false;
       if (type == 3) {
-        this.$router.push("/rmrk/chooseCollection");
+        this.checkLoading = true;
+        const { getInstance: Api } = Connector;
+        Api().on("connect", async (api: any) => {
+          const { chainSS58, chainDecimals, chainTokens } = api.registry;
+          const { genesisHash } = api;
+          console.log(
+            "[API] Connect to <3",
+            this.NETWORK_ENDPOINTS[this.switch_chain].endpoints,
+            {
+              chainSS58,
+              chainDecimals,
+              chainTokens,
+              genesisHash,
+            }
+          );
+          this.$store.commit("setChainProperties", {
+            ss58Format: correctFormat(chainSS58),
+            tokenDecimals: chainDecimals[0] || 12,
+            tokenSymbol: chainTokens[0] || "Unit",
+            genesisHash: genesisHash || "",
+          });
+          this.checkLoading = false;
+          this.$store.commit("setExplorer", { chain: this.switch_chain });
+          this.$router.push("/rmrk/create");
+        });
+        Api().on("error", async (error: Error) => {
+          this.$store.commit("setError", error);
+          console.warn("[API] error", error);
+          // Api().disconnect()
+        });
       }
     }
   }

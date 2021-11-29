@@ -9,7 +9,6 @@ import Profile from '@/router/profile'
 
 const Landing = () => import('@/components/landing/Landing.vue')
 const GetStarted = () => import('@/components/landing/GetStarted.vue')
-const ChooseChain = () => import('@/components/landing/ChooseChain.vue')
 const ChooseNFT = () => import('@/components/landing/ChooseNFT.vue')
 const ExploreChain = () => import('@/components/landing/ExploreChain.vue')
 const Sustainability = () => import('@/components/landing/Sustainability.vue')
@@ -39,11 +38,6 @@ export default new Router({
       path: '/getStarted',
       name: 'getStarted',
       component: GetStarted,
-    },
-    {
-      path: '/chooseChain',
-      name: 'chooseChain',
-      component: ChooseChain,
     },
     {
       path: '/chooseNFT',
