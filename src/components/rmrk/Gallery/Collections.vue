@@ -9,27 +9,27 @@
       <div class="columns is-multiline">
         <div class="column is-4" v-for="collection in results" :key="collection.id">
           <div class="card collection-card">
-            <router-link
+            <!-- <router-link
               :to="{ name: 'collectionDetail', params: { id: collection.id } }"
               tag="div"
               class="collection-card__skeleton"
-            >
+            > -->
               <div class="card-image">
                 <BasicImage :src="collection.image" :alt="collection.name" customClass="collection__image-wrapper" />
               </div>
 
               <div class="card-content">
-                <router-link
+                <!-- <router-link
                   :to="{
                     name: 'collectionDetail',
                     params: { id: collection.id }
                   }"
-                >
+                > -->
                   <CollectionDetail :nfts="collection.nfts.nodes" :name="collection.name" />
-                </router-link>
+                <!-- </router-link> -->
                 <b-skeleton :active="isLoading"> </b-skeleton>
               </div>
-            </router-link>
+            <!-- </router-link> -->
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <b-image
     :src="src"
-    src-fallback="/placeholder.svg"
+    src-fallback="/placeholder.png"
     :alt="alt"
     ratio="1by1"
     @error="onImageError"
@@ -26,6 +26,10 @@ export default class BasicImage extends Vue {
 
   public onImageError(event: unknown, src: string): void {
     console.log('Unable to load ', src)
+  }
+
+  public created(){
+    console.log("src:", this.src)
   }
 
 }

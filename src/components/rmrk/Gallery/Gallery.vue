@@ -21,11 +21,12 @@
       <div class="columns is-multiline">
         <div class="column is-4" v-for="nft in results" :key="nft.id">
           <div class="card nft-card">
-            <router-link
+            <!-- <router-link
               :to="{ name: 'nftDetail', params: { id: nft.id } }"
               tag="div"
               class="nft-card__skeleton"
-            >
+            > -->
+            <div>
               <div class="card-image">
                 <span v-if="nft.emoteCount" class="card-image__emotes">
                   <b-icon icon="heart" />
@@ -50,28 +51,31 @@
                   id="hover-title"
                   :title="nft.name"
                 >
-                  <router-link
+                  <!-- <router-link
                     v-if="nft.count < 2"
                     :to="{ name: 'nftDetail', params: { id: nft.id } }"
-                  >
+                  > -->
+                  <div  v-if="nft.count < 2">
                     <div>
                       <div class="has-text-overflow-ellipsis middle">
                         {{ nft.name }}
                       </div>
                     </div>
-                  </router-link>
-                  <router-link
+                  </div>
+                  <!-- </router-link> -->
+                  <!-- <router-link
                     v-else
                     :to="{
                       name: 'collectionDetail',
                       params: { id: nft.collectionId },
                     }"
-                  >
+                  > -->
+                  <div v-else>
                     <div class="has-text-overflow-ellipsis">
                       {{ nft.name }}
                     </div>
-                  </router-link>
-
+                  <!-- </router-link> -->
+                  </div>
                   <p
                     v-if="nft.count > 2"
                     :title="`${nft.count} items available in collection`"
@@ -82,7 +86,8 @@
                 </span>
                 <b-skeleton :active="isLoading"> </b-skeleton>
               </div>
-            </router-link>
+              </div>
+            <!-- </router-link> -->
           </div>
         </div>
       </div>
