@@ -141,7 +141,7 @@ export default class ChooseNFT extends Vue {
     } else {
       this.null_chian = false;
       if (type == 3) {
-        this.$router.push("/rmrk/create");
+        this.$router.push("/rmrk/chooseCollection");
       }
     }
   }

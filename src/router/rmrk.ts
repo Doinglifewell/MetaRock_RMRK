@@ -1,4 +1,5 @@
 const Remark = () => import('@/views/Remark.vue')
+const ChooseCollection = () => import('@/components/rmrk/Create/ChooseCollection.vue')
 const Collections = () => import('@/components/rmrk/Gallery/Collections.vue')
 const Gallery = () => import('@/components/rmrk/Gallery/Gallery.vue')
 const GalleryItem = () => import('@/components/rmrk/Gallery/GalleryItem.vue')
@@ -18,6 +19,11 @@ export default [
     path: '/rmrk/create',
     name: 'rmrk',
     component: Remark
+  },
+  {
+    path: '/rmrk/chooseCollection',
+    name: 'chooseCollection',
+    component: ChooseCollection,
   },
   {
     path: '/rmrk/collections',

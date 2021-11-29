@@ -205,7 +205,7 @@ export default class CreateToken extends Mixins(
 
   public async fetchCollections() {
     const apolloClient = this.createChain;
-    console.log("apolloClient:", apolloClient)
+    console.log("apolloClient:", apolloClient);
     const collections = await this.$apollo.query({
       query: collectionForMint,
       variables: {

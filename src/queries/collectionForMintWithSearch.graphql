@@ -1,0 +1,33 @@
+#import "./collection.graphql"
+
+query collectionForMintWithSearch($first: Int!, $offset: Int, $account: String!) {
+  collectionEntities(
+    orderBy: BLOCK_NUMBER_DESC
+    first: $first
+    offset: $offset
+    filter: {
+      id: { notLike: "%KAN%" },
+      currentOwner: { equalTo: $account }
+    }
+  ) {
+    totalCount
+    nodes {
+      ...collection
+      nfts(
+        orderBy: BLOCK_NUMBER_DESC
+        filter: {
+        burned: { distinctFrom: true }
+      }
+      ) {
+        nodes {
+          id
+          metadata
+          name
+          price
+          burned
+          currentOwner
+        }
+      }
+    }
+  }
+}

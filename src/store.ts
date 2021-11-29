@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
 import SettingModule from '@vue-polkadot/vue-settings'
-// import Connector from "@/utils/vue-api2/dist";
+// import Connector from "@/utils/vue-api2";
 import IdentityModule from './vuex/IdentityModule'
 // import correctFormat from './utils/ss58Format'
 
