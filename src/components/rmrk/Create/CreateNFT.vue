@@ -120,7 +120,7 @@ import PasswordInput from "@/components/shared/PasswordInput.vue";
 import NFTUtils, { basicUpdateFunction } from "../service/NftUtils";
 import RmrkVersionMixin from "@/utils/mixins/rmrkVersionMixin";
 import { supportTx, MaybeFile, calculateCost, offsetTx } from "@/utils/support";
-import collectionForMint from "@/queries/collectionForMint.graphql";
+import collectionFromId from "@/queries/collectionFromId.graphql";
 import TransactionMixin from "@/utils/mixins/txMixin";
 import ChainMixin from "@/utils/mixins/chainMixin";
 import shouldUpdate from "@/utils/shouldUpdate";
@@ -187,6 +187,7 @@ export default class CreateNFT extends Mixins(
   private filePrice = 0;
   protected arweaveUpload = false;
   protected postfix = true;
+  private id = '';
 
   get accountId() {
     return this.$store.getters.getAuthAddress;
@@ -204,34 +205,51 @@ export default class CreateNFT extends Mixins(
   }
 
   public async fetchCollections() {
-    const apolloClient = this.createChain;
-    console.log("apolloClient:", apolloClient);
+   const apolloClient = this.createChain;
+    console.log("fetchCollections")
     const collections = await this.$apollo.query({
-      query: collectionForMint,
+      query: collectionFromId,
       variables: {
-        account: this.accountId,
+        account: this.id,
       },
       client: apolloClient,
       fetchPolicy: "network-only",
     });
 
-    const {
-      data: { collectionEntities },
-    } = collections;
+    console.log("collections:", collections);
 
-    this.collections = collectionEntities.nodes
-      ?.map((ce: any) => ({
-        ...ce,
-        alreadyMinted: ce.nfts?.totalCount,
-      }))
-      .filter(
-        (ce: MintedCollection) => (ce.max || Infinity) - ce.alreadyMinted > 0
-      );
+    // const {
+    //   data: { collectionEntities },
+    // } = collections;
+
+
+    // this.collections = collectionEntities.nodes
+    //   ?.map((ce: any) => ({
+    //     ...ce,
+    //     alreadyMinted: ce.nfts?.totalCount,
+    //   }))
+    //   .filter(
+    //     (ce: MintedCollection) => (ce.max || Infinity) - ce.alreadyMinted > 0
+    //   );
   }
 
   get disabled() {
     return !(this.nft.name && this.nft.file && this.selectedCollection);
   }
+
+  public checkId(): void {
+    if (this.$route.params.id) {
+      this.id = this.$route.params.id
+    }
+  }
+
+   public created(): void {
+    console.log("created")
+
+    this.checkId();
+    this.fetchCollections();
+  }
+
 
   @Watch("nft.file")
   @Watch("nft.secondFile")

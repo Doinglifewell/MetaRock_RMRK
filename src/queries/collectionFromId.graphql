@@ -1,0 +1,14 @@
+#import "./collection.graphql"
+
+query collectionFromId( $id: String!) {
+  collectionEntity(filter: {id: { equalTo:  $id }}) {
+    nodes {
+      id
+      name
+      alreadyMinted
+      max
+      metadata
+      symbol
+    }
+  }
+}

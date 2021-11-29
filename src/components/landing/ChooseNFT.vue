@@ -31,11 +31,11 @@
                 @click="switchCreateChain('Crab')"
                 >Crab</b-dropdown-item
               >
-              <!-- <b-dropdown-item
+              <b-dropdown-item
                 aria-role="listitem"
                 @click="switchCreateChain('Pangolin')"
                 >Pangolin</b-dropdown-item
-              > -->
+              >
               <b-dropdown-item aria-role="listitem">Moonbeam</b-dropdown-item>
               <b-dropdown-item aria-role="listitem">Ethereum</b-dropdown-item>
             </b-dropdown>
