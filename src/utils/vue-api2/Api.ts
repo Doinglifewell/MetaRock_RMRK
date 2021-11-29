@@ -1,12 +1,12 @@
 import { ApiPromise, WsProvider } from "@polkadot/api";
 import { EventEmitter } from "events";
-// import { ApiExtension, getApiOptions } from "./utils";
+import { ApiExtension, getApiOptions } from "./utils";
 import darwiniaApiOptions from "@darwinia/api-options";
 
 interface ApiService {
   connect(
     apiUrl: string,
-    overrideOptions?: number
+    overrideOptions?: string
   ): Promise<ApiPromise | Error>;
   disconnect(): void;
   // registerCustomTypes(userTypes: string, apiUrl?: string): Promise<ApiPromise | Error>;
@@ -25,14 +25,12 @@ export default class Api extends EventEmitter implements ApiService {
    * @returns Api Instance
    */
   public static getInstance(): Api {
-    console.log("GETINstance");
     return Api._instance;
   }
 
-  // private constructor() {
-  //   super();
-  //   console.log("Structtor");
-  // }
+  private constructor() {
+    super();
+  }
 
   /**
    * connect
@@ -41,7 +39,7 @@ export default class Api extends EventEmitter implements ApiService {
    */
   public async connect(
     apiUrl: string,
-    overrideOptions?: number
+    overrideOptions?: string
   ): Promise<ApiPromise | Error> {
     if (!apiUrl || typeof apiUrl != "string") {
       throw new TypeError(
@@ -52,20 +50,20 @@ export default class Api extends EventEmitter implements ApiService {
     try {
       const provider = new WsProvider(apiUrl);
       console.log("Connect", apiUrl);
-      // const options = getApiOptions(apiUrl);
-      // if (overrideOptions == 1) {
-      //   const apiPromise = await ApiPromise.create(
-      //     Object.assign({ provider }, options)
-      //   );
-      //   this.setApi(apiPromise);
-      //   this._emit("connect", apiPromise);
-      // } else if (overrideOptions == 2) {
-      //   const apiPromise = await ApiPromise.create(
-      //     darwiniaApiOptions({ provider: provider })
-      //   );
-      //   this.setApi(apiPromise);
-      //   this._emit("connect", apiPromise);
-      // }
+      const options = getApiOptions(apiUrl);
+      if (overrideOptions == "kusama") {
+        const apiPromise = await ApiPromise.create(
+          Object.assign({ provider }, options)
+        );
+        this.setApi(apiPromise);
+        this._emit("connect", apiPromise);
+      } else if (overrideOptions == "darwinia") {
+        const apiPromise = await ApiPromise.create(
+          darwiniaApiOptions({ provider: provider })
+        );
+        this.setApi(apiPromise);
+        this._emit("connect", apiPromise);
+      }
     } catch (err) {
       this._emit("error", err);
       throw err;

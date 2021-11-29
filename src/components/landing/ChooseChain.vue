@@ -42,7 +42,6 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { ApiPromise, WsProvider } from "@polkadot/api";
 import Connector from "@/utils/vue-api2";
 import correctFormat from "@/utils/ss58Format";
 
@@ -58,79 +57,50 @@ export default class ChooseChain extends Vue {
     };
 
     this.$store.dispatch("setCreateChain", data);
-    this.$router.push("/chooseNFT");
     interface ChangeUrlAction {
       type: string;
       payload: string;
     }
-    // const { getInstance: Api } = Connector;
-    // Api().disconnect();
-    // Api().connect(NETWORK_ENDPOINTS[data].endpoints, NETWORK_ENDPOINTS[data].option);
+    const { getInstance: Api } = Connector;
+    Api().disconnect();
+    Api().connect(NETWORK_ENDPOINTS[data].endpoints, NETWORK_ENDPOINTS[data].option);
 
-    // this.$store.subscribeAction(
-    //   ({ type, payload }: ChangeUrlAction, _: any) => {
-    //     if (type === "setApiUrl" && payload) {
-    //       this.$store.commit("setLoading", true);
-    //       Api().connect(payload, networkOption);
-    //     }
-    //   }
-    // );
+    this.$store.subscribeAction(
+      ({ type, payload }: ChangeUrlAction, _: any) => {
+        if (type === "setApiUrl" && payload) {
+          this.$store.commit("setLoading", true);
+          Api().connect(payload, NETWORK_ENDPOINTS[data].option);
+        }
+      }
+    );
 
-    // Api().on("connect", async (api: any) => {
-    //   const { chainSS58, chainDecimals, chainTokens } = api.registry;
-    //   const { genesisHash } = api;
-    //   console.log("[API] Connect to <3", network_endpoint, {
-    //     chainSS58,
-    //     chainDecimals,
-    //     chainTokens,
-    //     genesisHash,
-    //   });
-    //   this.$store.commit("setChainProperties", {
-    //     ss58Format: correctFormat(chainSS58),
-    //     tokenDecimals: chainDecimals[0] || 12,
-    //     tokenSymbol: chainTokens[0] || "Unit",
-    //     genesisHash: genesisHash || "",
-    //   });
+    Api().on("connect", async (api: any) => {
+      const { chainSS58, chainDecimals, chainTokens } = api.registry;
+      const { genesisHash } = api;
+      console.log("[API] Connect to <3", NETWORK_ENDPOINTS[data].endpoints, {
+        chainSS58,
+        chainDecimals,
+        chainTokens,
+        genesisHash,
+      });
+      this.$store.commit("setChainProperties", {
+        ss58Format: correctFormat(chainSS58),
+        tokenDecimals: chainDecimals[0] || 12,
+        tokenSymbol: chainTokens[0] || "Unit",
+        genesisHash: genesisHash || "",
+      });
 
-    //   this.$store.commit("setExplorer", { chain: data });
-    //   this.$router.push("/chooseNFT");
-    // });
-    // Api().on("error", async (error: Error) => {
-    //   this.$store.commit("setError", error);
-    //   console.warn("[API] error", error);
-    //   // Api().disconnect()
-    // });
+      this.$store.commit("setExplorer", { chain: data });
+      this.$router.push("/chooseNFT");
+    });
+    Api().on("error", async (error: Error) => {
+      this.$store.commit("setError", error);
+      console.warn("[API] error", error);
+      // Api().disconnect()
+    });
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.chain_button {
-  border: none;
-  border-radius: 0;
-  background-color: transparent !important;
-  box-shadow: none;
-  position: relative;
-  padding: 0 8px;
-
-  &:hover,
-  &:focus,
-  &:active {
-    border: none;
-    box-shadow: none;
-  }
-
-  &:not(:last-child) {
-    &:after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 0;
-      width: 1px;
-      height: 12px;
-      background: #fff;
-    }
-  }
-}
 </style>

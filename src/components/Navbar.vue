@@ -31,15 +31,6 @@
     </template>
     <!-- <template v-slot:end>
       <LocaleChanger />
-      <img
-        src="/GB.png"
-        alt="flag"
-        width="30"
-        height="30"
-        class="logo__img"
-        style="margin-right: 20px; background: white"
-      />
-      <b-button type="is-inverte" class="mr-3">Create NFT</b-button>
       <NavbarProfileDropdown />
     </template> -->
     <template v-slot:end>
@@ -54,10 +45,9 @@
         />
       </b-navbar-item>
       <b-navbar-item >
-        <b-button tag="router-link" :to="{ path: '/chooseChain' }" type="is-inverte">Create NFT</b-button>
+        <b-button tag="router-link" :to="{ path: '/chooseNFT' }" type="is-inverte">Create NFT</b-button>
       </b-navbar-item>
       <b-navbar-item>
-        <!-- <b-button type="is-primary">Connect Wallet</b-button> -->
         <NavbarProfileDropdown />
       </b-navbar-item>
     </template>
