@@ -88,7 +88,7 @@ export default class ChooseNFT extends Vue {
       },
     };
 
-    this.$store.dispatch("setCreateChain", NETWORK_ENDPOINTS[data].option);
+    this.$store.dispatch("setCreateChain", data);
     interface ChangeUrlAction {
       type: string;
       payload: string;

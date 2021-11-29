@@ -2,12 +2,26 @@
   <div class="collections container">
     <Loader :value="isLoading" />
     <div v-if="total == 0">
-      <p class="head-text">You didn't create collection!</p>
+      <p class="head-text">Please create collection</p>
+      <p class="head-text">Or select your account</p>
+       <b-button
+          tag="router-link"
+          to="/rmrk/createCollection"
+          type="is-primary"
+          class="mb-5"
+          >Create Collection</b-button
+        > 
     </div>
     <div v-else>
       <div>
         <p class="head-text column pl-0">Create / Choose Collection</p>
-        <b-button type="is-primary" class="mb-5">Create Collection</b-button>
+        <b-button
+          tag="router-link"
+          to="/rmrk/createCollection"
+          type="is-primary"
+          class="mb-5"
+          >Create Collection</b-button
+        >
       </div>
       <div>
         <div class="columns is-multiline">
@@ -138,10 +152,6 @@ export default class ChooseCollection extends Vue {
     return this.currentValue * this.first - this.first;
   }
 
-  get exploreChain(): string {
-    return this.$store.getters.getExploreChain;
-  }
-
   get accountId() {
     return this.$store.getters.getAuthAddress;
   }
@@ -156,30 +166,6 @@ export default class ChooseCollection extends Vue {
   get createChain(): string {
     return this.$store.getters.getCreateChain;
   }
-
-  // public async fetchCollections() {
-  //   const collections = await this.$apollo.query({
-  //     query: collectionForMint,
-  //     variables: {
-  //       account: this.accountId,
-  //     },
-  //     client: apolloClient,
-  //     fetchPolicy: "network-only",
-  //   });
-
-  //   const {
-  //     data: { collectionEntities },
-  //   } = collections;
-
-  //   this.collections = collectionEntities.nodes
-  //     ?.map((ce: any) => ({
-  //       ...ce,
-  //       alreadyMinted: ce.nfts?.totalCount,
-  //     }))
-  //     .filter(
-  //       (ce: MintedCollection) => (ce.max || Infinity) - ce.alreadyMinted > 0
-  //     );
-  // }
   public async created() {
     const apolloClient = this.createChain;
     this.$apollo.addSmartQuery("collection", {
@@ -322,7 +308,7 @@ export default class ChooseCollection extends Vue {
 
 .collection-name {
   font-weight: 600;
-  font-size: 25px;
+  font-size: 21px;
 }
 
 .collections {

@@ -1,20 +1,20 @@
 import ApolloClient, { InMemoryCache } from 'apollo-boost'
 
-export const kusama = new ApolloClient({
+export const Kusama = new ApolloClient({
   // You should use an absolute URL here
   name: 'subquery',
   cache: new InMemoryCache(),
   uri: 'https://api.subquery.network/sq/vikiival/magick'
 })
 
-export const crab = new ApolloClient({
+export const Crab = new ApolloClient({
   // You should use an absolute URL here
   name: 'subquery',
   cache: new InMemoryCache(),
   uri: 'https://api.subquery.network/sq/TopCodeBeast/polkarock_crab_subql'
 })
 
-export const pangolin = new ApolloClient({
+export const Pangolin = new ApolloClient({
   // You should use an absolute URL here
   name: 'subquery',
   cache: new InMemoryCache(),

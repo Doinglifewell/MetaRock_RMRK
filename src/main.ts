@@ -38,7 +38,7 @@ import { set, get, getMany } from 'idb-keyval'
 import { useOperators, OperatorType } from 'mingo/core'
 import { $match, $group, $project } from 'mingo/operators/pipeline'
 import { $sum, $first, $push, $avg } from 'mingo/operators/accumulator'
-import { kusama, crab, pangolin } from './subquery'
+import { Kusama, Crab, Pangolin } from './subquery'
 import rmrkApolloClient from './rmrkClient'
 // import { resolveSubsocialApi } from './components/subsocial/api'
 
@@ -85,11 +85,11 @@ Vue.use(VueClipboard)
 const apolloProvider = new VueApollo({
   clients: {
     rmrkApolloClient,
-    kusama,
-    crab,
-    pangolin
+    Kusama,
+    Crab,
+    Pangolin
   },
-  defaultClient: kusama,
+  defaultClient: Kusama,
 })
 
 Vue.config.productionTip = false

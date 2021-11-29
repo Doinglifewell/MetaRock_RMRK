@@ -8,25 +8,25 @@
         <div class="columns is-mobile">
           <div class="column">
             <b-button
-              @click="switchExploreChain('kusama')"
+              @click="switchExploreChain('Kusama')"
               type="is-primary"
               class="mr-3 mt-2"
               >Kusama</b-button
             >
             <b-button
-              @click="switchExploreChain('darwinia')"
+              @click="switchExploreChain('Darwinia')"
               type="is-primary"
               class="mr-3 mt-2"
               >Darwinia</b-button
             >
             <b-button
-              @click="switchExploreChain('crab')"
+              @click="switchExploreChain('Crab')"
               type="is-primary"
               class="mr-3 mt-2"
               >Crab</b-button
             >
             <b-button
-              @click="switchExploreChain('pangolin')"
+              @click="switchExploreChain('Pangolin')"
               type="is-primary"
               class="mr-3 mt-2"
               >Pangolin</b-button
