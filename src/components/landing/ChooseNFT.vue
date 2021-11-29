@@ -31,11 +31,11 @@
                 @click="switchCreateChain('Crab')"
                 >Crab</b-dropdown-item
               >
-              <b-dropdown-item
+              <!-- <b-dropdown-item
                 aria-role="listitem"
                 @click="switchCreateChain('Pangolin')"
                 >Pangolin</b-dropdown-item
-              >
+              > -->
               <b-dropdown-item aria-role="listitem">Moonbeam</b-dropdown-item>
               <b-dropdown-item aria-role="listitem">Ethereum</b-dropdown-item>
             </b-dropdown>
@@ -79,58 +79,58 @@ export default class ChooseNFT extends Vue {
   public switch_chain: string = "Choose";
   public null_chian = false;
   public checkLoading = false;
-  public NETWORK_ENDPOINTS = {
-    Kusama: { endpoints: "wss://kusama-rpc.polkadot.io", option: "kusama" },
-    Darwinia: { endpoints: "wss://rpc.darwinia.network", option: "darwinia" },
-    Crab: {
-      endpoints: "wss://crab-rpc.darwinia.network",
-      option: "darwinia",
-    },
-    Pangolin: {
-      endpoints: "wss://pangolin-rpc.darwinia.network",
-      option: "darwinia",
-    },
-  };
-
-  public async switchCreateChain(data: string) {
+  public switchCreateChain(data: string) {
     this.switch_chain = data;
-
     this.$store.dispatch("setCreateChain", data);
+  }
+
+  public async createNFT(type: number) {
+    const NETWORK_ENDPOINTS = {
+      Kusama: { endpoints: "wss://kusama-rpc.polkadot.io", option: "kusama" },
+      Darwinia: { endpoints: "wss://rpc.darwinia.network", option: "darwinia" },
+      Crab: {
+        endpoints: "wss://crab-rpc.darwinia.network",
+        option: "darwinia",
+      },
+      Pangolin: {
+        endpoints: "wss://pangolin-rpc.darwinia.network",
+        option: "darwinia",
+      },
+    };
+    const { getInstance: Api } = Connector;
     interface ChangeUrlAction {
       type: string;
       payload: string;
     }
-    const { getInstance: Api } = Connector;
-    Api().disconnect();
-    Api().connect(
-      this.NETWORK_ENDPOINTS[data].endpoints,
-      this.NETWORK_ENDPOINTS[data].option
-    );
 
-    this.$store.subscribeAction(
-      ({ type, payload }: ChangeUrlAction, _: any) => {
-        if (type === "setApiUrl" && payload) {
-          this.$store.commit("setLoading", true);
-          Api().connect(payload, this.NETWORK_ENDPOINTS[data].option);
-        }
-      }
-    );
-  }
-
-  public createNFT(type: number) {
     if (this.switch_chain == "Choose") {
       this.null_chian = true;
     } else {
       this.null_chian = false;
       if (type == 3) {
         this.checkLoading = true;
-        const { getInstance: Api } = Connector;
+
+        Api().disconnect();
+        Api().connect(
+          NETWORK_ENDPOINTS[this.switch_chain].endpoints,
+          NETWORK_ENDPOINTS[this.switch_chain].option
+        );
+
+        this.$store.subscribeAction(
+          ({ type, payload }: ChangeUrlAction, _: any) => {
+            if (type === "setApiUrl" && payload) {
+              this.$store.commit("setLoading", true);
+              Api().connect(payload, NETWORK_ENDPOINTS[this.switch_chain].option);
+            }
+          }
+        );
+
         Api().on("connect", async (api: any) => {
           const { chainSS58, chainDecimals, chainTokens } = api.registry;
           const { genesisHash } = api;
           console.log(
             "[API] Connect to <3",
-            this.NETWORK_ENDPOINTS[this.switch_chain].endpoints,
+            NETWORK_ENDPOINTS[this.switch_chain].endpoints,
             {
               chainSS58,
               chainDecimals,
@@ -151,7 +151,7 @@ export default class ChooseNFT extends Vue {
         Api().on("error", async (error: Error) => {
           this.$store.commit("setError", error);
           console.warn("[API] error", error);
-          // Api().disconnect()
+          Api().disconnect()
         });
       }
     }

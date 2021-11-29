@@ -33,7 +33,7 @@ export default [
     component: CreateCollection,
   },
   {
-    path: '/rmrk/createNFT',
+    path: '/rmrk/createNFT/:id',
     name: 'createNFT',
     component: CreateNFT,
   },

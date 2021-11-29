@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div>
       <Loader v-model="isLoading" :status="status" />
       <b-field>
@@ -67,7 +67,7 @@
           {{ $t("mint.submit") }}
         </b-button>
       </b-field>
-      <b-field>
+      <!-- <b-field>
         <b-button
           type="is-text"
           icon-left="calculator"
@@ -84,8 +84,8 @@
             <Money :value="estimated" inline />
           </template>
         </b-button>
-      </b-field>
-      <b-field>
+      </b-field> -->
+      <!-- <b-field>
         <Support v-model="hasSupport" :price="filePrice" />
       </b-field>
       <b-field>
@@ -96,7 +96,7 @@
           passiveMessage="I don't want to have carbonless NFT"
         />
       </b-field>
-      <ArweaveUploadSwitch v-model="arweaveUpload" />
+      <ArweaveUploadSwitch v-model="arweaveUpload" /> -->
     </div>
   </div>
 </template>
