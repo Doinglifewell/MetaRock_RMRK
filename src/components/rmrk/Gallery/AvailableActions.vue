@@ -22,7 +22,7 @@
 
 <script lang="ts" >
 import { Component, Mixins, Prop} from 'vue-property-decorator'
-import Connector from '@vue-polkadot/vue-api';
+import Connector from "@/utils/vue-api2";
 import { execResultValue, txCb, sign, send } from '@/utils/transactionExecutor'
 import { notificationTypes, showNotification } from '@/utils/notification'
 import { unpin } from '@/proxy'

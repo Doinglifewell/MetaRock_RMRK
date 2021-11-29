@@ -1,4 +1,4 @@
-import Connector from '@vue-polkadot/vue-api';
+import Connector from "@/utils/vue-api2";
 import { NotificationProgrammatic as Notification } from 'buefy'
 
 export const apiEnabled = (next: any): void => {

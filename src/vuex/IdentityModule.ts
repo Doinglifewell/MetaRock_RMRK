@@ -1,6 +1,6 @@
 import { emptyObject } from '@/utils/empty'
 import { Registration } from '@polkadot/types/interfaces/identity/types'
-import Connector from '@vue-polkadot/vue-api';
+import Connector from "@/utils/vue-api2";
 import Vue from 'vue'
 
 
