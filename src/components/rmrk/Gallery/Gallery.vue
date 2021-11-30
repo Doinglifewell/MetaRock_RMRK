@@ -3,7 +3,7 @@
     <Loader :value="isLoading" />
     <!-- TODO: Make it work with graphql -->
     <Search v-bind.sync="searchQuery">
-      <b-field class="column">
+      <!-- <b-field class="column">
         <Pagination
           hasMagicBtn
           simple
@@ -13,81 +13,96 @@
           replace
           class="is-right"
         />
-      </b-field>
+      </b-field> -->
     </Search>
     <!-- <b-button @click="first += 1">Show {{ first }}</b-button> -->
 
     <div>
+      <!-- <div>
+        <b-image
+          src="/Asset01.png"
+          alt="First NFT market explorer on Kusama and Polkadot"
+          ratio="1by1"
+        />
+      </div> -->
       <div class="columns is-multiline">
         <div class="column is-4" v-for="nft in results" :key="nft.id">
-          <div class="card nft-card">
-            <!-- <router-link
+          <div class="card_outside p-5">
+            <div class="card nft-card">
+              <!-- <router-link
               :to="{ name: 'nftDetail', params: { id: nft.id } }"
               tag="div"
               class="nft-card__skeleton"
             > -->
-            <div>
-              <div class="card-image">
-                <span v-if="nft.emoteCount" class="card-image__emotes">
-                  <b-icon icon="heart" />
-                  <span class="card-image__emotes__count">{{
-                    nft.emoteCount
-                  }}</span>
-                </span>
-                <BasicImage
-                  :src="nft.image"
-                  :alt="nft.name"
-                  customClass="gallery__image-wrapper"
-                />
-                <span v-if="nft.price > 0" class="card-image__price">
-                  <Money :value="nft.price" inline />
-                </span>
-              </div>
+              <div>
+                <div class="card-image">
+                  <span v-if="nft.emoteCount" class="card-image__emotes">
+                    <b-icon icon="heart" />
+                    <span class="card-image__emotes__count">{{
+                      nft.emoteCount
+                    }}</span>
+                  </span>
+                  <BasicImage
+                    :src="nft.image"
+                    :alt="nft.name"
+                    customClass="gallery__image-wrapper"
+                  />
+                  <div class="level mt-5 mb-1">
+                    <p class="level-item has-text-centered collection-name">
+                      {{ nft.name }}
+                    </p>
+                  </div>
+                  <div class="level">
+                    <p class="level-item has-text-centered collection-name">
+                      {{ nft.price }}
+                    </p>
+                  </div>
+                  <!-- <span v-if="nft.price > 0" class="card-image__price">
+                    <Money :value="nft.price" inline />
+                  </span> -->
+                </div>
 
-              <div class="card-content">
-                <span
-                  v-if="!isLoading"
-                  class="title mb-0 is-4 has-text-centered"
-                  id="hover-title"
-                  :title="nft.name"
-                >
-                  <!-- <router-link
-                    v-if="nft.count < 2"
-                    :to="{ name: 'nftDetail', params: { id: nft.id } }"
-                  > -->
-                  <div  v-if="nft.count < 2">
-                    <div>
-                      <div class="has-text-overflow-ellipsis middle">
+                <!-- <div class="card-content">
+                  <span
+                    v-if="!isLoading"
+                    class="title mb-0 is-4 has-text-centered"
+                    id="hover-title"
+                    :title="nft.name"
+                  >
+                    <router-link
+                      v-if="nft.count < 2"
+                      :to="{ name: 'nftDetail', params: { id: nft.id } }"
+                    >
+                      <div>
+                        <div class="has-text-overflow-ellipsis middle">
+                          {{ nft.name }}
+                        </div>
+                      </div>
+                    </router-link>
+                    <router-link
+                      v-else
+                      :to="{
+                        name: 'collectionDetail',
+                        params: { id: nft.collectionId },
+                      }"
+                    >
+                      <div class="has-text-overflow-ellipsis">
                         {{ nft.name }}
                       </div>
-                    </div>
-                  </div>
-                  <!-- </router-link> -->
-                  <!-- <router-link
-                    v-else
-                    :to="{
-                      name: 'collectionDetail',
-                      params: { id: nft.collectionId },
-                    }"
-                  > -->
-                  <div v-else>
-                    <div class="has-text-overflow-ellipsis">
-                      {{ nft.name }}
-                    </div>
-                  <!-- </router-link> -->
-                  </div>
-                  <p
-                    v-if="nft.count > 2"
-                    :title="`${nft.count} items available in collection`"
-                    class="is-absolute nft-collection-counter title is-6"
-                  >
-                    「{{ nft.count }}」
-                  </p>
-                </span>
-                <b-skeleton :active="isLoading"> </b-skeleton>
+                    </router-link>
+                    <p
+                      v-if="nft.count > 2"
+                      :title="`${nft.count} items available in collection`"
+                      class="is-absolute nft-collection-counter title is-6"
+                    >
+                      「{{ nft.count }}」
+                    </p>
+                  </span>
+                  <b-skeleton :active="isLoading"> </b-skeleton>
+                </div> -->
               </div>
-              </div>
-            <!-- </router-link> -->
+              <!-- </router-link> -->
+            </div>
           </div>
         </div>
       </div>
@@ -95,7 +110,7 @@
     <Pagination
       class="pt-5 pb-5"
       :total="total"
-      :perPage="12"
+      :perPage="6"
       v-model="currentValue"
       replace
     />
@@ -173,14 +188,14 @@ export default class Gallery extends Vue {
     sortBy: "BLOCK_NUMBER_DESC",
     listed: false,
   };
-  private first = 12;
-  private placeholder = "/koda300x300.svg";
+  private first = 6;
+  private placeholder = "/placeholder.png";
   private currentValue = 1;
   private total = 0;
 
   get defaultGalleryMetaImage(): string {
     const url = new URL(window.location.href);
-    return `${url.protocol}//${url.hostname}/Kodadot_Card_Gallery.jpg`;
+    return `${url.protocol}//${url.hostname}/favicon.png`;
   }
 
   get isLoading() {
@@ -355,6 +370,17 @@ export default class Gallery extends Vue {
 <style lang="scss">
 .card-image__burned {
   filter: blur(7px);
+}
+
+.collection-name {
+  font-weight: 600;
+  font-size: 21px;
+}
+
+.card_outside {
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 21px;
 }
 
 .gallery {

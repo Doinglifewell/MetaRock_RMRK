@@ -181,12 +181,12 @@
     }
   },
   "sort": {
-    "BLOCK_NUMBER_DESC": "New first",
-    "BLOCK_NUMBER_ASC": "Old first",
+    "BLOCK_NUMBER_DESC": "Recent mints",
+    "BLOCK_NUMBER_ASC": "Old mints",
     "UPDATED_AT_DESC": "Last interacted",
     "UPDATED_AT_ASC": "Long time no interaction",
-    "PRICE_DESC": "From most expensive",
-    "PRICE_ASC": "From cheaper",
+    "PRICE_DESC": "Price descending",
+    "PRICE_ASC": "Price ascending",
     "listed": "BUY NOW"
   },
   "mint": {

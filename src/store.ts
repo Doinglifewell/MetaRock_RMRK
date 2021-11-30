@@ -177,8 +177,8 @@ export default new Vuex.Store({
         // }
       ]
     },
-    exploreChain : 'kusama',
-    createChain : 'kusama',
+    exploreChain : 'Kusama',
+    createChain : 'Kusama',
     explorerOptions: {},
     development: {},
     error: null,

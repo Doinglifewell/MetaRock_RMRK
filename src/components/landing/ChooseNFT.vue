@@ -160,34 +160,6 @@ export default class ChooseNFT extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.chain_button {
-  border: none;
-  border-radius: 0;
-  background-color: transparent !important;
-  box-shadow: none;
-  position: relative;
-  padding: 0 8px;
-
-  &:hover,
-  &:focus,
-  &:active {
-    border: none;
-    box-shadow: none;
-  }
-
-  &:not(:last-child) {
-    &:after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 0;
-      width: 1px;
-      height: 12px;
-      background: #fff;
-    }
-  }
-}
 .null_chain {
   color: #f25aac;
   font-weight: 600;

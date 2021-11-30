@@ -21,8 +21,8 @@ export default class SearchSortDropdown extends Vue {
   private sort: string[] = [
     'BLOCK_NUMBER_DESC',
     'BLOCK_NUMBER_ASC',
-    'UPDATED_AT_DESC',
-    'UPDATED_AT_ASC',
+    // 'UPDATED_AT_DESC',
+    // 'UPDATED_AT_ASC',
     'PRICE_DESC',
     'PRICE_ASC',
   ]
