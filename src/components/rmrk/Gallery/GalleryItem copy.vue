@@ -41,7 +41,7 @@
           </div>
       </div>
 
-      <!-- <div class="columns pl-3">
+      <div class="columns pl-3">
         <div class="column is-6">
           <Appreciation
             :emotes="nft.emotes"
@@ -73,7 +73,7 @@
             </div>
             <div class="column is-flex is-flex-direction-column is-justify-content-space-between">
               <template v-if="detailVisible && !nft.burned">
-               <PackSaver v-if="accountId" :accountId="accountId" :currentOwnerId="nft.currentOwner" :nftId="nft.id" /> 
+                <!-- <PackSaver v-if="accountId" :accountId="accountId" :currentOwnerId="nft.currentOwner" :nftId="nft.id" /> -->
                 <div
                   class="card mb-4"
                   aria-id="contentIdForA11y3"
@@ -124,14 +124,14 @@
             <HistoryPriceChart v-if="!isLoading" :events="nft.events"/>
           </template>
         </div>
-      </div> -->
-      <!-- <div class="columns">
+      </div>
+      <div class="columns">
 
         <div class="column">
           <History v-if="!isLoading" :events="nft.events"/>
         </div>
 
-      </div> -->
+      </div>
     </div>
 
 

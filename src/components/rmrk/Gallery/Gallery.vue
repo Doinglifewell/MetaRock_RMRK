@@ -29,12 +29,11 @@
         <div class="column is-4" v-for="nft in results" :key="nft.id">
           <div class="card_outside p-5">
             <div class="card nft-card">
-              <!-- <router-link
+              <router-link
               :to="{ name: 'nftDetail', params: { id: nft.id } }"
               tag="div"
               class="nft-card__skeleton"
-            > -->
-              <div>
+            >
                 <div class="card-image">
                   <span v-if="nft.emoteCount" class="card-image__emotes">
                     <b-icon icon="heart" />
@@ -100,8 +99,7 @@
                   </span>
                   <b-skeleton :active="isLoading"> </b-skeleton>
                 </div> -->
-              </div>
-              <!-- </router-link> -->
+              </router-link>
             </div>
           </div>
         </div>

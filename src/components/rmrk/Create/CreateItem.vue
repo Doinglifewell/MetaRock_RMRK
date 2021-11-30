@@ -2,7 +2,7 @@
   <div>
     <MetadataUpload
       v-model="vFile"
-      label="Drop your NFT here or click to upload or simply paste image from clipboard. We support various media types (GIF, JPEG, PNG, SVG)"
+      label="File Types: BMP, GIF, JPEG, PNG, SVG, TIFF, WEBP, MP4, OGV, QUICKTIME, WEBM, GLB, FLAC, MP3, JSON"
       expanded
       preview
     />
@@ -68,59 +68,58 @@
   </div>
 </template>
 
-<script lang="ts" >
-import { Component, Prop, Vue, PropSync } from 'vue-property-decorator'
-import { Attribute } from '../service/scheme'
-import { resolveMedia } from '../utils'
-import { isFileWithoutType, isSecondFileVisible } from './mintUtils'
+<script lang="ts">
+import { Component, Prop, Vue, PropSync } from "vue-property-decorator";
+import { Attribute } from "../service/scheme";
+import { resolveMedia } from "../utils";
+import { isFileWithoutType, isSecondFileVisible } from "./mintUtils";
 
 @Component({
   components: {
-    AttributeTagInput: () => import('./AttributeTagInput.vue'),
-    BalanceInput: () => import('@/components/shared/BalanceInput.vue'),
-    MetadataUpload: () => import('./DropUpload.vue'),
-    Tooltip: () => import('@/components/shared/Tooltip.vue'),
-    BasicInput: () => import('@/components/shared/form/BasicInput.vue'),
-    BasicSwitch: () => import('@/components/shared/form/BasicSwitch.vue'),
-  }
+    AttributeTagInput: () => import("./AttributeTagInput.vue"),
+    BalanceInput: () => import("@/components/shared/BalanceInput.vue"),
+    MetadataUpload: () => import("./DropUpload.vue"),
+    Tooltip: () => import("@/components/shared/Tooltip.vue"),
+    BasicInput: () => import("@/components/shared/form/BasicInput.vue"),
+    BasicSwitch: () => import("@/components/shared/form/BasicSwitch.vue"),
+  },
 })
 export default class CreateItem extends Vue {
-  @PropSync('name', { type: String }) vName!: string
-  @PropSync('description', { type: String }) vDescription!: string
-  @PropSync('edition', { type: Number }) vEdition!: number;
-  @PropSync('nsfw', { type: Boolean }) vNsfw!: boolean;
-  @PropSync('price', { type: [Number, String] }) vPrice!: string | number;
-  @PropSync('tags', { type: Array }) vTags!: Attribute[];
-  @PropSync('file', { type: Blob }) vFile!: Blob | null;
-  @PropSync('secondFile', { type: Blob }) vSecondFile!: Blob | null;
-
+  @PropSync("name", { type: String }) vName!: string;
+  @PropSync("description", { type: String }) vDescription!: string;
+  @PropSync("edition", { type: Number }) vEdition!: number;
+  @PropSync("nsfw", { type: Boolean }) vNsfw!: boolean;
+  @PropSync("price", { type: [Number, String] }) vPrice!: string | number;
+  @PropSync("tags", { type: Array }) vTags!: Attribute[];
+  @PropSync("file", { type: Blob }) vFile!: Blob | null;
+  @PropSync("secondFile", { type: Blob }) vSecondFile!: Blob | null;
 
   @Prop(Number) public max!: number;
   @Prop(Number) public alreadyMinted!: number;
 
   protected updateMeta(value: number) {
-    console.log(typeof value, value)
-    this.vPrice = value
+    console.log(typeof value, value);
+    this.vPrice = value;
   }
 
   get fileType() {
-    return resolveMedia(this.vFile?.type)
+    return resolveMedia(this.vFile?.type);
   }
 
   get secondaryFileVisible(): boolean {
-    const fileType = this.fileType
-    return isFileWithoutType(this.vFile, fileType) || isSecondFileVisible(fileType)
+    const fileType = this.fileType;
+    return (
+      isFileWithoutType(this.vFile, fileType) || isSecondFileVisible(fileType)
+    );
   }
 
   get hasPrice() {
-    return Number(this.vPrice)
+    return Number(this.vPrice);
   }
 
   get clickableMax() {
-    return (this.max || Infinity) - this.alreadyMinted
+    return (this.max || Infinity) - this.alreadyMinted;
   }
-
-
 }
 </script>
 
