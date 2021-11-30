@@ -460,6 +460,7 @@ export default class Gallery extends Vue {
       border-radius: 8px;
       position: relative;
       overflow: hidden;
+      background: transparent;
       // box-shadow: 0px 0px 10px 0.5px #d32e79;
       filter: drop-shadow(-10px 4px 20px rgba(0, 0, 0, 0.25));
       &-image {

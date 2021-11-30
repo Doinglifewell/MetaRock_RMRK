@@ -47,7 +47,7 @@
       <b-navbar-item >
         <b-button tag="router-link" :to="{ path: '/chooseNFT' }" type="is-inverte">Create NFT</b-button>
       </b-navbar-item>
-      <b-navbar-item>
+      <b-navbar-item class="pl-0">
         <NavbarProfileDropdown />
       </b-navbar-item>
     </template>
