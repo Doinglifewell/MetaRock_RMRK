@@ -16,8 +16,6 @@
 
 <script lang="ts" >
 import { Component, Prop, Vue } from 'vue-property-decorator'
- @Component<BasicImage>({
-})
 @Component
 export default class BasicImage extends Vue {
   @Prop({ type: String }) public src!: string;
