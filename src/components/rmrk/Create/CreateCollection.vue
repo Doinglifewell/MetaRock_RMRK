@@ -170,7 +170,7 @@ export default class CreateCollection extends Mixins(
     this.meta = {
       ...this.meta,
       attributes: [],
-      external_url: 'https://nft.kodadot.xyz'
+      external_url: 'http://metarock.network'
     }
 
     // TODO: upload image to IPFS

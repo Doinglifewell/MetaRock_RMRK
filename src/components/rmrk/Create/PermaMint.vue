@@ -458,7 +458,7 @@ export default class PermaMint extends Mixins(
         ...this.nsfwAttribute(),
         ...this.offsetAttribute()
       ],
-      external_url: 'https://nft.kodadot.xyz',
+      external_url: 'http://metarock.network',
       type: this.file.type,
     }
 

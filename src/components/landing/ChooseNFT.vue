@@ -13,7 +13,7 @@
                 <b-button
                   :label="switch_chain"
                   type="is-primary"
-                  icon-right="menu-down"
+                  icon-right="caret-down"
                 />
               </template>
               <b-dropdown-item

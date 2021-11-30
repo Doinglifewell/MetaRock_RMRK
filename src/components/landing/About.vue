@@ -71,14 +71,14 @@
                 <p class="max-w-600">
                   We made NFT Gallery on the top of Kusama using RMRK standard. This was our Milestone 1, the first step towards our Meta dreams of NFT Gallery and sort of our dreamy Metaverse.
                 </p>
-                <b-button
+                <!-- <b-button
                   type="is-primary"
                   class="my-5"
                 >
                 <a href="https://medium.com/kodadot/traverse-to-the-prime-show-733d6046d3f5">
                   Read more
                 </a>
-                </b-button>
+                </b-button> -->
               </div>
               <div class="mb-5">
                 <h2 class="heading heading-is-4 text-bold uppercase">
@@ -87,17 +87,17 @@
                     TECHNICAL EXAM
                   </span>
                 </h2>
-                <p class="max-w-600">
+                <!-- <p class="max-w-600">
                   Client-first, Onchain-first, Serverless-first, these words can sound like magic to you, but they exactly represent the actual technical state of KodaDot the NFT gallery.
-                </p>
-                <b-button
+                </p> -->
+                <!-- <b-button
                   type="is-primary"
                   class="my-5"
                 >
                 <a href="https://medium.com/kodadot/client-first-nft-gallery-technical-examination-33db09dfdc97">
                   Read more
                 </a>
-                </b-button>
+                </b-button> -->
               </div>
             </div>
           </div>

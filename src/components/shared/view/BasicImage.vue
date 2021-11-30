@@ -16,7 +16,8 @@
 
 <script lang="ts" >
 import { Component, Prop, Vue } from 'vue-property-decorator'
-
+ @Component<BasicImage>({
+})
 @Component
 export default class BasicImage extends Vue {
   @Prop({ type: String }) public src!: string;
@@ -28,10 +29,9 @@ export default class BasicImage extends Vue {
     console.log('Unable to load ', src)
   }
 
-  public created(){
-    console.log("src:", this.src)
-  }
-
+  // public beforeMount(){
+  //   console.log("src:", this.src)
+  // }
 }
 </script>
 

@@ -67,7 +67,7 @@
           {{ $t("mint.submit") }}
         </b-button>
       </b-field>
-      <b-field>
+      <!-- <b-field>
         <b-button
           type="is-text"
           icon-left="calculator"
@@ -84,7 +84,7 @@
             <Money :value="estimated" inline />
           </template>
         </b-button>
-      </b-field>
+      </b-field> -->
       <!-- <b-field>
         <Support v-model="hasSupport" :price="filePrice" />
       </b-field>

@@ -345,7 +345,7 @@ export default class CreateToken extends Mixins(
         ...nsfwAttribute(this.nft.nsfw),
         ...offsetAttribute(this.hasCarbonOffset)
       ],
-      external_url: 'https://nft.kodadot.xyz',
+      external_url: 'http://metarock.network',
       type: this.nft.file.type
     }
 

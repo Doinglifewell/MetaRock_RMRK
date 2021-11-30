@@ -588,7 +588,7 @@ export default class MassMint extends Mixins(
           name: mint.name,
           description: mint.description,
           image: fileHash,
-          external_url: 'https://nft.kodadot.xyz',
+          external_url: 'http://metarock.network',
           type: mint.file?.type
         }
         const ipfsPromise = pinJson(meta).then(unSanitizeIpfsUrl)
