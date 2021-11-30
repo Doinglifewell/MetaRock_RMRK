@@ -54,7 +54,7 @@
                   </div>
                   <div class="level">
                     <p class="level-item has-text-centered collection-name">
-                      {{ nft.price }}
+                      <Money :value="nft.price" inline />
                     </p>
                   </div>
                   <!-- <span v-if="nft.price > 0" class="card-image__price">

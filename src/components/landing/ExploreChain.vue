@@ -1,6 +1,7 @@
 <template>
   <section class="hero">
     <div class="hero-body">
+      <Loader v-model="checkLoading" />
       <div class="container">
         <div class="columns is-mobile">
           <p class="head-text column">Choose Chain</p>
@@ -31,16 +32,8 @@
               class="mr-3 mt-2"
               >Pangolin</b-button
             >
-            <b-button
-              type="is-primary"
-              class="mr-3 mt-2"
-              >Moonbeam</b-button
-            >
-            <b-button
-              type="is-primary"
-              class="mr-3 mt-2"
-              >Ethereum</b-button
-            >
+            <b-button type="is-primary" class="mr-3 mt-2">Moonbeam</b-button>
+            <b-button type="is-primary" class="mr-3 mt-2">Ethereum</b-button>
           </div>
         </div>
       </div>
@@ -50,12 +43,80 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-
-@Component<ExploreChain>({})
+import Connector from "@/utils/vue-api2";
+import correctFormat from "@/utils/ss58Format";
+const components = {
+  Loader: () => import("@/components/shared/Loader.vue"),
+};
+@Component<ExploreChain>({ components })
 export default class ExploreChain extends Vue {
+  public checkLoading = false;
+
   public switchExploreChain(data: string) {
-    this.$router.push('/rmrk/gallery') 
     this.$store.dispatch("setExploreChain", data);
+
+    const NETWORK_ENDPOINTS = {
+      Kusama: { endpoints: "wss://kusama-rpc.polkadot.io", option: "kusama" },
+      Darwinia: { endpoints: "wss://rpc.darwinia.network", option: "darwinia" },
+      Crab: {
+        endpoints: "wss://crab-rpc.darwinia.network",
+        option: "darwinia",
+      },
+      Pangolin: {
+        endpoints: "wss://pangolin-rpc.darwinia.network",
+        option: "darwinia",
+      },
+    };
+    const { getInstance: Api } = Connector;
+    interface ChangeUrlAction {
+      type: string;
+      payload: string;
+    }
+    this.checkLoading = true;
+
+    Api().disconnect();
+    Api().connect(
+      NETWORK_ENDPOINTS[data].endpoints,
+      NETWORK_ENDPOINTS[data].option
+    );
+
+    this.$store.subscribeAction(
+      ({ type, payload }: ChangeUrlAction, _: any) => {
+        if (type === "setApiUrl" && payload) {
+          this.$store.commit("setLoading", true);
+          Api().connect(payload, NETWORK_ENDPOINTS[data].option);
+        }
+      }
+    );
+
+    Api().on("connect", async (api: any) => {
+      const { chainSS58, chainDecimals, chainTokens } = api.registry;
+      const { genesisHash } = api;
+      console.log(
+        "[API] Connect to <3",
+        NETWORK_ENDPOINTS[data].endpoints,
+        {
+          chainSS58,
+          chainDecimals,
+          chainTokens,
+          genesisHash,
+        }
+      );
+      this.$store.commit("setChainProperties", {
+        ss58Format: correctFormat(chainSS58),
+        tokenDecimals: chainDecimals[0] || 12,
+        tokenSymbol: chainTokens[0] || "Unit",
+        genesisHash: genesisHash || "",
+      });
+      this.checkLoading = false;
+      this.$store.commit("setExplorer", { chain: data });
+      this.$router.push("/rmrk/gallery");
+    });
+    Api().on("error", async (error: Error) => {
+      this.$store.commit("setError", error);
+      console.warn("[API] error", error);
+      Api().disconnect();
+    });
   }
 }
 </script>

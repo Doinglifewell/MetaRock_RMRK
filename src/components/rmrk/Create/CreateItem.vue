@@ -44,15 +44,15 @@
       accept="image/png, image/jpeg, image/gif"
       expanded
     />
-    <AttributeTagInput
+    <!-- <AttributeTagInput
       v-model="vTags"
       placeholder="Get discovered easier through tags"
-    />
+    /> -->
 
-    <BasicSwitch v-model="vNsfw" label="mint.nfsw" />
+    <!-- <BasicSwitch v-model="vNsfw" label="mint.nfsw" /> -->
 
     <BalanceInput @input="updateMeta" label="Price" expanded />
-    <b-message
+    <!-- <b-message
       v-if="hasPrice"
       icon="exclamation-triangle"
       class="mt-3 has-text-primary"
@@ -64,7 +64,7 @@
       <span class="has-text-primary"
         >Setting the price now requires making an additional transaction.</span
       >
-    </b-message>
+    </b-message> -->
   </div>
 </template>
 

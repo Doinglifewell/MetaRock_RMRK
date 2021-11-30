@@ -18,5 +18,5 @@ export const Pangolin = new ApolloClient({
   // You should use an absolute URL here
   name: 'subquery',
   cache: new InMemoryCache(),
-  uri: 'https://api.subquery.network/sq/TopCodeBeast/polkarock_pangolin_subql__VG9wQ'
+  uri: 'https://api.subquery.network/sq/TopCodeBeast/metarock_pangolin_subql'
 })
