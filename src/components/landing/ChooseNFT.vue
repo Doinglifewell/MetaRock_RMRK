@@ -49,7 +49,7 @@
         <div class="columns is-mobile">
           <div class="column">
             <b-button type="is-primary " class="mr-3 mt-2" @click="createNFT(1)"
-              >Digital Aseet</b-button
+              >Digital Asset</b-button
             >
             <b-button type="is-primary " class="mr-3 mt-2" @click="createNFT(2)"
               >Physical Asset</b-button

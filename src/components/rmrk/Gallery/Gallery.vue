@@ -46,6 +46,9 @@
                     :alt="nft.name"
                     customClass="gallery__image-wrapper"
                   />
+                  <!-- <GalleryItem1
+                   :src ="nft.id"
+                  /> -->
                   <div class="level mt-5 mb-1">
                     <p class="level-item has-text-centered collection-name">
                       {{ nft.name }}
@@ -142,6 +145,7 @@ const components = {
   Pagination: () => import("./Pagination.vue"),
   Loader: () => import("@/components/shared/Loader.vue"),
   BasicImage: () => import("@/components/shared/view/BasicImage.vue"),
+  GalleryItem1: () => import("./GalleryItem copy.vue")
 };
 
 @Component<Gallery>({

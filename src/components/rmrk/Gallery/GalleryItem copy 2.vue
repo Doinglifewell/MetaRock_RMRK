@@ -2,7 +2,7 @@
   <div class="wrapper section no-padding-desktop gallery-item mb-6">
 
     <div class="container">
-      <!-- <b-message type="is-primary" v-if="message">
+      <b-message type="is-primary" v-if="message">
         <div class="columns">
         <div class="column is-four-fifths">
         <p class="title is-3 has-text-black">{{ $t('mint.success') }} 🎉</p>
@@ -13,34 +13,34 @@
         </div>
         </div>
 
-      </b-message> -->
+      </b-message>
       <div class="columns">
           <div class="image-wrapper">
-              <!-- <button id="theatre-view" @click="toggleView" v-if="!isLoading && imageVisible">{{ viewMode === 'default' ? $t('theatre') : $t('default') }} {{$t('view')}}</button> -->
+              <button id="theatre-view" @click="toggleView" v-if="!isLoading && imageVisible">{{ viewMode === 'default' ? $t('theatre') : $t('default') }} {{$t('view')}}</button>
               <div class="column" :class="{ 'is-12 is-theatre': viewMode === 'theatre', 'is-6 is-offset-3': viewMode === 'default'}">
                 <div v-orientation="viewMode === 'default' && !isFullScreenView && imageVisible" class="image-preview has-text-centered" :class="{fullscreen: isFullScreenView}">
                   <b-image
                     v-if="!isLoading && imageVisible && !meta.animation_url"
-                    :src="meta.image || '/placeholder.png'"
-                    src-fallback="/placeholder.png'"
-                    alt="MetaRock NFT minted multimedia"
+                    :src="meta.image || '/placeholder.svg'"
+                    src-fallback="/placeholder.svg'"
+                    alt="KodaDot NFT minted multimedia"
                     ratio="1by1"
                     @error="onImageError"
                   ></b-image>
-                  <img class="fullscreen-image" :src="meta.image || '/placeholder.png'" alt="MetaRock NFT minted multimedia">
+                  <img class="fullscreen-image" :src="meta.image || '/placeholder.svg'" alt="KodaDot NFT minted multimedia">
                   <b-skeleton height="524px" size="is-large" :active="isLoading"></b-skeleton>
                   <MediaResolver v-if="meta.animation_url" :class="{ withPicture: imageVisible }" :src="meta.animation_url" :mimeType="mimeType" />
                 </div>
               </div>
-              <!-- <button id="fullscreen-view" @keyup.esc="minimize" @click="toggleFullScreen" v-if="!isLoading && imageVisible" :class="{fullscreen: isFullScreenView}">
+              <button id="fullscreen-view" @keyup.esc="minimize" @click="toggleFullScreen" v-if="!isLoading && imageVisible" :class="{fullscreen: isFullScreenView}">
                 <b-icon
                   :icon="isFullScreenView ? 'compress-alt' : 'arrows-alt'"
                   >
                 </b-icon>
-              </button> -->
+              </button>
           </div>
       </div>
-<!-- 
+
       <div class="columns pl-3">
         <div class="column is-6">
           <Appreciation
@@ -60,9 +60,9 @@
             <b-skeleton :count="3" size="is-large" :active="isLoading"></b-skeleton>
           </div>
 
-        </div> -->
+        </div>
 
-        <!-- <div class="column is-6" v-if="detailVisible">
+        <div class="column is-6" v-if="detailVisible">
           <b-skeleton :count="2" size="is-large" :active="isLoading"></b-skeleton>
 
            <div class="columns">
@@ -73,7 +73,7 @@
             </div>
             <div class="column is-flex is-flex-direction-column is-justify-content-space-between">
               <template v-if="detailVisible && !nft.burned">
-                <PackSaver v-if="accountId" :accountId="accountId" :currentOwnerId="nft.currentOwner" :nftId="nft.id" />
+                <!-- <PackSaver v-if="accountId" :accountId="accountId" :currentOwnerId="nft.currentOwner" :nftId="nft.id" /> -->
                 <div
                   class="card mb-4"
                   aria-id="contentIdForA11y3"
@@ -123,21 +123,23 @@
           <template v-if="detailVisible">
             <HistoryPriceChart v-if="!isLoading" :events="nft.events"/>
           </template>
-        </div> -->
-      <!-- </div> -->
-      <!-- <div class="columns">
+        </div>
+      </div>
+      <div class="columns">
 
         <div class="column">
           <History v-if="!isLoading" :events="nft.events"/>
         </div>
 
-      </div> -->
+      </div>
     </div>
+
+
   </div>
 </template>
 
 <script lang="ts" >
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 import { NFT, NFTMetadata, Emote } from '../service/scheme'
 import { sanitizeIpfsUrl, resolveMedia, getSanitizer } from '../utils'
 import { emptyObject } from '@/utils/empty'
@@ -154,7 +156,7 @@ import axios from 'axios'
 import { exist } from './Search/exist'
 import Orientation from '@/directives/DeviceOrientation'
 
-@Component<GalleryItem1>({
+@Component<GalleryItem>({
   metaInfo() {
     const image = `https://og-image-green-seven.vercel.app/${encodeURIComponent(this.nft.name as string)}.png?price=${Number(this.nft.price) ? Vue.filter('formatBalance')(this.nft.price, 12, 'KSM') : ''}&image=${(this.meta.image as string)}`
     return {
@@ -194,8 +196,7 @@ import Orientation from '@/directives/DeviceOrientation'
     orientation: Orientation
   },
 })
-export default class GalleryItem1 extends Vue {
-   @Prop({ type: String }) public src!: string;
+export default class GalleryItem extends Vue {
   private id = '';
   // private accountId: string = '';
   private passsword = '';
@@ -277,10 +278,9 @@ export default class GalleryItem1 extends Vue {
   }
 
   public checkId(): void {
-    // if (this.$route.params.id) {
-    //   this.id = this.$route.params.id
-    // }
-    this.id = this.src;
+    if (this.$route.params.id) {
+      this.id = this.$route.params.id
+    }
   }
 
   public toggleView(): void {
