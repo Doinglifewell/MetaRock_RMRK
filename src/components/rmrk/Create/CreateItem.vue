@@ -1,70 +1,80 @@
 <template>
-  <div>
-    <MetadataUpload
-      v-model="vFile"
-      label="File Types: BMP, GIF, JPEG, PNG, SVG, TIFF, WEBP, MP4, OGV, QUICKTIME, WEBM, GLB, FLAC, MP3, JSON"
-      expanded
-      preview
-    />
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <p class="collection_head">Collection Cover Image</p>
+        <MetadataUpload
+          v-model="vFile"
+          label="File Types: BMP, GIF, JPEG, PNG, SVG, TIFF, WEBP, MP4, OGV, QUICKTIME, WEBM, GLB, FLAC, MP3, JSON"
+          expanded
+          preview
+        />
+      </div>
+      <div class="column">
+        <BasicInput
+          v-model="vName"
+          :label="$t('mint.nft.name.label')"
+          :message="$t('mint.nft.name.message')"
+          :placeholder="$t('mint.nft.name.placeholder')"
+          expanded
+        />
 
-    <BasicInput
-      v-model="vName"
-      :label="$t('mint.nft.name.label')"
-      :message="$t('mint.nft.name.message')"
-      :placeholder="$t('mint.nft.name.placeholder')"
-      expanded
-    />
+        <BasicInput
+          v-model="vDescription"
+          maxlength="500"
+          type="textarea"
+          spellcheck="true"
+          class="mb-0"
+          :label="$t('mint.nft.description.label')"
+          :message="$t('mint.nft.description.message')"
+          :placeholder="$t('mint.nft.description.placeholder')"
+        />
 
-    <BasicInput
-      v-model="vDescription"
-      maxlength="500"
-      type="textarea"
-      spellcheck="true"
-      class="mb-0"
-      :label="$t('mint.nft.description.label')"
-      :message="$t('mint.nft.description.message')"
-      :placeholder="$t('mint.nft.description.placeholder')"
-    />
-
-    <b-field :label="$i18n.t('Edition')" class="mt-5">
-      <b-numberinput
-        v-model="vEdition"
-        placeholder="1 is minumum"
-        expanded
-        :min="1"
-        :max="clickableMax"
-      ></b-numberinput>
-    </b-field>
-    <MetadataUpload
-      v-if="secondaryFileVisible"
-      label="Your NFT requires a poster/cover to be seen in gallery. Please upload image (jpg/ png/ gif)"
-      v-model="vSecondFile"
-      icon="file-image"
-      preview
-      accept="image/png, image/jpeg, image/gif"
-      expanded
-    />
-    <!-- <AttributeTagInput
-      v-model="vTags"
-      placeholder="Get discovered easier through tags"
-    /> -->
-
-    <!-- <BasicSwitch v-model="vNsfw" label="mint.nfsw" /> -->
-
-    <BalanceInput @input="updateMeta" label="Price" expanded />
-    <!-- <b-message
-      v-if="hasPrice"
-      icon="exclamation-triangle"
-      class="mt-3 has-text-primary"
-      title="Additional transaction"
-      type="is-primary"
-      has-icon
-      aria-close-label="Close message"
-    >
-      <span class="has-text-primary"
-        >Setting the price now requires making an additional transaction.</span
-      >
-    </b-message> -->
+        <b-field :label="$i18n.t('Edition')" class="mt-5">
+          <b-numberinput
+            v-model="vEdition"
+            placeholder="1 is minumum"
+            expanded
+            :min="1"
+            :max="clickableMax"
+          ></b-numberinput>
+        </b-field>
+        <MetadataUpload
+          v-if="secondaryFileVisible"
+          label="Your NFT requires a poster/cover to be seen in gallery. Please upload image (jpg/ png/ gif)"
+          v-model="vSecondFile"
+          icon="file-image"
+          preview
+          accept="image/png, image/jpeg, image/gif"
+          expanded
+        />
+        <div class="columns">
+          <div class="column">
+            <AttributeTagInput
+              v-model="vTags"
+              placeholder="Get discovered easier through tags"
+            />
+          </div>
+          <div class="column">
+            <BalanceInput @input="updateMeta" label="Price" expanded />
+            <!-- <b-message
+              v-if="hasPrice"
+              icon="exclamation-triangle"
+              class="mt-3 has-text-primary"
+              title="Additional transaction"
+              type="is-primary"
+              has-icon
+              aria-close-label="Close message"
+            >
+              <span class="has-text-primary"
+                >Setting the price now requires making an additional
+                transaction.</span
+              >
+            </b-message> -->
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

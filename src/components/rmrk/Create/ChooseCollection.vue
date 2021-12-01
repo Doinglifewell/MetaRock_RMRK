@@ -397,6 +397,7 @@ export default class ChooseCollection extends Vue {
       border-radius: 21px;
       position: relative;
       overflow: hidden;
+      background: transparent;
       // box-shadow: 0px 0px 10px 0.5px #d32e79;
 
       &-image {

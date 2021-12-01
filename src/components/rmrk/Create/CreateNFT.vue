@@ -2,38 +2,14 @@
   <div class="container">
     <div>
       <Loader v-model="isLoading" :status="status" />
-      <b-field>
+      <!-- <b-field>
         <Auth />
-      </b-field>
-      <template v-if="accountId">
-        <b-field
-          :label="$i18n.t('Collection')"
-          :message="$t('Select collection where do you want mint your token')"
-        >
-          <b-select
-            placeholder="Select a collection"
-            v-model="selectedCollection"
-            expanded
-          >
-            <option disabled selected value="">--</option>
-            <option
-              v-for="option in collections"
-              :value="option"
-              :key="option.id"
-            >
-              {{ option.name }} {{ option.id }} {{ option.alreadyMinted }}/{{
-                option.max || Infinity
-              }}
-            </option>
-          </b-select>
-        </b-field>
-      </template>
-      <h6 v-if="selectedCollection" class="subtitle is-6">
+      </b-field> -->
+      <h6 class="subtitle is-6">
         You have minted {{ selectedCollection.alreadyMinted }} out of
         {{ selectedCollection.max || Infinity }}
       </h6>
       <CreateItem
-        v-if="selectedCollection"
         v-bind.sync="nft"
         :max="selectedCollection.max"
         :alreadyMinted="selectedCollection.alreadyMinted"
@@ -67,36 +43,6 @@
           {{ $t("mint.submit") }}
         </b-button>
       </b-field>
-      <!-- <b-field>
-        <b-button
-          type="is-text"
-          icon-left="calculator"
-          @click="estimateTx"
-          :disabled="disabled"
-          :loading="isLoading"
-          outlined
-        >
-          <template v-if="!estimated">
-            {{ $t("mint.estimate") }}
-          </template>
-          <template v-else>
-            {{ $t("mint.estimated") }}
-            <Money :value="estimated" inline />
-          </template>
-        </b-button>
-      </b-field> -->
-      <!-- <b-field>
-        <Support v-model="hasSupport" :price="filePrice" />
-      </b-field>
-      <b-field>
-        <Support
-          v-model="hasCarbonOffset"
-          :price="1"
-          activeMessage="I'm making carbonless NFT"
-          passiveMessage="I don't want to have carbonless NFT"
-        />
-      </b-field>
-      <ArweaveUploadSwitch v-model="arweaveUpload" /> -->
     </div>
   </div>
 </template>
@@ -176,8 +122,14 @@ export default class CreateNFT extends Mixins(
     file: undefined,
     secondFile: undefined,
   };
-  protected collections: MintedCollection[] = [];
-  private selectedCollection: MintedCollection | null = null;
+  private selectedCollection: MintedCollection = {
+    id: "",
+    name: "",
+    alreadyMinted: 0,
+    max: 0,
+    metadata: "",
+    symbol: "",
+  };
 
   private password = "";
   private alreadyMinted = 0;
@@ -187,7 +139,7 @@ export default class CreateNFT extends Mixins(
   private filePrice = 0;
   protected arweaveUpload = false;
   protected postfix = true;
-  private id = '';
+  private id = "";
 
   get accountId() {
     return this.$store.getters.getAuthAddress;
@@ -197,40 +149,35 @@ export default class CreateNFT extends Mixins(
     return this.$store.getters.getCreateChain;
   }
 
-  @Watch("accountId", { immediate: true })
-  hasAccount(value: string, oldVal: string) {
-    if (shouldUpdate(value, oldVal)) {
-      this.fetchCollections();
-    }
-  }
+  // @Watch("accountId", { immediate: true })
+  // hasAccount(value: string, oldVal: string) {
+  //   if (shouldUpdate(value, oldVal)) {
+  //     this.fetchCollections();
+  //   }
+  // }
 
   public async fetchCollections() {
-   const apolloClient = this.createChain;
-    console.log("fetchCollections")
+    const apolloClient = this.createChain;
+    console.log("fetchCollections");
     const collections = await this.$apollo.query({
       query: collectionFromId,
       variables: {
-        account: this.id,
+        id: this.id,
       },
       client: apolloClient,
       fetchPolicy: "network-only",
     });
 
-    console.log("collections:", collections);
+    this.selectedCollection.id = collections.data.collectionEntity.id;
+    this.selectedCollection.name = collections.data.collectionEntity.name;
+    this.selectedCollection.max = collections.data.collectionEntity.max;
+    this.selectedCollection.metadata =
+      collections.data.collectionEntity.metadata;
+    this.selectedCollection.symbol = collections.data.collectionEntity.symbol;
+    this.selectedCollection.alreadyMinted =
+      collections.data.collectionEntity.nfts.totalCount;
 
-    // const {
-    //   data: { collectionEntities },
-    // } = collections;
-
-
-    // this.collections = collectionEntities.nodes
-    //   ?.map((ce: any) => ({
-    //     ...ce,
-    //     alreadyMinted: ce.nfts?.totalCount,
-    //   }))
-    //   .filter(
-    //     (ce: MintedCollection) => (ce.max || Infinity) - ce.alreadyMinted > 0
-    //   );
+    console.log("selectedCollection:", this.selectedCollection);
   }
 
   get disabled() {
@@ -239,17 +186,16 @@ export default class CreateNFT extends Mixins(
 
   public checkId(): void {
     if (this.$route.params.id) {
-      this.id = this.$route.params.id
+      this.id = this.$route.params.id;
     }
   }
 
-   public created(): void {
-    console.log("created")
+  public created(): void {
+    console.log("created");
 
     this.checkId();
     this.fetchCollections();
   }
-
 
   @Watch("nft.file")
   @Watch("nft.secondFile")
