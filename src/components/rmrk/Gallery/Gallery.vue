@@ -2,21 +2,7 @@
   <div class="gallery container">
     <Loader :value="isLoading" />
     <!-- TODO: Make it work with graphql -->
-    <Search v-bind.sync="searchQuery">
-      <!-- <b-field class="column">
-        <Pagination
-          hasMagicBtn
-          simple
-          :total="total"
-          v-model="currentValue"
-          :perPage="12"
-          replace
-          class="is-right"
-        />
-      </b-field> -->
-    </Search>
-    <!-- <b-button @click="first += 1">Show {{ first }}</b-button> -->
-
+    <Search v-bind.sync="searchQuery"/>
     <div>
       <!-- <div>
         <b-image
@@ -64,45 +50,6 @@
                     <Money :value="nft.price" inline />
                   </span> -->
                 </div>
-
-                <!-- <div class="card-content">
-                  <span
-                    v-if="!isLoading"
-                    class="title mb-0 is-4 has-text-centered"
-                    id="hover-title"
-                    :title="nft.name"
-                  >
-                    <router-link
-                      v-if="nft.count < 2"
-                      :to="{ name: 'nftDetail', params: { id: nft.id } }"
-                    >
-                      <div>
-                        <div class="has-text-overflow-ellipsis middle">
-                          {{ nft.name }}
-                        </div>
-                      </div>
-                    </router-link>
-                    <router-link
-                      v-else
-                      :to="{
-                        name: 'collectionDetail',
-                        params: { id: nft.collectionId },
-                      }"
-                    >
-                      <div class="has-text-overflow-ellipsis">
-                        {{ nft.name }}
-                      </div>
-                    </router-link>
-                    <p
-                      v-if="nft.count > 2"
-                      :title="`${nft.count} items available in collection`"
-                      class="is-absolute nft-collection-counter title is-6"
-                    >
-                      「{{ nft.count }}」
-                    </p>
-                  </span>
-                  <b-skeleton :active="isLoading"> </b-skeleton>
-                </div> -->
               </router-link>
             </div>
           </div>

@@ -90,20 +90,7 @@ import Orientation from "@/directives/DeviceOrientation";
   components: {
     Auth: () => import("@/components/shared/Auth.vue"),
     AvailableActions: () => import("./AvailableActions.vue"),
-    Facts: () => import("@/components/rmrk/Gallery/Item/Facts.vue"),
-    // MarkdownItVueLight: MarkdownItVueLight as VueConstructor<Vue>,
-    History: () => import("@/components/rmrk/Gallery/History.vue"),
-    HistoryPriceChart: () =>
-      import("@/components/rmrk/Gallery/HistoryPriceChart.vue"),
-    Money: () => import("@/components/shared/format/Money.vue"),
-    Name: () => import("@/components/rmrk/Gallery/Item/Name.vue"),
-    Sharing: () => import("@/components/rmrk/Gallery/Item/Sharing.vue"),
-    Appreciation: () => import("./Appreciation.vue"),
     MediaResolver1: () => import("../Media/MediaResolver1.vue"),
-    // PackSaver: () => import('../Pack/PackSaver.vue'),
-    IndexerGuard: () => import("@/components/shared/wrapper/IndexerGuard.vue"),
-    VueMarkdown: () => import("vue-markdown-render"),
-    Detail: () => import("@/components/rmrk/Gallery/Item/Detail.vue"),
   },
   directives: {
     orientation: Orientation,
@@ -319,69 +306,9 @@ hr.comment-divider {
       transition: 0.3s all;
     }
 
-    button {
-      border: 2px solid $primary;
-      color: #fff;
-      font-weight: bold;
-      text-transform: uppercase;
-      padding: 7px 16px;
-      font-size: 20px;
-      background: $scheme-main;
-      z-index: 2;
-
-      &:hover {
-        background: $primary;
-        cursor: pointer;
-      }
-    }
   }
 
-  button#theatre-view {
-    position: absolute;
-    top: 13px;
-    left: 13px;
-    color: $light-text;
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
-  }
-
-  button#fullscreen-view {
-    position: absolute;
-    bottom: 13px;
-    right: 13px;
-
-    &.fullscreen {
-      position: fixed;
-      z-index: 999998;
-      bottom: 0;
-      right: 0;
-    }
-  }
-
-  .price-block {
-    border: 2px solid $primary;
-    padding: 14px;
-
-    &__original {
-      font-size: 24px;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    &__container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    &__exchange {
-      opacity: 0.6;
-      color: $dark;
-      margin: 0;
-    }
-  }
-
+  
   .card {
     border-radius: 0 !important;
     box-shadow: none;
