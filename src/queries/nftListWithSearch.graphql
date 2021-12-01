@@ -8,6 +8,7 @@ query nftListWithSearch($first: Int!, $offset: Int, $denyList: [String!], $searc
     filter: {
       name: { notLike: "%Kanaria%" }
       issuer: { notIn: $denyList }
+      burned: { distinctFrom : true}
       and: $search
     }
   ) {
