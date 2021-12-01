@@ -1,18 +1,17 @@
 <template>
-  <div class="wrapper section no-padding-desktop gallery-item mb-6">
+  <div class="wrapper no-padding-desktop gallery-item">
     <div class="container">
       <div class="columns">
         <div class="image-wrapper">
-          <div class="column has-text-centered">
-              <b-image
-                v-if="!isLoading && meta.image"
-                :src="meta.image || '/placeholder.png'"
-                src-fallback="/placeholder.png'"
-                alt="MetaRock NFT minted multimedia"
-                ratio="1by1"
-                @error="onImageError"
-              ></b-image>
-              <!-- <img
+          <div class="column has-text-centered" v-if="!isLoading && meta.image">
+            <b-image
+              :src="meta.image || '/placeholder.png'"
+              src-fallback="/placeholder.png'"
+              alt="MetaRock NFT minted multimedia"
+              ratio="1by1"
+              @error="onImageError"
+            ></b-image>
+            <!-- <img
                 class="fullscreen-image"
                 :src="meta.image || '/placeholder.png'"
                 alt="MetaRock NFT minted multimedia"
@@ -22,12 +21,16 @@
                 size="is-large"
                 :active="isLoading"
               ></b-skeleton> -->
-              <MediaResolver
-                v-if="!meta.image && meta.animation_url"
-                :class="{ withPicture: imageVisible }"
-                :src="meta.animation_url"
-                :mimeType="mimeType"
-              />
+          </div>
+          <div
+            class="column has-text-centered image is-1by1"
+            v-if="!meta.image && meta.animation_url"
+          >
+            <MediaResolver1
+              :class="{ withPicture: imageVisible, 'has-ratio': true }"
+              :src="meta.animation_url"
+              :mimeType="mimeType"
+            />
           </div>
         </div>
       </div>
@@ -96,7 +99,7 @@ import Orientation from "@/directives/DeviceOrientation";
     Name: () => import("@/components/rmrk/Gallery/Item/Name.vue"),
     Sharing: () => import("@/components/rmrk/Gallery/Item/Sharing.vue"),
     Appreciation: () => import("./Appreciation.vue"),
-    MediaResolver: () => import("../Media/MediaResolver.vue"),
+    MediaResolver1: () => import("../Media/MediaResolver1.vue"),
     // PackSaver: () => import('../Pack/PackSaver.vue'),
     IndexerGuard: () => import("@/components/shared/wrapper/IndexerGuard.vue"),
     VueMarkdown: () => import("vue-markdown-render"),
@@ -272,12 +275,12 @@ hr.comment-divider {
 
   .image-wrapper {
     position: relative;
-    margin: 30px auto;
+    // margin: 30px auto;
     width: 100%;
 
-    .image {
-      // border: 2px solid $primary;
-    }
+    // .image {
+    //   border: 2px solid $primary;
+    // }
 
     .fullscreen-image {
       display: none;

@@ -146,7 +146,7 @@ const components = {
   Pagination: () => import("./Pagination.vue"),
   Loader: () => import("@/components/shared/Loader.vue"),
   BasicImage: () => import("@/components/shared/view/BasicImage.vue"),
-  GalleryItem1: () => import("./GalleryItem copy.vue")
+  GalleryItem1: () => import("./GalleryItem1.vue")
 };
 
 @Component<Gallery>({
