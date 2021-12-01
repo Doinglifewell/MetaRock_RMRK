@@ -214,8 +214,13 @@ export default class GalleryItem extends Vue {
     return this.$store.getters.getAuthAddress
   }
 
+  get exploreChain(): string {
+    return this.$store.getters.getExploreChain;
+  }
+
   public async created(): Promise<void> {
     this.checkId()
+     const apolloClient = this.exploreChain;
     exist(this.$route.query.message, (val) => {
       this.message = val === 'congrats' ? val : ''
       this.$router.replace(
@@ -225,6 +230,7 @@ export default class GalleryItem extends Vue {
     try {
       this.$apollo.addSmartQuery('nft',{
         query: nftById,
+          client: apolloClient,
         variables: {
           id: this.id
         },
@@ -245,13 +251,12 @@ export default class GalleryItem extends Vue {
   }
 
   public async fetchMetadata() {
-    // console.log(this.nft);
+    // console.log("nft:", this.nft);
 
     if (this.nft['metadata'] && !this.meta['image']) {
       const m = await get(this.nft.metadata)
 
       const meta = m ? m : await fetchNFTMetadata(this.nft, getSanitizer(this.nft.metadata, undefined, 'permafrost'))
-      console.log(meta)
 
       const imageSanitizer = getSanitizer(meta.image)
       this.meta = {
@@ -260,11 +265,11 @@ export default class GalleryItem extends Vue {
         animation_url: sanitizeIpfsUrl(meta.animation_url || meta.image, 'pinata')
       }
 
-      // console.log(this.meta)
+      // console.log("meta:",this.meta)
       if (this.meta.animation_url && !this.mimeType) {
         const { headers } = await axios.head(this.meta.animation_url)
         this.mimeType = headers['content-type']
-        // console.log(this.mimeType)
+        // console.log("mmType:",this.mimeType)
         const mediaType = resolveMedia(this.mimeType)
         this.imageVisible = ![MediaType.VIDEO, MediaType.MODEL, MediaType.IFRAME, MediaType.OBJECT].some(
           t => t === mediaType
@@ -349,9 +354,9 @@ hr.comment-divider {
     margin: 30px auto;
     width: 100%;
 
-    .image {
-      border: 2px solid $primary;
-    }
+    // .image {
+    //   border: 2px solid $primary;
+    // }
 
     .fullscreen-image {
       display: none;
@@ -392,13 +397,14 @@ hr.comment-divider {
     }
 
     button {
-      border: 2px solid $primary;
+      border: 2px solid $white;
+      border-radius: 21px;
       color: #fff;
       font-weight: bold;
       text-transform: uppercase;
       padding: 7px 16px;
       font-size: 20px;
-      background: $scheme-main;
+      background: transparent;
       z-index: 2;
 
       &:hover {

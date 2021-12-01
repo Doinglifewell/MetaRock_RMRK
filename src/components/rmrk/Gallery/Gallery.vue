@@ -41,14 +41,15 @@
                       nft.emoteCount
                     }}</span>
                   </span>
-                  <BasicImage
+                  <!-- <BasicImage
                     :src="nft.image"
                     :alt="nft.name"
                     customClass="gallery__image-wrapper"
-                  />
-                  <!-- <GalleryItem1
-                   :src ="nft.id"
                   /> -->
+                  <GalleryItem1
+                   :srcId ="nft.id"
+                   :src="nft.image"
+                  />
                   <div class="level mt-5 mb-1">
                     <p class="level-item has-text-centered collection-name">
                       {{ nft.name }}
@@ -268,7 +269,6 @@ export default class Gallery extends Vue {
         });
       }
     });
-
     this.prefetchPage(this.offset + this.first, this.offset + 3 * this.first);
   }
 
