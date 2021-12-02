@@ -56,22 +56,23 @@
             />
           </div>
 
-          <b-field>
-            <b-switch v-model="unlimited" :rounded="false">
-              {{ $t("mint.unlimited") }}
+          <div>
+            <b-switch v-model="unlimited">
+              <p class="collection_label mb-1">
+                {{ $t("mint.unlimited") }}
+              </p>
             </b-switch>
-          </b-field>
-          <b-field
-            v-if="!unlimited"
-            class="mt-1"
-            :label="$i18n.t('Maximum NFTs in collection')"
-          >
+          </div>
+          <div v-if="!unlimited" class="mt-1 mb-5">
+            <!-- <p class="collection_label mb-1">
+              {{ $i18n.t("Maximum NFTs in collection") }}
+            </p> -->
             <b-numberinput
               v-model="rmrkMint.max"
               placeholder="1 is minumum"
               :min="1"
             ></b-numberinput>
-          </b-field>
+          </div>
 
           <b-field>
             <PasswordInput v-model="password" :account="accountId" />

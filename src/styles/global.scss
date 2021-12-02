@@ -1,4 +1,7 @@
 body {
+  .container{
+    padding: 5px;
+  }
   .head-text {
     font-weight: 600;
     @include desktop {
@@ -71,6 +74,21 @@ body {
         background-color: $primary;
       }
     }
+  }
+
+  .button.is-primary.is-outlined{
+    background-color: #fff;
+    border-color: #fff;
+    box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.3);
+    color: #2E0EF4;
+    border-radius: 16px;
+  }
+  .button.is-primary.is-outlined[disabled], fieldset[disabled] .button.is-primary.is-outlined{
+    background-color: transparent;
+    border-color: #fff;
+    box-shadow: none;
+    color: #fff;
+    border-radius: 16px;
   }
 
   .switch input[type="checkbox"]:checked + .check {
