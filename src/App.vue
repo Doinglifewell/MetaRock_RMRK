@@ -30,14 +30,14 @@ import { showNotification } from './utils/notification'
   metaInfo() {
     return {
       title: 'MetaRock - NFT Market Explorer',
-      titleTemplate: '%s | Low Carbon NFTs',
-      meta: [
-        { property: 'og:type', content: 'website' },
-        // { property: 'og:url', content: 'https://nft.kodadot.xyz'},
-        { property: 'og:locale', content: 'en_US' },
-        { property: 'twitter:card', content: 'summary_large_image' },
-        // { property: 'twitter:site', content: '@KodaDot' }
-      ]
+      titleTemplate: 'MetaRock - NFT Market Explorer',
+      // meta: [
+      //   { property: 'og:type', content: 'website' },
+      //   // { property: 'og:url', content: 'https://nft.kodadot.xyz'},
+      //   { property: 'og:locale', content: 'en_US' },
+      //   { property: 'twitter:card', content: 'summary_large_image' },
+      //   // { property: 'twitter:site', content: '@KodaDot' }
+      // ]
     }
   },
   components: {

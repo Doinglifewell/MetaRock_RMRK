@@ -160,8 +160,8 @@ import Orientation from '@/directives/DeviceOrientation'
   metaInfo() {
     const image = `https://og-image-green-seven.vercel.app/${encodeURIComponent(this.nft.name as string)}.png?price=${Number(this.nft.price) ? Vue.filter('formatBalance')(this.nft.price, 12, 'KSM') : ''}&image=${(this.meta.image as string)}`
     return {
-      title: this.nft.name,
-      titleTemplate: '%s | Low Carbon NFTs',
+      // title: this.nft.name,
+      // titleTemplate: '%s | Low Carbon NFTs',
       meta: [
         { name: 'description', content: (this.meta.description as string) },
         { property: 'og:title', content: (this.nft.name as string) },

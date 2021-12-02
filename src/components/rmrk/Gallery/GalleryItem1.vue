@@ -66,8 +66,8 @@ import Orientation from "@/directives/DeviceOrientation";
         : ""
     }&image=${this.meta.image as string}`;
     return {
-      title: this.nft.name,
-      titleTemplate: "%s | Low Carbon NFTs",
+      // title: this.nft.name,
+      // titleTemplate: "%s | Low Carbon NFTs",
       meta: [
         { name: "description", content: this.meta.description as string },
         { property: "og:title", content: this.nft.name as string },
