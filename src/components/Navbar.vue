@@ -20,13 +20,16 @@
     </template>
     <template v-slot:start class="start">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        {{ $t("My Space") }}
+        <!-- {{ $t("My Space") }} -->
+        My Space
       </b-navbar-item>
       <b-navbar-item tag="router-link" :to="{ path: '/exploreChain' }">
-        {{ $t("Explore") }}
+        <!-- {{ $t("Explore") }} -->
+        Explore
       </b-navbar-item>
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        {{ $t("Info") }}
+        <!-- {{ $t("Info") }} -->
+        Info
       </b-navbar-item>
     </template>
 

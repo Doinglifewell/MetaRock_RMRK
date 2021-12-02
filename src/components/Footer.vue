@@ -2,14 +2,8 @@
   <footer class="footer">
     <div class="container footer__wrapper">
       <ul class="footer__list">
-        <li
-          v-for="item in menu"
-          :key="item.name"
-          class="footer__list-item"
-        >
-          <router-link
-            :to="item.url"
-          >
+        <li v-for="item in menu" :key="item.name" class="footer__list-item">
+          <router-link :to="item.url">
             {{ item.name }}
           </router-link>
         </li>
@@ -53,37 +47,50 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import i18n from '@/i18n'
-import { TranslateResult } from 'vue-i18n/types'
+import { Component, Vue } from "vue-property-decorator";
+import i18n from "@/i18n";
+import { TranslateResult } from "vue-i18n/types";
 
 interface Menu {
   name: TranslateResult;
   url: string;
 }
 @Component({
-  components: {}
+  components: {},
 })
 export default class Footer extends Vue {
   public menu: Menu[] = [
     {
-      name: i18n.t('© 2021 Meta Rock'),
-      url: '/'
+      name: "© 2021 Meta Rock",
+      url: "/",
     },
     {
-      name: i18n.t('Privacy Policy'),
-      url: '/'
+      name: "Privacy Policy",
+      url: "/",
     },
     {
-      name: i18n.t('Terms and Conditions'),
-      url: '/'
-    }
-  ]
+      name: "Terms and Conditions",
+      url: "/",
+    },
+
+    // {
+    //   name: i18n.t("© 2021 Meta Rock"),
+    //   url: "/",
+    // },
+    // {
+    //   name: i18n.t("Privacy Policy"),
+    //   url: "/",
+    // },
+    // {
+    //   name: i18n.t("Terms and Conditions"),
+    //   url: "/",
+    // },
+  ];
 }
 </script>
 
 <style lang="scss">
-@import '@/styles/variables';
+@import "@/styles/variables";
 
 .footer {
   &__wrapper {
@@ -113,7 +120,7 @@ export default class Footer extends Vue {
 
     &:not(:last-child) {
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         transform: translateY(-50%);

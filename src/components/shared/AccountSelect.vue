@@ -1,7 +1,6 @@
 <template>
   <b-field grouped :label="label">
     <b-select placeholder="Select account" v-model="account" expanded>
-      <option disabled selected value="">please select</option>
       <option
         v-for="option in options"
         :value="option.address"

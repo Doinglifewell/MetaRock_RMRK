@@ -1,5 +1,5 @@
 body {
-  .container{
+  .container {
     @include mobile {
       padding: 10px;
     }
@@ -20,6 +20,10 @@ body {
       color: #2e0ef4;
     }
   }
+  .dropdown .dropdown-menu .has-link a {
+    color: #2e0ef4;
+  }
+
   .dropdown-menu .dropdown-item .field {
     .label {
       color: red;
@@ -78,14 +82,15 @@ body {
     }
   }
 
-  .button.is-primary.is-outlined{
+  .button.is-primary.is-outlined {
     background-color: #fff;
     border-color: #fff;
     box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.3);
-    color: #2E0EF4;
+    color: #2e0ef4;
     border-radius: 16px;
   }
-  .button.is-primary.is-outlined[disabled], fieldset[disabled] .button.is-primary.is-outlined{
+  .button.is-primary.is-outlined[disabled],
+  fieldset[disabled] .button.is-primary.is-outlined {
     background-color: transparent;
     border-color: #fff;
     box-shadow: none;
@@ -97,7 +102,7 @@ body {
     font-weight: 600;
     font-size: 22px;
   }
-  
+
   .collection_label {
     font-weight: 600;
     font-size: 16px;

@@ -89,11 +89,6 @@ export default new Router({
       component: Series,
     },
     {
-      path: '/series-insights',
-      name: 'series',
-      component: Series,
-    },
-    {
       path: '/about',
       name: 'about',
       component: About,

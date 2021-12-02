@@ -89,7 +89,7 @@ export default [
   },
   {
     path: '/permafrost/create',
-    name: 'permafrost',
+    name: 'permaMint',
     component: PermaMint
   },
   {
