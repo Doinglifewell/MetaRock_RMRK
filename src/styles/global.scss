@@ -1,8 +1,7 @@
 body {
   .container{
     @include mobile {
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding: 10px;
     }
   }
   .head-text {
