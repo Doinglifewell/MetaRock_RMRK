@@ -200,8 +200,7 @@ export default class ChooseCollection extends Vue {
     )
       this.reSelectAccount = false;
     else {
-      const data = this.$store.getters.getCreateChain;
-      this.$store.dispatch("setOldCreateChain", data);
+      this.$store.dispatch("setOldCreateChain", this.$store.getters.getCreateChain);
     }
 
     this.$apollo.addSmartQuery("collection", {
