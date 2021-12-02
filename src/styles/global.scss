@@ -125,7 +125,25 @@ body {
     background: $white;
     color: #2e0ef4;
     font-weight: bold;
-    border-radius : 11px;
+    border-radius: 11px;
+  }
+
+  .carousel .carousel-indicator .indicator-item .indicator-style {
+    display: block;
+    border: 1px solid #fff;
+    background: #7957d5;
+    outline: none;
+    transition: 150ms ease-out;
+  }
+
+  .carousel .carousel-indicator .indicator-item.is-active .indicator-style, .carousel .carousel-indicator .indicator-item .indicator-style:hover{
+    background: pink;
+    border: 1px solid #fff;
+  }
+  .carousel .carousel-arrow span{
+    background: white;
+    color: #2e0ef4;
+    border: white;
   }
 
   .label {

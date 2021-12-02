@@ -1,64 +1,38 @@
 <template>
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns level">
-          <div class="column level-item has-text-centered">
-            <b-image
+  <div class="container">
+    <div class="columns level">
+      <div class="column level-item has-text-centered">
+        <!-- <b-image
               src="/Asset01.png"
               alt="First NFT market explorer on Kusama and Polkadot"
               ratio="6by4"
-            />
-          </div>
-          <div class="column pl-5">
-            <p class="head-text">
-              Enabling assets to be teleported into the metaverse
-            </p>
-            <b-button
-              tag="router-link"
-              to="/getStarted"
-              type="is-inverte"
-              class="mt-5"
-              >Get Started</b-button
-            >
-          </div>
-        </div>
-        <!-- <p class="head-text">Explore</p>
-        <div class="columns level">
-          <div
-            class="column level-item has-text-centered"
-            style="align-self: flex-end"
-          >
+            /> -->
+        <b-carousel>
+          <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
+              <div class="container">
             <b-image
-              src="/Asset 11.png"
+              :src="carousel.src"
               alt="First NFT market explorer on Kusama and Polkadot"
               ratio="6by4"
             />
-            <b-button type="is-primary" class="mt-5"
-              >Real World Assets</b-button
-            >
-          </div>
-          <div
-            class="column level-item has-text-centered"
-            style="align-self: flex-end"
-          >
-            <div>
-              <b-image
-                src="/Asset 31.png"
-                alt="First NFT market explorer on Kusama and Polkadot"
-                ratio="6by4"
-              />
-            </div>
-            <div>
-              <b-button type="is-primary" class="mt-5"
-                >Real World Assets</b-button
-              >
-            </div>
-          </div>
-        </div> -->
+              </div>
+          </b-carousel-item>
+        </b-carousel>
+      </div>
+      <div class="column pl-5">
+        <p class="head-text">
+          Enabling assets to be teleported into the metaverse
+        </p>
+        <b-button
+          tag="router-link"
+          to="/getStarted"
+          type="is-inverte"
+          class="mt-5"
+          >Get Started</b-button
+        >
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script lang="ts">
@@ -82,9 +56,11 @@ import { fetchNFTMetadata } from "../rmrk/utils";
   // },
 })
 export default class Landing extends Vue {
-  // public mounted() {
-  //   this.fetchFirstGalleryPage()
-  // }
+  public carousels = [
+    { src: "/Asset01.png" },
+    { src: "/Asset02.png" },
+    { src: "/Asset03.png" },
+  ];
 
   public async fetchFirstGalleryPage() {
     const nfts = this.$apollo.query({
@@ -123,5 +99,4 @@ export default class Landing extends Vue {
 
 <style lang="scss" scoped>
 @import "@/styles/variables";
-
 </style>
