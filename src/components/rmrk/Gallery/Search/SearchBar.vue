@@ -3,10 +3,10 @@
     <div class="card-content">
       <div class="columns">
         <b-field class="column is-2 mb-0">
-          <b-button type="is-primary">Physical Assets</b-button>
+          <b-button type="is-primary"  @click="toast()">Physical Assets</b-button>
         </b-field>
         <b-field class="column is-2 mb-0">
-          <b-button type="is-inverte">Digital Assets</b-button>
+          <b-button type="is-inverte" @click="toast()">Digital Assets</b-button>
         </b-field>
         <b-field class="column is-3 mb-0">
           <b-input
@@ -66,6 +66,16 @@ export default class SearchBar extends Vue {
     exist(this.$route.query.type, this.updateType);
     exist(this.$route.query.sort, this.updateSortBy);
     exist(this.$route.query.listed, this.updateListed);
+  }
+
+  public toast() {
+    this.$buefy.toast.open({
+      duration: 2000,
+      message: `We are currently building a rmrk2.0 scan tool to view the NFTs.`,
+      pauseOnHover: true,
+      type: "is-white",
+      position: 'is-top-right',
+    });
   }
 
   get vListed(): boolean {

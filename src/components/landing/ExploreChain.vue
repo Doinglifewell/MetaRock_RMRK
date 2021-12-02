@@ -15,7 +15,7 @@
               >Kusama</b-button
             >
             <b-button
-              @click="switchExploreChain('Darwinia')"
+              @click="toast('Darwinia')"
               type="is-primary"
               class="mr-3 mt-2"
               >Darwinia</b-button
@@ -32,8 +32,18 @@
               class="mr-3 mt-2"
               >Pangolin</b-button
             >
-            <b-button type="is-primary" class="mr-3 mt-2">Moonbeam</b-button>
-            <b-button type="is-primary" class="mr-3 mt-2">Ethereum</b-button>
+            <b-button
+              @click="toast('Moonbeam')"
+              type="is-primary"
+              class="mr-3 mt-2"
+              >Moonbeam</b-button
+            >
+            <b-button
+              @click="toast('Ethereum')"
+              type="is-primary"
+              class="mr-3 mt-2"
+              >Ethereum</b-button
+            >
           </div>
         </div>
       </div>
@@ -52,9 +62,18 @@ const components = {
 export default class ExploreChain extends Vue {
   public checkLoading = false;
 
+  public toast(chain: string) {
+    this.$buefy.toast.open({
+      duration: 2000,
+      message: `We are connecting ` + chain + ` network.`,
+      pauseOnHover: true,
+      type: 'is-white',
+      position: 'is-top-right',
+    });
+  }
+
   public switchExploreChain(data: string) {
     this.$store.dispatch("setExploreChain", data);
-
     const NETWORK_ENDPOINTS = {
       Kusama: { endpoints: "wss://kusama-rpc.polkadot.io", option: "kusama" },
       Darwinia: { endpoints: "wss://rpc.darwinia.network", option: "darwinia" },
@@ -92,16 +111,12 @@ export default class ExploreChain extends Vue {
     Api().on("connect", async (api: any) => {
       const { chainSS58, chainDecimals, chainTokens } = api.registry;
       const { genesisHash } = api;
-      console.log(
-        "[API] Connect to <3",
-        NETWORK_ENDPOINTS[data].endpoints,
-        {
-          chainSS58,
-          chainDecimals,
-          chainTokens,
-          genesisHash,
-        }
-      );
+      console.log("[API] Connect to <3", NETWORK_ENDPOINTS[data].endpoints, {
+        chainSS58,
+        chainDecimals,
+        chainTokens,
+        genesisHash,
+      });
       this.$store.commit("setChainProperties", {
         ss58Format: correctFormat(chainSS58),
         tokenDecimals: chainDecimals[0] || 12,

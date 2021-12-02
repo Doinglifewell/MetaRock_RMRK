@@ -102,9 +102,23 @@ export default class ChooseNFT extends Vue {
       type: string;
       payload: string;
     }
-
-    if (this.switch_chain == "Choose") {
-      this.null_chian = true;
+    if (type != 3) {
+      this.$buefy.toast.open({
+        duration: 2000,
+        message: `We are creating RMRK2.0.`,
+        pauseOnHover: true,
+        type: "is-white",
+        position: 'is-top-right',
+      });
+    } else if (this.switch_chain == "Choose") {
+      // this.null_chian = true;
+      this.$buefy.toast.open({
+        duration: 2000,
+        message: `Please choose chain !`,
+        pauseOnHover: true,
+        position: "is-bottom",
+        type: "is-danger",
+      });
     } else {
       this.null_chian = false;
       if (type == 3) {
@@ -120,7 +134,10 @@ export default class ChooseNFT extends Vue {
           ({ type, payload }: ChangeUrlAction, _: any) => {
             if (type === "setApiUrl" && payload) {
               this.$store.commit("setLoading", true);
-              Api().connect(payload, NETWORK_ENDPOINTS[this.switch_chain].option);
+              Api().connect(
+                payload,
+                NETWORK_ENDPOINTS[this.switch_chain].option
+              );
             }
           }
         );
@@ -151,7 +168,7 @@ export default class ChooseNFT extends Vue {
         Api().on("error", async (error: Error) => {
           this.$store.commit("setError", error);
           console.warn("[API] error", error);
-          Api().disconnect()
+          Api().disconnect();
         });
       }
     }

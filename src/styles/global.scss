@@ -121,6 +121,13 @@ body {
     background: $primary;
   }
 
+  .notices .toast.is-white {
+    background: $white;
+    color: #2e0ef4;
+    font-weight: bold;
+    border-radius : 11px;
+  }
+
   .label {
     color: red;
     // color: purple;
