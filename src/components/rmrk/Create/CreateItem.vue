@@ -48,7 +48,6 @@
       v-model="vTags"
       placeholder="Get discovered easier through tags"
     /> -->
-
     <!-- <BasicSwitch v-model="vNsfw" label="mint.nfsw" /> -->
 
     <BalanceInput @input="updateMeta" label="Price" expanded />
