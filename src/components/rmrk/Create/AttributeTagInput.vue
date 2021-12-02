@@ -1,5 +1,5 @@
 <template>
-  <b-field :label="$i18n.t('Tags')">
+  <b-field>
     <b-taginput
       v-model="tags"
       id="search_tag"

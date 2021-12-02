@@ -227,12 +227,12 @@
     },
     "nft": {
       "name": {
-        "label": "name",
+        "label": "NFT Name",
         "placeholder": "Enter NFT name",
         "message": "Name of your NFT. It will be visible in the gallery"
       },
       "description": {
-        "label": "NFT description",
+        "label": "NFT description | Optional",
         "placeholder": "Enter NFT description",
         "message": "Description of your NFT. Markdown is supported"
       }

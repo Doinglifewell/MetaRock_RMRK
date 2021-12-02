@@ -1,38 +1,42 @@
 <template>
-  <div class="container">
-    <div class="columns level">
-      <div class="column level-item has-text-centered">
-        <!-- <b-image
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns level">
+          <div class="column level-item has-text-centered">
+            <!-- <b-image
               src="/Asset01.png"
               alt="First NFT market explorer on Kusama and Polkadot"
               ratio="6by4"
             /> -->
-        <b-carousel>
-          <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
-              <div class="container">
-            <b-image
-              :src="carousel.src"
-              alt="First NFT market explorer on Kusama and Polkadot"
-              ratio="6by4"
-            />
-              </div>
-          </b-carousel-item>
-        </b-carousel>
-      </div>
-      <div class="column pl-5">
-        <p class="head-text">
-          Enabling assets to be teleported into the metaverse
-        </p>
-        <b-button
-          tag="router-link"
-          to="/getStarted"
-          type="is-inverte"
-          class="mt-5"
-          >Get Started</b-button
-        >
+            <b-carousel>
+              <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
+                <div class="container">
+                  <b-image
+                    :src="carousel.src"
+                    alt="First NFT market explorer on Kusama and Polkadot"
+                    ratio="6by4"
+                  />
+                </div>
+              </b-carousel-item>
+            </b-carousel>
+          </div>
+          <div class="column pl-5">
+            <p class="head-text">
+              Enabling assets to be teleported into the metaverse
+            </p>
+            <b-button
+              tag="router-link"
+              to="/getStarted"
+              type="is-inverte"
+              class="mt-5"
+              >Get Started</b-button
+            >
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

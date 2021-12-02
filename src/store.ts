@@ -77,22 +77,37 @@ export default new Vuex.Store({
       langsFlags: [
         {
           value: 'en',
-          flag: '/PolkaRock_Logosvg.svg',
+          flag: '/EN.png',
           label: 'English'
         },
-        // {
-        //   value: 'bn',
-        //   flag: '🇧🇩',
-        //   label: 'বাংলা'
-        // },
         {
           value: 'fr',
-          flag: '🇫🇷',
+          flag: '/FR.png',
           label: 'Français'
         },
         {
+          value: 'es',
+          flag: '/ES.png',
+          label: 'Español'
+        },
+        {
+          value: 'pt',
+          flag: '/PT.png',
+          label: 'Português'
+        },
+        {
+          value: 'de',
+          flag: '/DE.png',
+          label: 'Deutsch'
+        },
+        {
+          value: 'jp',
+          flag: '/JP.png',
+          label: '日本語'
+        },
+        {
           value: 'cn',
-          flag: '🇨🇳',
+          flag: '/CN.png',
           label: '中文'
         },
         // {
@@ -100,36 +115,21 @@ export default new Vuex.Store({
         //   flag: '🇨🇿',
         //   label: 'Česky'
         // },
-        {
-          value: 'es',
-          flag: '🇪🇸',
-          label: 'Español'
-        },
-        {
-          value: 'jp',
-          flag: '🇯🇵',
-          label: '日本語'
-        },
-        // {
-        //   value: 'ko',
-        //   flag: '🇰🇷',
-        //   label: '한국어'
+         // {
+        //   value: 'bn',
+        //   flag: '🇧🇩',
+        //   label: 'বাংলা'
         // },
-        {
-          value: 'nl',
-          flag: '🇳🇱',
-          label: 'Vlaams'
-        },
-        {
-          value: 'pl',
-          flag: '🇵🇱',
-          label: 'Polski'
-        },
-        {
-          value: 'pt',
-          flag: '🇵🇹',
-          label: 'Português'
-        },
+        // {
+        //   value: 'nl',
+        //   flag: '🇳🇱',
+        //   label: 'Vlaams'
+        // },
+        // {
+        //   value: 'pl',
+        //   flag: '🇵🇱',
+        //   label: 'Polski'
+        // },
         // {
         //   value: 'sk',
         //   flag: '🇸🇰',
@@ -140,11 +140,11 @@ export default new Vuex.Store({
         //   flag: '🇹🇷',
         //   label: 'Türkçe'
         // },
-        {
-          value: 'ur',
-          flag: '🇵🇰',
-          label: 'اردو'
-        },
+        // {
+        //   value: 'ur',
+        //   flag: '🇵🇰',
+        //   label: 'اردو'
+        // },
         // {
         //   value: 'vt',
         //   flag: '🇻🇳',
@@ -156,11 +156,6 @@ export default new Vuex.Store({
         //   label: 'Русский'
         // },
         // {
-        //   value: 'de',
-        //   flag: '🇩🇪',
-        //   label: 'Deutsch'
-        // },
-        // {
         //   value: 'ua',
         //   flag: '🇺🇦',
         //   label: 'Українська'
@@ -169,6 +164,11 @@ export default new Vuex.Store({
         //   value: 'it',
         //   flag: '🇮🇹',
         //   label: 'Italiano'
+        // },
+        // {
+        //   value: 'ko',
+        //   flag: '🇰🇷',
+        //   label: '한국어'
         // },
         // {
         //   value: 'hi',

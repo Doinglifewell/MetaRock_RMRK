@@ -29,14 +29,12 @@
         {{ $t("Info") }}
       </b-navbar-item>
     </template>
-    <!-- <template v-slot:end>
-      <LocaleChanger />
-      <NavbarProfileDropdown />
-    </template> -->
+
     <template v-slot:end>
       <b-navbar-item>
+        <!-- <LocaleChanger /> -->
         <img
-          src="/GB.png"
+          src="/EN.png"
           alt="flag"
           width="30"
           height="30"
@@ -44,8 +42,13 @@
           style="background: white"
         />
       </b-navbar-item>
-      <b-navbar-item >
-        <b-button tag="router-link" :to="{ path: '/chooseNFT' }" type="is-inverte">Create NFT</b-button>
+      <b-navbar-item>
+        <b-button
+          tag="router-link"
+          :to="{ path: '/chooseNFT' }"
+          type="is-inverte"
+          >Create NFT</b-button
+        >
       </b-navbar-item>
       <b-navbar-item class="pl-0">
         <NavbarProfileDropdown />
@@ -83,7 +86,6 @@ export default class NavbarMenu extends Vue {}
       // .is-active {
       //   background: $head-background;
       // }
-      
     }
   }
 

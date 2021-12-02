@@ -5,10 +5,10 @@
       <!-- <b-field>
         <Auth />
       </b-field> -->
-      <h6 class="subtitle is-6">
+      <!-- <h6 class="subtitle is-6">
         You have minted {{ selectedCollection.alreadyMinted }} out of
         {{ selectedCollection.max || Infinity }}
-      </h6>
+      </h6> -->
       <CreateItem1
         v-bind.sync="nft"
         :max="selectedCollection.max"
@@ -31,7 +31,7 @@
       <b-field>
         <PasswordInput v-model="password" :account="accountId" />
       </b-field>
-      <b-field>
+      <b-field class="level-right">
         <b-button
           type="is-primary"
           icon-left="paper-plane"

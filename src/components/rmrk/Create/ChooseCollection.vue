@@ -2,17 +2,27 @@
   <div class="collections container">
     <Loader :value="isLoading" />
     <div v-if="!accountId">
-            <p class="head-text">Please select your account.</p>
+      <div class="hero">
+        <div class="hero-body">
+          <p class="head-text">Please select your account.</p>
+        </div>
+      </div>
     </div>
-    <div v-if="total == 0">
-      <p class="head-text">You didn't create any collections. Please create collection.</p>
-      <b-button
-        tag="router-link"
-        to="/rmrk/createCollection"
-        type="is-primary"
-        class="mb-5"
-        >Create Collection</b-button
-      >
+    <div v-else-if="!isLoading && total == 0">
+      <div class="hero">
+        <div class="hero-body">
+          <p class="head-text">
+            You didn't create any collections. Please create collection.
+          </p>
+          <b-button
+            tag="router-link"
+            to="/rmrk/createCollection"
+            type="is-primary"
+            class="mb-5"
+            >Create Collection</b-button
+          >
+        </div>
+      </div>
     </div>
     <div v-else>
       <div>

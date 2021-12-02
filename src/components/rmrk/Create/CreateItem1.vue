@@ -1,36 +1,61 @@
 <template>
   <div class="container">
+    <p class="title is-size-3">Create NFT</p>
     <div class="columns">
       <div class="column">
-        <p class="collection_head">Collection Cover Image</p>
-        <MetadataUpload
-          v-model="vFile"
-          label="File Types: BMP, GIF, JPEG, PNG, SVG, TIFF, WEBP, MP4, OGV, QUICKTIME, WEBM, GLB, FLAC, MP3, JSON"
-          expanded
-          preview
-        />
+        <div>
+          <p class="collection_head mb-1">NFTImage</p>
+          <MetadataUpload
+            v-model="vFile"
+            label="File Types: BMP, GIF, JPEG, PNG, SVG, TIFF, WEBP, MP4, OGV, QUICKTIME, WEBM, GLB, FLAC, MP3, JSON"
+            expanded
+            preview
+          />
+        </div>
+        <div class="mt-6" v-if="secondaryFileVisible">
+          <p class="collection_head mb-1">
+            The Cover image for your NFT | Optional
+          </p>
+          <MetadataUpload
+            v-model="vSecondFile"
+            icon="file-image"
+            label="File Types: JPG, PNG, GIF"
+            preview
+            accept="image/png, image/jpeg, image/gif"
+            expanded
+          />
+        </div>
       </div>
       <div class="column">
-        <BasicInput
-          v-model="vName"
-          :label="$t('mint.nft.name.label')"
-          :message="$t('mint.nft.name.message')"
-          :placeholder="$t('mint.nft.name.placeholder')"
-          expanded
-        />
+        <div class="mb-5">
+          <p class="collection_label mb-1">
+            {{ $t("mint.nft.name.label") }}
+          </p>
+          <BasicInput
+            v-model="vName"
+            :message="$t('mint.nft.name.message')"
+            :placeholder="$t('mint.nft.name.placeholder')"
+            expanded
+          />
+        </div>
+        <div class="mb-5">
+          <p class="collection_label mb-1">
+            {{ $t("mint.nft.description.label") }}
+          </p>
+          <BasicInput
+            v-model="vDescription"
+            maxlength="500"
+            type="textarea"
+            spellcheck="true"
+            :message="$t('mint.nft.description.message')"
+            :placeholder="$t('mint.nft.description.placeholder')"
+          />
+        </div>
 
-        <BasicInput
-          v-model="vDescription"
-          maxlength="500"
-          type="textarea"
-          spellcheck="true"
-          class="mb-0"
-          :label="$t('mint.nft.description.label')"
-          :message="$t('mint.nft.description.message')"
-          :placeholder="$t('mint.nft.description.placeholder')"
-        />
-
-        <b-field :label="$i18n.t('Edition')" class="mt-5">
+        <div class="mb-5">
+          <p class="collection_label mb-1">
+            {{ $i18n.t("No. of Editions") }}
+          </p>
           <b-numberinput
             v-model="vEdition"
             placeholder="1 is minumum"
@@ -38,39 +63,23 @@
             :min="1"
             :max="clickableMax"
           ></b-numberinput>
-        </b-field>
-        <MetadataUpload
-          v-if="secondaryFileVisible"
-          label="Your NFT requires a poster/cover to be seen in gallery. Please upload image (jpg/ png/ gif)"
-          v-model="vSecondFile"
-          icon="file-image"
-          preview
-          accept="image/png, image/jpeg, image/gif"
-          expanded
-        />
+        </div>
+
         <div class="columns">
           <div class="column">
+            <p class="collection_label mb-1">
+              {{ $i18n.t("Tags") }}
+            </p>
             <AttributeTagInput
               v-model="vTags"
               placeholder="Get discovered easier through tags"
             />
           </div>
           <div class="column">
-            <BalanceInput @input="updateMeta" label="Price" expanded />
-            <!-- <b-message
-              v-if="hasPrice"
-              icon="exclamation-triangle"
-              class="mt-3 has-text-primary"
-              title="Additional transaction"
-              type="is-primary"
-              has-icon
-              aria-close-label="Close message"
-            >
-              <span class="has-text-primary"
-                >Setting the price now requires making an additional
-                transaction.</span
-              >
-            </b-message> -->
+            <p class="collection_label mb-1">
+              {{ $i18n.t("Price") }}
+            </p>
+            <BalanceInput @input="updateMeta" expanded />
           </div>
         </div>
       </div>
@@ -133,7 +142,7 @@ export default class CreateItem1 extends Vue {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
 .create-token-card {
   margin-bottom: 1em;
 }

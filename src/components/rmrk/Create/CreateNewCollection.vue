@@ -63,7 +63,7 @@
               </p>
             </b-switch>
           </div>
-          <div v-if="!unlimited" class="mt-1 mb-5">
+          <div v-if="!unlimited">
             <!-- <p class="collection_label mb-1">
               {{ $i18n.t("Maximum NFTs in collection") }}
             </p> -->
@@ -77,7 +77,7 @@
           <b-field>
             <PasswordInput v-model="password" :account="accountId" />
           </b-field>
-          <b-field>
+          <b-field class="mt-5 mb-5">
             <b-button
               type="is-primary"
               icon-left="paper-plane"
@@ -281,13 +281,4 @@ export default class CreateNewCollection extends Mixins(
   }
 }
 </script>
-<style lang="scss">
-.collection_head {
-  font-weight: 600;
-  font-size: 22px;
-}
-.collection_label {
-  font-weight: 600;
-  font-size: 16px;
-}
-</style>
+<style lang="scss"></style>

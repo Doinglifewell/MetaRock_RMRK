@@ -163,7 +163,7 @@ export default class ChooseNFT extends Vue {
           });
           this.checkLoading = false;
           this.$store.commit("setExplorer", { chain: this.switch_chain });
-          this.$router.push("/rmrk/create");
+          this.$router.push("/rmrk/chooseCollection");
         });
         Api().on("error", async (error: Error) => {
           this.$store.commit("setError", error);

@@ -1,6 +1,6 @@
 <template>
   <div class="arguments-wrapper">
-    <b-field :label="$t(label)" class="balance">
+    <b-field class="balance">
       <b-input v-model="inputValue" @input="handleInput" type="number" step="0.001" min="0" expanded/>
       <p class="control balance">
         <b-select :disabled="!calculate" v-model="selectedUnit" @input="handleInput">
