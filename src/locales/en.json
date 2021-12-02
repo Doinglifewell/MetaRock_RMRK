@@ -210,12 +210,12 @@
     },
     "collection": {
       "name": {
-        "label": "Collection name",
+        "label": "Collection Name",
         "placeholder": "Enter collection name",
         "message": "Name of your collection. It will be visible in the gallery"
       },
       "description": {
-        "label": "Collection description",
+        "label": "Description | Optional",
         "placeholder": "Enter collection description",
         "message": "Description of your collection. Markdown is supported"
       },

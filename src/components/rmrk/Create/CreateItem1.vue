@@ -94,7 +94,7 @@ import { isFileWithoutType, isSecondFileVisible } from "./mintUtils";
     BasicSwitch: () => import("@/components/shared/form/BasicSwitch.vue"),
   },
 })
-export default class CreateItem extends Vue {
+export default class CreateItem1 extends Vue {
   @PropSync("name", { type: String }) vName!: string;
   @PropSync("description", { type: String }) vDescription!: string;
   @PropSync("edition", { type: Number }) vEdition!: number;

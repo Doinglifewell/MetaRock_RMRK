@@ -65,7 +65,7 @@ export default class ExploreChain extends Vue {
   public toast(chain: string) {
     this.$buefy.toast.open({
       duration: 2000,
-      message: `We are connecting ` + chain + ` network.`,
+      message: `Sorry, we are building to connect ` + chain + ` network.`,
       pauseOnHover: true,
       type: 'is-white',
       position: 'is-top-right',

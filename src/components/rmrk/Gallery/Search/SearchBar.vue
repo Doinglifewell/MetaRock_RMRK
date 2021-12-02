@@ -71,7 +71,7 @@ export default class SearchBar extends Vue {
   public toast() {
     this.$buefy.toast.open({
       duration: 2000,
-      message: `We are currently building a rmrk2.0 scan tool to view the NFTs.`,
+      message: `Sorry, we are currently building a rmrk2.0 scan tool to view the NFTs.`,
       pauseOnHover: true,
       type: "is-white",
       position: 'is-top-right',

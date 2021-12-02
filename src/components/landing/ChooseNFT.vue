@@ -105,7 +105,7 @@ export default class ChooseNFT extends Vue {
     if (type != 3) {
       this.$buefy.toast.open({
         duration: 2000,
-        message: `We are creating RMRK2.0.`,
+        message: `Sorry we are still building.`,
         pauseOnHover: true,
         type: "is-white",
         position: 'is-top-right',

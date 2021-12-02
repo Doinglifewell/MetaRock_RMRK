@@ -9,7 +9,7 @@
         You have minted {{ selectedCollection.alreadyMinted }} out of
         {{ selectedCollection.max || Infinity }}
       </h6>
-      <CreateItem
+      <CreateItem1
         v-bind.sync="nft"
         :max="selectedCollection.max"
         :alreadyMinted="selectedCollection.alreadyMinted"
@@ -49,7 +49,7 @@
 
 <script lang="ts">
 import { Component, Watch, Mixins } from "vue-property-decorator";
-import CreateItem from "./CreateItem.vue";
+import CreateItem1 from "./CreateItem1.vue";
 import Tooltip from "@/components/shared/Tooltip.vue";
 import Support from "@/components/shared/Support.vue";
 import Connector from "@/utils/vue-api2";
@@ -95,7 +95,7 @@ type MintedCollection = {
 @Component({
   components: {
     Auth: () => import("@/components/shared/Auth.vue"),
-    CreateItem,
+    CreateItem1,
     PasswordInput,
     Tooltip,
     Support,
@@ -325,7 +325,7 @@ export default class CreateNFT extends Mixins(
         ...nsfwAttribute(this.nft.nsfw),
         ...offsetAttribute(this.hasCarbonOffset),
       ],
-      external_url: "https://nft.kodadot.xyz",
+      external_url: "https://metarock.network",
       type: this.nft.file.type,
     };
 

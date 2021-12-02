@@ -1,9 +1,11 @@
 <template>
   <div class="collections container">
     <Loader :value="isLoading" />
+    <div v-if="!accountId">
+            <p class="head-text">Please select your account.</p>
+    </div>
     <div v-if="total == 0">
-      <p class="head-text">Please create collection</p>
-      <p class="head-text">Or select your account</p>
+      <p class="head-text">You didn't create any collections. Please create collection.</p>
       <b-button
         tag="router-link"
         to="/rmrk/createCollection"

@@ -17,14 +17,44 @@
           />
         </div>
         <div class="column">
-          <BasicInput
-            v-model="rmrkMint.name"
-            :label="$t('mint.collection.name.label')"
-            :message="$t('mint.collection.name.message')"
-            :placeholder="$t('mint.collection.name.placeholder')"
-            expanded
-            spellcheck="true"
-          />
+          <div class="mb-5">
+            <p class="collection_label mb-1">
+              {{ $t("mint.collection.name.label") }}
+            </p>
+            <BasicInput
+              v-model="rmrkMint.name"
+              :message="$t('mint.collection.name.message')"
+              :placeholder="$t('mint.collection.name.placeholder')"
+              expanded
+              spellcheck="true"
+            />
+          </div>
+          <div class="mb-5">
+            <p class="collection_label mb-1">
+              {{ $t("mint.collection.symbol.label") }}
+            </p>
+            <BasicInput
+              v-model="rmrkMint.symbol"
+              :message="$t('mint.collection.symbol.message')"
+              :placeholder="$t('mint.collection.symbol.placeholder')"
+              @keydown.native.space.prevent
+              maxlength="10"
+              expanded
+            />
+          </div>
+          <div class="mb-5">
+            <p class="collection_label mb-1">
+              {{ $t("mint.collection.description.label") }}
+            </p>
+            <BasicInput
+              v-model="meta.description"
+              maxlength="500"
+              type="textarea"
+              spellcheck="true"
+              :message="$t('mint.collection.description.message')"
+              :placeholder="$t('mint.collection.description.placeholder')"
+            />
+          </div>
 
           <b-field>
             <b-switch v-model="unlimited" :rounded="false">
@@ -43,25 +73,6 @@
             ></b-numberinput>
           </b-field>
 
-          <BasicInput
-            v-model="rmrkMint.symbol"
-            :label="$t('mint.collection.symbol.label')"
-            :message="$t('mint.collection.symbol.message')"
-            :placeholder="$t('mint.collection.symbol.placeholder')"
-            @keydown.native.space.prevent
-            maxlength="10"
-            expanded
-          />
-          <BasicInput
-            v-model="meta.description"
-            maxlength="500"
-            type="textarea"
-            spellcheck="true"
-            class="mb-0 mt-5"
-            :label="$t('mint.collection.description.label')"
-            :message="$t('mint.collection.description.message')"
-            :placeholder="$t('mint.collection.description.placeholder')"
-          />
           <b-field>
             <PasswordInput v-model="password" :account="accountId" />
           </b-field>
@@ -273,5 +284,9 @@ export default class CreateNewCollection extends Mixins(
 .collection_head {
   font-weight: 600;
   font-size: 22px;
+}
+.collection_label {
+  font-weight: 600;
+  font-size: 16px;
 }
 </style>
