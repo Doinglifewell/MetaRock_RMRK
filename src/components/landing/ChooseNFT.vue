@@ -101,17 +101,6 @@ export default class ChooseNFT extends Vue {
 
   public async createNFT(type: number) {
     this.$store.dispatch("setCreateChain", this.switch_chain);
-    // if (
-    //   (this.$store.getters.getCreateChain == "Kusama" &&
-    //     this.switch_chain != "Kusama") ||
-    //   (this.switch_chain == "Kusama" &&
-    //     this.$store.getters.getCreateChain != "Kusama") ||
-    //   !this.$store.getters.getAuthAddress
-    // ) {
-    //   this.$store.dispatch("setReSelectAccount", true);
-    // } else {
-    //   this.$store.dispatch("setReSelectAccount", false);
-    // }
     const NETWORK_ENDPOINTS = {
       Kusama: { endpoints: "wss://kusama-rpc.polkadot.io", option: "kusama" },
       Darwinia: { endpoints: "wss://rpc.darwinia.network", option: "darwinia" },

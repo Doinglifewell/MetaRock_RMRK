@@ -179,7 +179,6 @@ export default new Vuex.Store({
     },
     exploreChain : 'Kusama',
     createChain : 'Kusama',
-    reSelectAccount : false,
     explorerOptions: {},
     development: {},
     error: null,
@@ -231,9 +230,6 @@ export default new Vuex.Store({
     setCreateChain(state: any, data) {
       state.createChain = data
     },
-    setReSelectAccount(state: any, data) {
-      state.reSelectAccount = data
-    },
   },
   actions: {
     setFiatPrice({ commit }: any, data) {
@@ -251,9 +247,6 @@ export default new Vuex.Store({
     setCreateChain({ commit }: any, data) {
       commit('setCreateChain', data)
     },
-    setReSelectAccount({ commit }: any, data) {
-      commit('setReSelectAccount', data)
-    },
   },
   getters: {
     getChainProperties: ({ chainProperties }) => chainProperties,
@@ -266,7 +259,6 @@ export default new Vuex.Store({
     getLayoutClass: ({ layoutClass }) => layoutClass,
     getExploreChain: ({ exploreChain }) => exploreChain,
     getCreateChain: ({ createChain }) => createChain,
-    getReSelectAccount: ({ reSelectAccount }) => reSelectAccount,
   },
   modules: {
     setting: SettingModule,

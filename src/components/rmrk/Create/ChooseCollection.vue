@@ -193,15 +193,12 @@ export default class ChooseCollection extends Vue {
     else {
       const ss58Format = this.$store.getters.getChainProperties?.ss58Format;
       const encodeAddress1 = encodeAddress(val, ss58Format);
-      console.log("address:", val);
-      console.log("encodeAddress1:", encodeAddress1);
       if (val != encodeAddress1) {
         this.$store.dispatch("setAuth", { address: "" });
         this.reSelectAccount = true;
       } else {
         this.reSelectAccount = false;
       }
-      console.log("this.reSelectAccount:", this.reSelectAccount);
     }
   }
 
