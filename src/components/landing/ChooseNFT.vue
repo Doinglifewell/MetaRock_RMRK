@@ -73,6 +73,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import Connector from "@/utils/vue-api2";
 import correctFormat from "@/utils/ss58Format";
+
 const components = {
   Loader: () => import("@/components/shared/Loader.vue"),
 };
@@ -83,7 +84,7 @@ export default class ChooseNFT extends Vue {
   public switch_chain: string = "Choose";
   public null_chian = false;
   public checkLoading = false;
-
+  
   public switchCreateChain(data: string) {
     this.switch_chain = data;
   }
@@ -100,17 +101,17 @@ export default class ChooseNFT extends Vue {
 
   public async createNFT(type: number) {
     this.$store.dispatch("setCreateChain", this.switch_chain);
-    if (
-      (this.$store.getters.getCreateChain == "Kusama" &&
-        this.switch_chain != "Kusama") ||
-      (this.switch_chain == "Kusama" &&
-        this.$store.getters.getCreateChain != "Kusama") ||
-      !this.$store.getters.getAuthAddress
-    ) {
-      this.$store.dispatch("setReSelectAccount", true);
-    } else {
-      this.$store.dispatch("setReSelectAccount", false);
-    }
+    // if (
+    //   (this.$store.getters.getCreateChain == "Kusama" &&
+    //     this.switch_chain != "Kusama") ||
+    //   (this.switch_chain == "Kusama" &&
+    //     this.$store.getters.getCreateChain != "Kusama") ||
+    //   !this.$store.getters.getAuthAddress
+    // ) {
+    //   this.$store.dispatch("setReSelectAccount", true);
+    // } else {
+    //   this.$store.dispatch("setReSelectAccount", false);
+    // }
     const NETWORK_ENDPOINTS = {
       Kusama: { endpoints: "wss://kusama-rpc.polkadot.io", option: "kusama" },
       Darwinia: { endpoints: "wss://rpc.darwinia.network", option: "darwinia" },

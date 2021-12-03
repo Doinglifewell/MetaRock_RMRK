@@ -1,7 +1,7 @@
 <template>
   <div class="collections container">
     <Loader :value="isLoading" />
-    <div v-if="reSelectAccount()">
+    <div v-if="reSelectAccount">
       <div class="hero">
         <div class="hero-body">
           <p class="head-text">Please select your account.</p>
@@ -97,6 +97,7 @@ import "lazysizes";
 import collectionForMintWithSearch from "@/queries/collectionForMintWithSearch.graphql";
 import { getMany, update } from "idb-keyval";
 import shouldUpdate from "@/utils/shouldUpdate";
+import { decodeAddress, encodeAddress } from "@polkadot/util-crypto";
 
 interface Image extends HTMLImageElement {
   ffInitialized: boolean;
@@ -156,6 +157,7 @@ export default class ChooseCollection extends Vue {
   private placeholder = "/koda300x300.svg";
   private currentValue = 1;
   private total = 0;
+  public reSelectAccount = false;
 
   get defaultCollectionsMetaImage(): string {
     const url = new URL(window.location.href);
@@ -174,19 +176,38 @@ export default class ChooseCollection extends Vue {
     return this.$store.getters.getAuthAddress;
   }
 
-  public reSelectAccount() {
-    return this.$store.getters.getReSelectAccount;
-  }
-
   get createChain(): string {
     return this.$store.getters.getCreateChain;
   }
 
-  public async created() {
-    const apolloClient = this.createChain;
-    if (this.reSelectAccount()) {
-      this.$store.dispatch("setAuth", { address: "" });
+  @Watch("accountId", { immediate: true })
+  hasAccount(value: string, oldVal: string) {
+    if (shouldUpdate(value, oldVal)) {
+      this.checkAddress();
     }
+  }
+
+  public checkAddress() {
+    const val = this.$store.getters.getAuthAddress;
+    if (!val) this.reSelectAccount = true;
+    else {
+      const ss58Format = this.$store.getters.getChainProperties?.ss58Format;
+      const encodeAddress1 = encodeAddress(val, ss58Format);
+      console.log("address:", val);
+      console.log("encodeAddress1:", encodeAddress1);
+      if (val != encodeAddress1) {
+        this.$store.dispatch("setAuth", { address: "" });
+        this.reSelectAccount = true;
+      } else {
+        this.reSelectAccount = false;
+      }
+      console.log("this.reSelectAccount:", this.reSelectAccount);
+    }
+  }
+
+  public async created() {
+    this.checkAddress();
+    const apolloClient = this.createChain;
     this.$apollo.addSmartQuery("collection", {
       query: collectionForMintWithSearch,
       client: apolloClient,

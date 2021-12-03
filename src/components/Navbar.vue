@@ -36,14 +36,6 @@
     <template v-slot:end>
       <b-navbar-item>
         <LocaleChanger />
-        <!-- <img
-          src="/EN.png"
-          alt="flag"
-          width="30"
-          height="30"
-          class="logo__img"
-          style="background: white"
-        /> -->
       </b-navbar-item>
       <b-navbar-item>
         <b-button
