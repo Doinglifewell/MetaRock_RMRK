@@ -215,7 +215,7 @@ export default class GalleryItem extends Vue {
   }
 
   get exploreChain(): string {
-    return this.$store.getters.getExploreChain;
+    return this.$store.getters.getCurrentChain;
   }
 
   public async created(): Promise<void> {

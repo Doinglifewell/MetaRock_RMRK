@@ -177,7 +177,6 @@ export default new Vuex.Store({
         // }
       ]
     },
-    exploreChain : 'Kusama',
     createChain : 'Kusama',
     explorerOptions: {},
     development: {},
@@ -224,9 +223,6 @@ export default new Vuex.Store({
     setLayoutClass(state: any, data) {
       state.layoutClass = data
     },
-    setExploreChain(state: any, data) {
-      state.exploreChain = data
-    },
     setCreateChain(state: any, data) {
       state.createChain = data
     },
@@ -241,9 +237,6 @@ export default new Vuex.Store({
     setLayoutClass({ commit }: any, data) {
       commit('setLayoutClass', data)
     },
-    setExploreChain({ commit }: any, data) {
-      commit('setExploreChain', data)
-    },
     setCreateChain({ commit }: any, data) {
       commit('setCreateChain', data)
     },
@@ -257,7 +250,6 @@ export default new Vuex.Store({
     getCurrentChain: ({ explorer }) => explorer.chain,
     getIndexer: ({ indexer }) => indexer,
     getLayoutClass: ({ layoutClass }) => layoutClass,
-    getExploreChain: ({ exploreChain }) => exploreChain,
     getCreateChain: ({ createChain }) => createChain,
   },
   modules: {

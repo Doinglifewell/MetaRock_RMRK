@@ -73,7 +73,6 @@ export default class ExploreChain extends Vue {
   }
 
   public switchExploreChain(data: string) {
-    this.$store.dispatch("setExploreChain", data);
     const NETWORK_ENDPOINTS = {
       Kusama: { endpoints: "wss://kusama-rpc.polkadot.io", option: "kusama" },
       Darwinia: { endpoints: "wss://rpc.darwinia.network", option: "darwinia" },

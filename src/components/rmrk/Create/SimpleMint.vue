@@ -25,7 +25,7 @@
             expanded
             preview
           />
-
+<!-- 
           <BasicInput
             v-model="rmrkMint.name"
             :label="$t('mint.nft.name.label')"
@@ -33,9 +33,16 @@
             :placeholder="$t('mint.nft.name.placeholder')"
             expanded
             spellcheck="true"
+          /> -->
+          <BasicInput
+            v-model="rmrkMint.name"
+            :message="$t('mint.nft.name.message')"
+            :placeholder="$t('mint.nft.name.placeholder')"
+            expanded
+            spellcheck="true"
           />
 
-          <BasicInput
+          <!-- <BasicInput
             v-model="rmrkMint.symbol"
             :label="$t('mint.collection.symbol.label')"
             :message="$t('mint.collection.symbol.message')"
@@ -43,8 +50,26 @@
             @keydown.native.space.prevent
             maxlength="10"
             expanded
+          /> -->
+          <BasicInput
+            v-model="rmrkMint.symbol"
+            :message="$t('mint.collection.symbol.message')"
+            :placeholder="$t('mint.collection.symbol.placeholder')"
+            @keydown.native.space.prevent
+            maxlength="10"
+            expanded
           />
 
+
+          <!-- <BasicInput
+            v-model="meta.description"
+            maxlength="500"
+            type="textarea"
+            spellcheck="true"
+            class="mb-0 mt-5"
+            :message="$t('mint.nft.description.message')"
+            :placeholder="$t('mint.nft.description.placeholder')"
+          /> -->
           <BasicInput
             v-model="meta.description"
             maxlength="500"
