@@ -1,22 +1,20 @@
-
 <template>
   <component v-if="src" :is="resolveComponent" :src="src" />
 </template>
 
-<script lang="ts" >
-import { Component, Prop, Vue } from 'vue-property-decorator'
-import { resolveMedia } from '../utils'
+<script lang="ts">
+import { Component, Prop, Vue } from "vue-property-decorator";
+import { resolveMedia } from "../utils";
 
-
-const VideoMedia = () => import('./VideoMedia.vue')
-const ImageMedia = () => import('./ImageMedia.vue')
-const AudioMedia = () => import('./AudioMedia.vue')
-const JsonMedia = () => import('./JsonMedia.vue')
-const ModelMedia = () => import('./ModelMedia1.vue')
-const IFrameMedia = () => import('./IFrameMedia.vue')
-const ObjectMedia = () => import('./ObjectMedia.vue')
-const Media = () => import('./Unknown.vue')
-const SUFFIX = 'Media'
+const VideoMedia = () => import("./VideoMedia.vue");
+const ImageMedia = () => import("./ImageMedia.vue");
+const AudioMedia = () => import("./AudioMedia.vue");
+const JsonMedia = () => import("./JsonMedia.vue");
+const ModelMedia = () => import("./ModelMedia1.vue");
+const IFrameMedia = () => import("./IFrameMedia.vue");
+const ObjectMedia = () => import("./ObjectMedia.vue");
+const Media = () => import("./Unknown.vue");
+const SUFFIX = "Media";
 @Component({
   components: {
     VideoMedia,
@@ -26,15 +24,16 @@ const SUFFIX = 'Media'
     ModelMedia,
     IFrameMedia,
     ObjectMedia,
-    Media
-  }
+    Media,
+  },
 })
 export default class MediaResolver1 extends Vue {
   @Prop() public src!: string;
   @Prop() public mimeType!: string;
 
   get resolveComponent() {
-    return resolveMedia(this.mimeType) + SUFFIX
+    if (resolveMedia(this.mimeType) == "Text") return Media;
+    return resolveMedia(this.mimeType) + SUFFIX;
   }
 
   // get visible() {
@@ -61,6 +60,5 @@ export default class MediaResolver1 extends Vue {
   //   }
 
   // }
-
 }
 </script>
