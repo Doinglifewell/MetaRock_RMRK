@@ -164,33 +164,5 @@ export default class SearchBar extends Vue {
 .fade-leave-to {
   opacity: 0;
 }
-.chain-button {
-  border: none;
-  border-radius: 0;
-  background-color: transparent !important;
-  box-shadow: none;
-  position: relative;
-  padding: 0 8px;
 
-  &:hover,
-  &:focus,
-  &:active {
-    border: none;
-    box-shadow: none;
-    font-weight: 800;
-  }
-
-  &:not(:last-child) {
-    &:after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 0;
-      width: 1px;
-      height: 12px;
-      background: #fff;
-    }
-  }
-}
 </style>

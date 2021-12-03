@@ -191,7 +191,7 @@ export default class CreateNFT extends Mixins(
   }
 
   public created(): void {
-    this.$store.dispatch("setOldCreateChain", this.$store.getters.getCreateChain);
+    // this.$store.dispatch("setOldCreateChain", this.$store.getters.getCreateChain);
     this.checkId();
     this.fetchCollections();
   }

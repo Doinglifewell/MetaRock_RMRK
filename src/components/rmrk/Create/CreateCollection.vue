@@ -196,7 +196,7 @@ export default class CreateCollection extends Mixins(
   }
 
   public created(){
-      this.$store.dispatch("setOldCreateChain", this.$store.getters.getCreateChain);
+      // this.$store.dispatch("setOldCreateChain", this.$store.getters.getCreateChain);
   }
 
   private async submit() {

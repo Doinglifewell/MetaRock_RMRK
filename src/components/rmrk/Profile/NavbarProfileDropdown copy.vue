@@ -128,7 +128,6 @@ export default class NavbarProfileDropdown extends Vue {
   set account(account: string) {
     console.log("setAuth", account);
     this.$store.dispatch("setAuth", { address: account });
-    this.$store.dispatch("setReSelectAccount", false);
   }
 
   get account() {

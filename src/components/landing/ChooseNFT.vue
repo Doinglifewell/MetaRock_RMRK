@@ -36,8 +36,12 @@
                 @click="switchCreateChain('Pangolin')"
                 >Pangolin</b-dropdown-item
               >
-              <b-dropdown-item aria-role="listitem">Moonbeam</b-dropdown-item>
-              <b-dropdown-item aria-role="listitem">Ethereum</b-dropdown-item>
+              <b-dropdown-item @click="toast" aria-role="listitem"
+                >Moonbeam</b-dropdown-item
+              >
+              <b-dropdown-item @click="toast" aria-role="listitem"
+                >Ethereum</b-dropdown-item
+              >
             </b-dropdown>
           </div>
         </div>
@@ -79,12 +83,34 @@ export default class ChooseNFT extends Vue {
   public switch_chain: string = "Choose";
   public null_chian = false;
   public checkLoading = false;
+
   public switchCreateChain(data: string) {
     this.switch_chain = data;
-    this.$store.dispatch("setCreateChain", data);
+  }
+
+  public toast() {
+    this.$buefy.toast.open({
+      duration: 2000,
+      message: `Sorry we are still building.`,
+      pauseOnHover: true,
+      type: "is-white",
+      position: "is-top-right",
+    });
   }
 
   public async createNFT(type: number) {
+    this.$store.dispatch("setCreateChain", this.switch_chain);
+    if (
+      (this.$store.getters.getCreateChain == "Kusama" &&
+        this.switch_chain != "Kusama") ||
+      (this.switch_chain == "Kusama" &&
+        this.$store.getters.getCreateChain != "Kusama") ||
+      !this.$store.getters.getAuthAddress
+    ) {
+      this.$store.dispatch("setReSelectAccount", true);
+    } else {
+      this.$store.dispatch("setReSelectAccount", false);
+    }
     const NETWORK_ENDPOINTS = {
       Kusama: { endpoints: "wss://kusama-rpc.polkadot.io", option: "kusama" },
       Darwinia: { endpoints: "wss://rpc.darwinia.network", option: "darwinia" },
@@ -103,13 +129,7 @@ export default class ChooseNFT extends Vue {
       payload: string;
     }
     if (type != 3) {
-      this.$buefy.toast.open({
-        duration: 2000,
-        message: `Sorry we are still building.`,
-        pauseOnHover: true,
-        type: "is-white",
-        position: 'is-top-right',
-      });
+      this.toast();
     } else if (this.switch_chain == "Choose") {
       // this.null_chian = true;
       this.$buefy.toast.open({

@@ -1,15 +1,10 @@
 <template>
   <div class="collections container">
     <Loader :value="isLoading" />
-    <div v-if="reSelectAccount">
+    <div v-if="reSelectAccount()">
       <div class="hero">
         <div class="hero-body">
           <p class="head-text">Please select your account.</p>
-          <AccountSelect
-            :label="$i18n.t('Account')"
-            v-model="account"
-            :tooltipVisible="false"
-          />
         </div>
       </div>
     </div>
@@ -117,7 +112,6 @@ const components = {
     import("@/components/rmrk/Gallery/CollectionDetail.vue"),
   Loader: () => import("@/components/shared/Loader.vue"),
   BasicImage: () => import("@/components/shared/view/BasicImage.vue"),
-  AccountSelect: () => import("@/components/shared/AccountSelect.vue"),
 };
 
 @Component<ChooseCollection>({
@@ -162,7 +156,6 @@ export default class ChooseCollection extends Vue {
   private placeholder = "/koda300x300.svg";
   private currentValue = 1;
   private total = 0;
-  public reSelectAccount = true;
 
   get defaultCollectionsMetaImage(): string {
     const url = new URL(window.location.href);
@@ -180,29 +173,20 @@ export default class ChooseCollection extends Vue {
   get accountId() {
     return this.$store.getters.getAuthAddress;
   }
+
+  public reSelectAccount() {
+    return this.$store.getters.getReSelectAccount;
+  }
+
   get createChain(): string {
     return this.$store.getters.getCreateChain;
   }
 
-  set account(account: string) {
-    this.$store.dispatch("setAuth", { address: account });
-    this.reSelectAccount = false;
-  }
-
-  get account() {
-    return this.$store.getters.getAuthAddress;
-  }
   public async created() {
     const apolloClient = this.createChain;
-    if (
-      this.$store.getters.getCreateChain ==
-      this.$store.getters.getOldCreateChain
-    )
-      this.reSelectAccount = false;
-    else {
-      this.$store.dispatch("setOldCreateChain", this.$store.getters.getCreateChain);
+    if (this.reSelectAccount()) {
+      this.$store.dispatch("setAuth", { address: "" });
     }
-
     this.$apollo.addSmartQuery("collection", {
       query: collectionForMintWithSearch,
       client: apolloClient,

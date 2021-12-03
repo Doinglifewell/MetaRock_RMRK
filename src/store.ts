@@ -179,14 +179,14 @@ export default new Vuex.Store({
     },
     exploreChain : 'Kusama',
     createChain : 'Kusama',
-    oldCreateChain : 'Kusama',
+    reSelectAccount : false,
     explorerOptions: {},
     development: {},
     error: null,
     fiatPrice: {
       kusama: {
         usd: null
-      }
+      },
     },
     layoutClass: 'is-one-third-desktop is-one-third-tablet'
   },
@@ -231,8 +231,8 @@ export default new Vuex.Store({
     setCreateChain(state: any, data) {
       state.createChain = data
     },
-    setOldCreateChain(state: any, data) {
-      state.oldCreateChain = data
+    setReSelectAccount(state: any, data) {
+      state.reSelectAccount = data
     },
   },
   actions: {
@@ -251,8 +251,8 @@ export default new Vuex.Store({
     setCreateChain({ commit }: any, data) {
       commit('setCreateChain', data)
     },
-    setOldCreateChain({ commit }: any, data) {
-      commit('setOldCreateChain', data)
+    setReSelectAccount({ commit }: any, data) {
+      commit('setReSelectAccount', data)
     },
   },
   getters: {
@@ -266,7 +266,7 @@ export default new Vuex.Store({
     getLayoutClass: ({ layoutClass }) => layoutClass,
     getExploreChain: ({ exploreChain }) => exploreChain,
     getCreateChain: ({ createChain }) => createChain,
-    getOldCreateChain: ({ oldCreateChain }) => oldCreateChain,
+    getReSelectAccount: ({ reSelectAccount }) => reSelectAccount,
   },
   modules: {
     setting: SettingModule,

@@ -35,15 +35,15 @@
 
     <template v-slot:end>
       <b-navbar-item>
-        <!-- <LocaleChanger /> -->
-        <img
+        <LocaleChanger />
+        <!-- <img
           src="/EN.png"
           alt="flag"
           width="30"
           height="30"
           class="logo__img"
           style="background: white"
-        />
+        /> -->
       </b-navbar-item>
       <b-navbar-item>
         <b-button
@@ -53,7 +53,7 @@
           >Create NFT</b-button
         >
       </b-navbar-item>
-      <b-navbar-item class="pl-0">
+      <b-navbar-item>
         <NavbarProfileDropdown />
       </b-navbar-item>
     </template>

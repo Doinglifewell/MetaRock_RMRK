@@ -1,21 +1,19 @@
 <template>
-  <div class="language-switcher">
+  <div>
     <b-dropdown aria-role="list">
       <template #trigger="{ active }">
-        <!-- <b-button
-          type="is-primary"
-          :label="userFlag"
+        <b-button
+          type="is-inverte"
+          class="chain-button"
           :icon-right="active ? 'caret-up' : 'caret-down'"
         >
-        </b-button> -->
-        <img
+          <img
           :src="userFlag"
           alt="flag"
-          width="42"
-          height="42"
-          class="logo__img"
-          :icon-right="active ? 'caret-up' : 'caret-down'"
+          class="logo-img"
         />
+        </b-button>
+      
       </template>
       <b-dropdown-item
         aria-role="listitem"
@@ -25,13 +23,16 @@
         :class="{ 'is-active': userLang === lang.value }"
         @click="setUserLang(lang.value)"
       >
-        <img
-          :src="lang.flag"
-          alt="flag"
-          width="30"
-          height="30"
-        />
-        {{ lang.label }}
+        <div class="columns is-mobile">
+          <img
+            :src="lang.flag"
+            class="column is-4 tag-flag"
+            alt="flag"
+          />
+          <p class="column is-4">
+            {{ lang.label }}
+          </p>
+        </div>
       </b-dropdown-item>
     </b-dropdown>
   </div>
@@ -65,14 +66,13 @@ export default class LocaleChanger extends Vue {
 <style lang="scss" scoped>
 @import "@/styles/variables";
 
-.language-switcher {
-  padding: 0 12px;
-}
-.logo {
-  padding: 0.5rem 0.75rem;
-
+.logo-img {
   @include desktop {
-    padding-left: 0;
+    padding-top: 10px;
   }
+}
+.tag-flag{
+  max-width: 60px;
+  max-height: 60px;
 }
 </style>
