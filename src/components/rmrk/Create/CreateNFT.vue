@@ -294,7 +294,7 @@ export default class CreateNFT extends Mixins(
             // } else {
             //   this.navigateToDetail(mint[0], blockNumber);
             // }
-            this.$router.push("/");
+            this.$router.push("/"); 
           },
           (dispatchError) => {
             execResultValue(tx);

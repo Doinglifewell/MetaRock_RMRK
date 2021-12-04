@@ -249,6 +249,7 @@ export default class CreateNewCollection extends Mixins(
             );
 
             this.isLoading = false;
+            this.$router.push("/"); 
           },
           (dispatchError) => {
             execResultValue(tx);
