@@ -378,5 +378,88 @@
         "hide": "Hide the description"
       }
     }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "navbar": {
+    "MySpace": "My Space",
+    "Explore": "Explore",
+    "Info": "Info",
+    "CreateNFT": "Create NFT",
+    "ConnectWallet": "Connect Wallet",
+    "ChangeAccount": "Change account",
+    "Account": "Account",
+    "InstallDesktopWalletExtension" : " Install Desktop Wallet Extension",  
+    "InstallChromeWalletExtension" : "Install Chrome Wallet Extension",
+    "InstallFirefoxWalletExtension" : "Install Firefox Wallet Extension"
+  },
+  "landing": {
+    "HomeText": "Enabling assets to be teleported into the metaverse",
+    "Get Started": "Get Started"
+  },
+  "GetStarted": {
+    "Which one are you": "Which one are you?",
+    "Creater": "Creater",
+    "Collecter": "Collecter"
+  },
+  "Explore": {
+    "Choose Chain": "Choose Chain"
+  },
+  "Mint": {
+    "Choose Chain": "Choose Chain",
+    "What would you like to create": "What would you like to create?",
+    "Digtal Asset": "Digtal Asset",
+    "Physical Asset": "Physical Asset",
+    "Simple NFT": "Simple NFT",
+    "ChooseCollection": {
+      "Please select your account": "Please select your account.",
+      "You didn't create any collections. Please create collection": "You didn't create any collections. Please create collection.",
+      "Create / Choose Collection": "Create / Choose Collection",
+      "Create Collection": "Create Collection"
+    },
+    "CreateCollection":{
+      "Create Collection" : "Create Collection",
+      "Image" : {
+        "Collection Cover Image": "Collection Cover Image",
+        "fileTypes": "File Types: PNG, JPGE, GIF, SVG",
+        "Click or drop to add more": "Click or drop to add more!",
+        "Your file is" : "Your file is",
+        "Click or drop to change": "Click or drop to change"
+      },
+      "name": {
+        "label": "Collection Name",
+        "placeholder": "Enter collection name",
+        "message": "Name of your collection. It will be visible in the gallery"
+      },
+      "description": {
+        "label": "Description | Optional",
+        "placeholder": "Enter collection description",
+        "message": "Description of your collection. Markdown is supported"
+      },
+      "symbol": {
+        "label": "Symbol (short name)",
+        "placeholder": "3-5 character long name",
+        "message": "The symbol which is attributed to the NFT: for an example, Kusama is labeled as KSM"
+      }
+    }
+
   }
 }

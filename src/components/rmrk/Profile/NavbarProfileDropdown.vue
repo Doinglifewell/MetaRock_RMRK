@@ -13,7 +13,7 @@
           type="is-primary"
           class="navbar__button ml-3 my-3"
           @click="checkExtension()"
-          >Connect Wallet</b-button
+          >{{ $t("navbar.ConnectWallet") }}</b-button
         >
       </template>
     </template>
@@ -60,7 +60,7 @@
         @click="changeAccount = !changeAccount"
         expanded
       >
-        Change account
+        {{ $t("navbar.ChangeAccount") }}
       </b-button>
     </b-dropdown-item>
     <b-dropdown-item
@@ -69,7 +69,7 @@
       aria-role="menuitem"
     >
       <AccountSelect
-        :label="$i18n.t('Account')"
+        :label="$t('navbar.Account')"
         v-model="account"
         :tooltipVisible="false"
       />
@@ -82,7 +82,7 @@
           target="_blank"
           class="is-flex is-align-items-center pl-3"
         >
-          Install Desktop Wallet Extension
+          {{ $t("navbar.InstallDesktopWalletExtension") }}
         </a>
       </b-dropdown-item>
       <b-dropdown-item has-link aria-role="menuitem">
@@ -92,7 +92,7 @@
           target="_blank"
           class="is-flex is-align-items-center pl-3"
         >
-          Install Chrome Wallet Extension
+          {{ $t("navbar.InstallChromeWalletExtension") }}
         </a>
       </b-dropdown-item>
       <b-dropdown-item has-link aria-role="menuitem">
@@ -102,7 +102,7 @@
           target="_blank"
           class="is-flex is-align-items-center pl-3"
         >
-          Install Firefox Wallet Extension
+          {{ $t("navbar.InstallFirefoxWalletExtension") }}
         </a>
       </b-dropdown-item>
     </template>

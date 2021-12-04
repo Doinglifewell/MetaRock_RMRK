@@ -23,7 +23,7 @@
           <p v-if="!file">{{ label }}</p>
           <p v-else-if="Array.isArray(file)">Click or drop to add more!</p>
           <p v-else>
-            Awesome your file is <b>{{ file.name }}</b
+            Your file is <b>{{ file.name }}</b
             >. Click or drop to change
           </p>
         </div>
