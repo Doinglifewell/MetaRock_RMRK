@@ -10,6 +10,20 @@
       </ul>
       <div class="icons">
         <ul class="footer__list icons__list">
+                    <li class="icons__list-item">
+            <a
+              href="https://discord.gg/TY7qnt34"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <b-icon
+                pack="fab"
+                icon="discord"
+                size="is-medium"
+              >
+              </b-icon>
+            </a>
+          </li>
           <li class="icons__list-item">
             <a
               href="https://t.me/MetaRockApp"
