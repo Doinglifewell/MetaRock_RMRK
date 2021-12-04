@@ -56,7 +56,7 @@ import axios from "axios";
 import { exist } from "./Search/exist";
 import Orientation from "@/directives/DeviceOrientation";
 
-@Component<GalleryItem1>({
+@Component<GalleryNewItem>({
   metaInfo() {
     const image = `https://og-image-green-seven.vercel.app/${encodeURIComponent(
       this.nft.name as string
@@ -96,7 +96,7 @@ import Orientation from "@/directives/DeviceOrientation";
     orientation: Orientation,
   },
 })
-export default class GalleryItem1 extends Vue {
+export default class GalleryNewItem extends Vue {
   @Prop({ type: String }) public srcId!: string;
   @Prop({ type: String }) public src!: string;
   private id = "";

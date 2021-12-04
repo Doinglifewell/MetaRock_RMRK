@@ -32,7 +32,7 @@
                     :alt="nft.name"
                     customClass="gallery__image-wrapper"
                   /> -->
-                  <GalleryItem1
+                  <GalleryNewItem
                    :srcId ="nft.id"
                    :src="nft.image"
                   />
@@ -93,7 +93,7 @@ const components = {
   Pagination: () => import("./Pagination.vue"),
   Loader: () => import("@/components/shared/Loader.vue"),
   BasicImage: () => import("@/components/shared/view/BasicImage.vue"),
-  GalleryItem1: () => import("./GalleryItem1.vue")
+  GalleryNewItem: () => import("./GalleryNewItem.vue")
 };
 
 @Component<Gallery>({

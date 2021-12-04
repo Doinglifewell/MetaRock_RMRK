@@ -289,12 +289,11 @@ export default class CreateNFT extends Mixins(
 
             this.isLoading = false;
 
-            // if (this.nft.price) {
-            //   this.listForSale(mint, blockNumber);
-            // } else {
-            //   this.navigateToDetail(mint[0], blockNumber);
-            // }
-            this.$router.push("/"); 
+            if (this.nft.price) {
+              this.listForSale(mint, blockNumber);
+            } else {
+              this.navigateToDetail(mint[0], blockNumber);
+            }
           },
           (dispatchError) => {
             execResultValue(tx);

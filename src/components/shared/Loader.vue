@@ -1,5 +1,5 @@
 <template>
-  <b-loading is-full-page v-model="isLoading" :can-cancel="true">
+  <b-loading is-full-page v-model="isLoading">
     <figure>
       <img class="loading-icon" :src="placeholder" />
       <figcaption v-if="status" class="loading-text">{{ translation }}</figcaption>
