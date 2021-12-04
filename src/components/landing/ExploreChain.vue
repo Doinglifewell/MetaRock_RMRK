@@ -4,7 +4,7 @@
       <Loader v-model="checkLoading" />
       <div class="container">
         <div class="columns is-mobile">
-          <p class="head-text column">Choose Chain</p>
+          <p class="head-text column">{{ $t("Explore.Choose Chain") }}</p>
         </div>
         <div class="columns is-mobile">
           <div class="column">

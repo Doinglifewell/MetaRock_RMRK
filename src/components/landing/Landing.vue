@@ -4,11 +4,6 @@
       <div class="container">
         <div class="columns level">
           <div class="column level-item has-text-centered">
-            <!-- <b-image
-              src="/Asset01.png"
-              alt="First NFT market explorer on Kusama and Polkadot"
-              ratio="6by4"
-            /> -->
             <b-carousel>
               <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
                 <div class="container">
@@ -23,15 +18,16 @@
           </div>
           <div class="column pl-5">
             <p class="head-text">
-              Enabling assets to be teleported into the metaverse
+              {{ $t("landing.HomeText") }}
             </p>
             <b-button
               tag="router-link"
               to="/getStarted"
               type="is-inverte"
               class="mt-5"
-              >Get Started</b-button
             >
+              {{ $t("landing.GetStarted") }}
+            </b-button>
           </div>
         </div>
       </div>
@@ -45,20 +41,7 @@ import nftListWithSearch from "@/queries/nftListWithSearch.graphql";
 import { denyList } from "@/constants";
 import { getMany, update } from "idb-keyval";
 import { fetchNFTMetadata } from "../rmrk/utils";
-@Component<Landing>({
-  // metaInfo() {
-  //   return {
-  //     meta: [
-  //       { property: 'og:title', content: 'KodaDot - Kusama NFT Market explorer'},
-  //       { property: 'og:image', content: this.defaultLandingMetaImage},
-  //       { property: 'og:description', content: 'Low carbon NFT gallery on Kusama'},
-  //       { property: 'twitter:title', content: 'KodaDot - Kusama NFT Market Explorer' },
-  //       { property: 'twitter:description', content: 'Low carbon NFT gallery on Kusama'},
-  //       { property: 'twitter:image', content: this.defaultLandingMetaImage},
-  //     ]
-  //   }
-  // },
-})
+@Component<Landing>({})
 export default class Landing extends Vue {
   public carousels = [
     { src: "/Asset01.png" },

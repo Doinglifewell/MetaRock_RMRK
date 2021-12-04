@@ -407,13 +407,13 @@
     "ConnectWallet": "Connect Wallet",
     "ChangeAccount": "Change account",
     "Account": "Account",
-    "InstallDesktopWalletExtension" : " Install Desktop Wallet Extension",  
-    "InstallChromeWalletExtension" : "Install Chrome Wallet Extension",
-    "InstallFirefoxWalletExtension" : "Install Firefox Wallet Extension"
+    "InstallDesktopWalletExtension" : " Install Desktop Wallet Extension.",  
+    "InstallChromeWalletExtension" : "Install Chrome Wallet Extension.",
+    "InstallFirefoxWalletExtension" : "Install Firefox Wallet Extension."
   },
   "landing": {
     "HomeText": "Enabling assets to be teleported into the metaverse",
-    "Get Started": "Get Started"
+    "GetStarted": "Get Started"
   },
   "GetStarted": {
     "Which one are you": "Which one are you?",
