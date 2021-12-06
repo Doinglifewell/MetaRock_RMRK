@@ -75,30 +75,17 @@ interface Menu {
 export default class Footer extends Vue {
   public menu: Menu[] = [
     {
-      name: "© 2021 Meta Rock",
+      name: i18n.t("Footer.MetaRock"),
       url: "/",
     },
     {
-      name: "Privacy Policy",
+      name: i18n.t("Footer.Privacy Policy"),
       url: "/",
     },
     {
-      name: "Terms and Conditions",
+      name: i18n.t("Footer.Terms and Conditions"),
       url: "/",
     },
-
-    // {
-    //   name: i18n.t("© 2021 Meta Rock"),
-    //   url: "/",
-    // },
-    // {
-    //   name: i18n.t("Privacy Policy"),
-    //   url: "/",
-    // },
-    // {
-    //   name: i18n.t("Terms and Conditions"),
-    //   url: "/",
-    // },
   ];
 }
 </script>

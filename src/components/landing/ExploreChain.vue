@@ -64,7 +64,7 @@ export default class ExploreChain extends Vue {
   public checkLoading = false;
 
   public toast(chain: string) {
-    const msg : string| any = i18n.t("Explore.SearchBar.toast");
+    const msg : string| any = i18n.t("Explore.ExploreChain.toast", [chain]);
     this.$buefy.toast.open({
       duration: 2000,
       message: msg,
