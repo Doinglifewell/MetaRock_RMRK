@@ -4,7 +4,9 @@
       <Loader v-model="checkLoading" />
       <div class="container">
         <div class="columns is-mobile">
-          <p class="head-text column">{{ $t("Mint.Choose Chain") }}</p>
+          <p class="head-text column">
+            {{ $t("Mint.ChooseNFT.Choose Chain") }}
+          </p>
         </div>
         <div class="columns is-mobile">
           <div class="column">
@@ -49,7 +51,7 @@
       <div class="container mt-5">
         <div class="columns is-mobile">
           <p class="head-text column">
-            {{ $t("Mint.What would you like to create") }}
+            {{ $t("Mint.ChooseNFT.What would you like to create") }}
           </p>
         </div>
         <div class="columns is-mobile">
@@ -58,22 +60,22 @@
               type="is-primary "
               class="mr-3 mt-2"
               @click="createNFT(1)"
-              >{{ $t("Mint.Digtal Asset") }}</b-button
+              >{{ $t("Mint.ChooseNFT.Digtal Asset") }}</b-button
             >
             <b-button
               type="is-primary "
               class="mr-3 mt-2"
               @click="createNFT(2)"
-              >{{ $t("Mint.Physical Asset") }}</b-button
+              >{{ $t("Mint.ChooseNFT.Physical Asset") }}</b-button
             >
             <b-button
               type="is-primary "
               class="mr-3 mt-2"
               @click="createNFT(3)"
-              >{{ $t("Mint.Simple NFT") }}</b-button
+              >{{ $t("Mint.ChooseNFT.Simple NFT") }}</b-button
             >
             <p v-if="null_chian" class="null_chain">
-              {{ $t("Mint.Please choose chain!") }}
+              {{ $t("Mint.ChooseNFT.Please choose chain") }}
             </p>
           </div>
         </div>
@@ -86,6 +88,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import Connector from "@/utils/vue-api2";
 import correctFormat from "@/utils/ss58Format";
+import i18n from "@/i18n";
 
 const components = {
   Loader: () => import("@/components/shared/Loader.vue"),
@@ -103,9 +106,10 @@ export default class ChooseNFT extends Vue {
   }
 
   public toast() {
+    const msg: string | any = i18n.t("Mint.ChooseNFT.toast");
     this.$buefy.toast.open({
       duration: 2000,
-      message: `Sorry we are still building.`,
+      message: msg,
       pauseOnHover: true,
       type: "is-white",
       position: "is-top-right",
@@ -135,9 +139,10 @@ export default class ChooseNFT extends Vue {
       this.toast();
     } else if (this.switch_chain == "Choose") {
       // this.null_chian = true;
+      const msg: string | any = i18n.t("Mint.ChooseNFT.Please choose chain");
       this.$buefy.toast.open({
         duration: 2000,
-        message: `Please choose chain !`,
+        message: msg,
         pauseOnHover: true,
         position: "is-bottom",
         type: "is-danger",

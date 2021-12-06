@@ -44,6 +44,8 @@ import { Component, Prop, Vue, Emit } from "vue-property-decorator";
 import { Debounce } from "vue-debounce-decorator";
 import shouldUpdate from "@/utils/shouldUpdate";
 import { exist } from "./exist";
+import i18n from "@/i18n";
+
 
 @Component({
   components: {
@@ -69,9 +71,10 @@ export default class SearchBar extends Vue {
   }
 
   public toast() {
+    const msg : string| any = i18n.t("Explore.SearchBar.toast");
     this.$buefy.toast.open({
       duration: 2000,
-      message: `Sorry, we are currently building a rmrk2.0 scan tool to view the NFTs.`,
+      message: msg,
       pauseOnHover: true,
       type: "is-white",
       position: 'is-top-right',

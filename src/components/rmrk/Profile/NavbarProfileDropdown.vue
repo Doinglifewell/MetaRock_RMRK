@@ -13,7 +13,7 @@
           type="is-primary"
           class="navbar__button ml-3 my-3"
           @click="checkExtension()"
-          >{{ $t("navbar.ConnectWallet") }}</b-button
+          >{{ $t("Navbar.ConnectWallet") }}</b-button
         >
       </template>
     </template>
@@ -60,7 +60,7 @@
         @click="changeAccount = !changeAccount"
         expanded
       >
-        {{ $t("navbar.ChangeAccount") }}
+        {{ $t("Navbar.ChangeAccount") }}
       </b-button>
     </b-dropdown-item>
     <b-dropdown-item
@@ -81,7 +81,7 @@
           target="_blank"
           class="is-flex is-align-items-center pl-3"
         >
-          {{ $t("navbar.InstallDesktopWalletExtension") }}
+          {{ $t("Navbar.InstallDesktopWalletExtension") }}
         </a>
       </b-dropdown-item>
       <b-dropdown-item has-link aria-role="menuitem">
@@ -91,7 +91,7 @@
           target="_blank"
           class="is-flex is-align-items-center pl-3"
         >
-          {{ $t("navbar.InstallChromeWalletExtension") }}
+          {{ $t("Navbar.InstallChromeWalletExtension") }}
         </a>
       </b-dropdown-item>
       <b-dropdown-item has-link aria-role="menuitem">
@@ -101,7 +101,7 @@
           target="_blank"
           class="is-flex is-align-items-center pl-3"
         >
-          {{ $t("navbar.InstallFirefoxWalletExtension") }}
+          {{ $t("Navbar.InstallFirefoxWalletExtension") }}
         </a>
       </b-dropdown-item>
     </template>

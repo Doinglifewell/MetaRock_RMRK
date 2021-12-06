@@ -18,7 +18,7 @@
           </div>
           <div class="column pl-5">
             <p class="head-text">
-              {{ $t("landing.HomeText") }}
+              {{ $t("Landing.HomeText") }}
             </p>
             <b-button
               tag="router-link"
@@ -26,7 +26,7 @@
               type="is-inverte"
               class="mt-5"
             >
-              {{ $t("landing.GetStarted") }}
+              {{ $t("Landing.GetStarted") }}
             </b-button>
           </div>
         </div>

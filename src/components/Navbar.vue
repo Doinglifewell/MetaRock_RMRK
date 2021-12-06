@@ -20,13 +20,13 @@
     </template>
     <template v-slot:start class="start">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        {{ $t("navbar.MySpace") }}
+        {{ $t("Navbar.MySpace") }}
       </b-navbar-item>
       <b-navbar-item tag="router-link" :to="{ path: '/exploreChain' }">
-        {{ $t("navbar.Explore") }}
+        {{ $t("Navbar.Explore") }}
       </b-navbar-item>
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        {{ $t("navbar.Info") }}
+        {{ $t("Navbar.Info") }}
       </b-navbar-item>
     </template>
 
@@ -39,7 +39,7 @@
           tag="router-link"
           :to="{ path: '/chooseNFT' }"
           type="is-inverte"
-          >  {{ $t("navbar.CreateNFT") }}</b-button
+          >  {{ $t("Navbar.CreateNFT") }}</b-button
         >
       </b-navbar-item>
       <b-navbar-item>

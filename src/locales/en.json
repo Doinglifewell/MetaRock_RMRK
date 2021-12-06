@@ -399,7 +399,7 @@
 
 
 
-  "navbar": {
+  "Navbar": {
     "MySpace": "My Space",
     "Explore": "Explore",
     "Info": "Info",
@@ -412,7 +412,7 @@
     "InstallChromeWalletExtension" : "Install Chrome Wallet Extension.",
     "InstallFirefoxWalletExtension" : "Install Firefox Wallet Extension."
   },
-  "landing": {
+  "Landing": {
     "HomeText": "Enabling assets to be teleported into the metaverse",
     "GetStarted": "Get Started"
   },
@@ -422,15 +422,25 @@
     "Collecter": "Collecter"
   },
   "Explore": {
-    "Choose Chain": "Choose Chain"
+    "Choose Chain": "Choose Chain",
+    "ExploreChain" : {
+      "toast" : "Sorry, we are building to connect network."
+    },
+    "SearchBar" : {
+      "toast" : "Sorry, we are currently building a rmrk2.0 scan tool to view the NFTs."
+    }
   },
   "Mint": {
-    "Choose Chain": "Choose Chain",
-    "What would you like to create": "What would you like to create?",
-    "Digtal Asset": "Digtal Asset",
-    "Physical Asset": "Physical Asset",
-    "Simple NFT": "Simple NFT",
-    "Please choose chain":"Please choose chain!",
+    "ChooseNFT" : {
+      "Choose Chain": "Choose Chain",
+      "What would you like to create": "What would you like to create?",
+      "Digtal Asset": "Digtal Asset",
+      "Physical Asset": "Physical Asset",
+      "Simple NFT": "Simple NFT",
+      "Please choose chain":"Please choose chain!",
+      "toast" : "Sorry we are still building."
+    },
+  
     "ChooseCollection": {
       "Please select your account": "Please select your account.",
       "createCollectionMessage": "You didn't create any collections. Please create collection.",

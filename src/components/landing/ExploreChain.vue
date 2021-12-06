@@ -54,6 +54,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Connector from "@/utils/vue-api2";
+import i18n from "@/i18n";
 import correctFormat from "@/utils/ss58Format";
 const components = {
   Loader: () => import("@/components/shared/Loader.vue"),
@@ -63,9 +64,10 @@ export default class ExploreChain extends Vue {
   public checkLoading = false;
 
   public toast(chain: string) {
+    const msg : string| any = i18n.t("Explore.SearchBar.toast");
     this.$buefy.toast.open({
       duration: 2000,
-      message: `Sorry, we are building to connect ` + chain + ` network.`,
+      message: msg,
       pauseOnHover: true,
       type: 'is-white',
       position: 'is-top-right',
