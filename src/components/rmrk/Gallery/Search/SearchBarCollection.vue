@@ -1,12 +1,28 @@
 <template>
   <div class="content">
-    <b-field grouped group-multiline>
-      <Sort
-        class="control"
-        :value="sortBy"
-        @input="updateSortBy"
-      />
-      <b-field expanded class="control">
+    <div class="columns">
+      <b-field class="column is-6 mb-0">
+        <p class="search-bar-text">{{ exploreChain }} Network</p>
+      </b-field>
+      <b-field class="column is-1 mb-0">
+        <b-button tag="router-link" to="/rmrk/gallery" type="is-inverte"
+          >NFTs</b-button
+        >
+      </b-field>
+      <b-field class="column is-1 mb-0">
+        <b-button tag="router-link" to="/rmrk/collections" type="is-primary"
+          >Collections</b-button
+        >
+      </b-field>
+    </div>
+    <div class="columns">
+      <b-field class="column is-2 mb-0">
+        <b-button type="is-primary" @click="toast()">Physical Assets</b-button>
+      </b-field>
+      <b-field class="column is-2 mb-0">
+        <b-button type="is-inverte" @click="toast()">Digital Assets</b-button>
+      </b-field>
+      <b-field expanded class="control column is-3 mb-0">
         <b-input
           placeholder="Search..."
           type="search"
@@ -16,101 +32,125 @@
         >
         </b-input>
       </b-field>
-      <BasicSwitch
-        class="is-flex control mb-5"
-        v-model="vListed"
-        label="sort.listed"
-        size="is-medium"
-      />
-      <slot />
-    </b-field>
+    </div>
+
+    <div class="columns">
+      <b-field class="column is-10 mb-0">
+        <b-button type="is-inverte" class="chain-button"
+          >Drawings and Paintings</b-button
+        >
+        <b-button type="is-inverte" class="chain-button">Jewellery</b-button>
+        <b-button type="is-inverte" class="chain-button">Fashion</b-button>
+        <b-button type="is-inverte" class="chain-button">Sculpture</b-button>
+        <b-button type="is-inverte" class="chain-button">Architecture</b-button>
+      </b-field>
+      <b-field class="column is-2 mb-0">
+        <Sort class="control" :value="sortBy" @input="updateSortBy" />
+      </b-field>
+    </div>
   </div>
 </template>
 
-<script lang="ts" >
-import { Component, Prop, Vue, Emit } from 'vue-property-decorator'
-import { Debounce } from 'vue-debounce-decorator'
-import shouldUpdate from '@/utils/shouldUpdate'
-import { exist } from './exist'
+<script lang="ts">
+import { Component, Prop, Vue, Emit } from "vue-property-decorator";
+import { Debounce } from "vue-debounce-decorator";
+import shouldUpdate from "@/utils/shouldUpdate";
+import { exist } from "./exist";
+import i18n from "@/i18n";
 
 @Component({
   components: {
-    Sort: () => import('./SearchSortDropdown.vue'),
-    TypeTagInput: () => import('./TypeTagInput.vue'),
-    Pagination: () => import('@/components/rmrk/Gallery/Pagination.vue'),
-    BasicSwitch: () => import('@/components/shared/form/BasicSwitch.vue'),
+    Sort: () => import("./SearchSortDropdown.vue"),
+    TypeTagInput: () => import("./TypeTagInput.vue"),
+    Pagination: () => import("@/components/rmrk/Gallery/Pagination.vue"),
+    BasicSwitch: () => import("@/components/shared/form/BasicSwitch.vue"),
   },
 })
 export default class SearchBar extends Vue {
-  @Prop(String) public search!: string
-  @Prop(String) public type!: string
-  @Prop(String) public sortBy!: string
-  @Prop(Boolean) public listed!: boolean
+  @Prop(String) public search!: string;
+  @Prop(String) public type!: string;
+  @Prop(String) public sortBy!: string;
+  @Prop(Boolean) public listed!: boolean;
 
-  protected isVisible = false
+  protected isVisible = false;
 
   public mounted(): void {
-    exist(this.$route.query.search, this.updateSearch)
-    exist(this.$route.query.type, this.updateType)
-    exist(this.$route.query.sort, this.updateSortBy)
-    exist(this.$route.query.listed, this.updateListed)
+    exist(this.$route.query.search, this.updateSearch);
+    exist(this.$route.query.type, this.updateType);
+    exist(this.$route.query.sort, this.updateSortBy);
+    exist(this.$route.query.listed, this.updateListed);
+  }
+
+  public toast() {
+    const msg: string | any = i18n.t("Explore.SearchBar.toast");
+    this.$buefy.toast.open({
+      duration: 2000,
+      message: msg,
+      pauseOnHover: true,
+      type: "is-white",
+      position: "is-top-right",
+    });
+  }
+
+  get exploreChain(): string {
+    return this.$store.getters.getCurrentChain;
   }
 
   get vListed(): boolean {
-    return this.listed
+    return this.listed;
   }
 
   set vListed(listed: boolean) {
-    this.updateListed(listed)
+    this.updateListed(listed);
   }
 
   get searchQuery(): string {
-    return this.search
+    return this.search;
   }
 
   set searchQuery(value: string) {
-    this.updateSearch(value)
+    this.updateSearch(value);
   }
 
   get typeQuery(): string {
-    return this.type
+    return this.type;
   }
 
   set typeQuery(value: string) {
-    this.updateType(value)
+    this.updateType(value);
   }
 
-  @Emit('update:listed')
+  @Emit("update:listed")
   @Debounce(50)
   updateListed(value: string | boolean): boolean {
-    const v = String(value)
-    this.replaceUrl(v, 'listed')
-    return v === 'true'
+    const v = String(value);
+    this.replaceUrl(v, "listed");
+    return v === "true";
   }
 
-  @Emit('update:type')
+  @Emit("update:type")
   @Debounce(50)
   updateType(value: string): string {
-    this.replaceUrl(value, 'type')
-    return value
+    this.replaceUrl(value, "type");
+    return value;
   }
 
-  @Emit('update:sortBy')
+  @Emit("update:sortBy")
   @Debounce(400)
   updateSortBy(value: string): string {
-    this.replaceUrl(value, 'sort')
-    return value
+    this.replaceUrl(value, "sort");
+    return value;
   }
 
-  @Emit('update:search')
+  @Emit("update:search")
   @Debounce(400)
   updateSearch(value: string): string {
-    shouldUpdate(value, this.searchQuery) && this.replaceUrl(value)
-    return value
+    shouldUpdate(value, this.searchQuery) && this.replaceUrl(value);
+    return value;
   }
 
   @Debounce(100)
-  replaceUrl(value: string, key = 'search'): void {
+  replaceUrl(value: string, key = "search"): void {
     this.$router
       .replace({
         name: String(this.$route.name),
@@ -120,16 +160,21 @@ export default class SearchBar extends Vue {
           [key]: value,
         },
       })
-      .catch(console.warn /*Navigation Duplicate err fix later */)
+      .catch(console.warn /*Navigation Duplicate err fix later */);
   }
 }
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables';
+@import "@/styles/variables";
 
+input[type="search"] {
+  background: white;
+  color: #2e0ef4;
+}
 .card {
-  box-shadow: 0px 0px 5px 0.5px $primary;
+  box-shadow: none;
+  background: transparent;
 }
 
 .fade-enter-active,

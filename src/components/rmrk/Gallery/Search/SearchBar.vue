@@ -1,14 +1,31 @@
 <template>
   <div class="card mb-3 mt-5">
-    <div class="card-content">
+    <div class="card-content p-0">
+      <div class="columns">
+        <b-field class="column is-6 mb-0">
+          <p class="search-bar-text">{{exploreChain}} Network</p>
+        </b-field>
+        <b-field class="column is-1 mb-0">
+          <b-button tag="router-link" to="/rmrk/gallery" type="is-primary"
+            >NFTs</b-button
+          >
+        </b-field>
+        <b-field class="column is-1 mb-0">
+          <b-button tag="router-link" to="/rmrk/collections" type="is-inverte"
+            >Collections</b-button
+          >
+        </b-field>
+      </div>
       <div class="columns">
         <b-field class="column is-2 mb-0">
-          <b-button type="is-primary"  @click="toast()">Physical Assets</b-button>
+          <b-button type="is-primary" @click="toast()"
+            >Physical Assets</b-button
+          >
         </b-field>
         <b-field class="column is-2 mb-0">
           <b-button type="is-inverte" @click="toast()">Digital Assets</b-button>
         </b-field>
-        <b-field class="column is-3 mb-0">
+        <b-field class="column is-5 mb-0">
           <b-input
             placeholder="Search..."
             type="search"
@@ -18,6 +35,9 @@
           >
           </b-input>
         </b-field>
+        <!-- <b-field class="column is-3 mb-0">
+          <Sort :value="sortBy" @input="updateSortBy" />
+        </b-field> -->
       </div>
       <div class="columns">
         <b-field class="column is-10 mb-0">
@@ -46,7 +66,6 @@ import shouldUpdate from "@/utils/shouldUpdate";
 import { exist } from "./exist";
 import i18n from "@/i18n";
 
-
 @Component({
   components: {
     Sort: () => import("./SearchSortDropdown.vue"),
@@ -71,14 +90,18 @@ export default class SearchBar extends Vue {
   }
 
   public toast() {
-    const msg : string| any = i18n.t("Explore.SearchBar.toast");
+    const msg: string | any = i18n.t("Explore.SearchBar.toast");
     this.$buefy.toast.open({
       duration: 2000,
       message: msg,
       pauseOnHover: true,
       type: "is-white",
-      position: 'is-top-right',
+      position: "is-top-right",
     });
+  }
+
+    get exploreChain(): string {
+    return this.$store.getters.getCurrentChain;
   }
 
   get vListed(): boolean {
@@ -148,13 +171,13 @@ export default class SearchBar extends Vue {
 
 <style scoped lang="scss">
 @import "@/styles/variables";
-  input[type="search"] {
-    background: white;
-    color: #2e0ef4;
-  }
+input[type="search"] {
+  background: white;
+  color: #2e0ef4;
+}
 
 .card {
-  // filter: drop-shadow(-10px 4px 20px rgba(0, 0, 0, 0.25));
+  box-shadow: none;
   background: transparent;
 }
 
@@ -167,5 +190,4 @@ export default class SearchBar extends Vue {
 .fade-leave-to {
   opacity: 0;
 }
-
 </style>

@@ -2,34 +2,39 @@
   <div class="collections container">
     <Loader :value="isLoading" />
     <Search v-bind.sync="searchQuery">
-      <b-field>
-        <Pagination hasMagicBtn simple replace preserveScroll :total="total" v-model="currentValue" :per-page="perPage" />
-      </b-field>
     </Search>
 
     <div>
       <div class="columns is-multiline">
-        <div class="column is-4" v-for="collection in results" :key="collection.id">
-          <div class="card collection-card">
+        <div
+          class="column is-4"
+          v-for="collection in results"
+          :key="collection.id"
+        >
+          <div class="card_outside p-5">
             <router-link
-              :to="{ name: 'collectionDetail', params: { id: collection.id } }"
+              :to="{
+                name: 'collectionDetail',
+                params: { id: collection.id },
+              }"
               tag="div"
               class="collection-card__skeleton"
             >
-              <div class="card-image">
-                <BasicImage :src="collection.image" :alt="collection.name" customClass="collection__image-wrapper" />
-              </div>
-
-              <div class="card-content">
-                <router-link
-                  :to="{
-                    name: 'collectionDetail',
-                    params: { id: collection.id }
-                  }"
-                >
-                  <CollectionDetail :nfts="collection.nfts.nodes" :name="collection.name" />
-                </router-link>
-                <b-skeleton :active="isLoading"> </b-skeleton>
+              <div class="p-1">
+                <div class="card collection-card p-3">
+                  <div class="card-image">
+                    <BasicImage
+                      :src="collection.image"
+                      :alt="collection.name"
+                      customClass="collection__image-wrapper"
+                    />
+                  </div>
+                </div>
+                <div class="level mt-5">
+                  <p class="level-item has-text-centered collection-name">
+                    {{ collection.name }}
+                  </p>
+                </div>
               </div>
             </router-link>
           </div>
@@ -46,17 +51,22 @@
   </div>
 </template>
 
-<script lang="ts" >
-import { Component, Vue } from 'vue-property-decorator'
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
 
-import { CollectionWithMeta, Collection, Metadata, CollectionWithNFT } from '../service/scheme'
-import { fetchCollectionMetadata, sanitizeIpfsUrl } from '../utils'
-import { SearchQuery } from './Search/types'
-import Freezeframe from 'freezeframe'
-import 'lazysizes'
+import {
+  CollectionWithMeta,
+  Collection,
+  Metadata,
+  CollectionWithNFT,
+} from "../service/scheme";
+import { fetchCollectionMetadata, sanitizeIpfsUrl } from "../utils";
+import { SearchQuery } from "./Search/types";
+import Freezeframe from "freezeframe";
+import "lazysizes";
 
-import collectionListWithSearch from '@/queries/collectionListWithSearch.graphql'
-import { getMany, update } from 'idb-keyval'
+import collectionListWithSearch from "@/queries/collectionListWithSearch.graphql";
+import { getMany, update } from "idb-keyval";
 
 interface Image extends HTMLImageElement {
   ffInitialized: boolean;
@@ -64,156 +74,154 @@ interface Image extends HTMLImageElement {
 
 type CollectionType = CollectionWithMeta;
 const components = {
-  GalleryCardList: () => import('./GalleryCardList.vue'),
-  Search: () => import('./Search/SearchBarCollection.vue'),
-  Money: () => import('@/components/shared/format/Money.vue'),
-  Pagination: () => import('./Pagination.vue'),
-  CollectionDetail: () => import('@/components/rmrk/Gallery/CollectionDetail.vue'),
-  Loader: () => import('@/components/shared/Loader.vue'),
-  BasicImage: () => import('@/components/shared/view/BasicImage.vue'),
-}
+  GalleryCardList: () => import("./GalleryCardList.vue"),
+  Search: () => import("./Search/SearchBarCollection.vue"),
+  Money: () => import("@/components/shared/format/Money.vue"),
+  Pagination: () => import("./Pagination.vue"),
+  CollectionDetail: () =>
+    import("@/components/rmrk/Gallery/CollectionDetail.vue"),
+  Loader: () => import("@/components/shared/Loader.vue"),
+  BasicImage: () => import("@/components/shared/view/BasicImage.vue"),
+};
 
 @Component<Collections>({
   metaInfo() {
     return {
-      title: 'MetaRock - NFT Explorer all collections',
+      title: "MetaRock - NFT Explorer all collections",
       meta: [
         {
-          property: 'og:title',
-          content: 'Low minting fees and carbonless NFTs'
+          property: "og:title",
+          content: "Low minting fees and carbonless NFTs",
         },
         {
-          property: 'og:image',
-          content: this.defaultCollectionsMetaImage
+          property: "og:image",
+          content: this.defaultCollectionsMetaImage,
         },
         {
-          property: 'og:description',
-          content: 'Buy Carbonless NFTs on Kusama'
+          property: "og:description",
+          content: "Buy Carbonless NFTs on Kusama",
         },
         {
-          property: 'twitter:title',
-          content: 'Low minting fees and carbonless NFTs'
+          property: "twitter:title",
+          content: "Low minting fees and carbonless NFTs",
         },
         {
-          property: 'twitter:description',
-          content: 'Buy Carbonless NFTs on Kusama'
+          property: "twitter:description",
+          content: "Buy Carbonless NFTs on Kusama",
         },
         {
-          property: 'twitter:image',
-          content: this.defaultCollectionsMetaImage
-        }
-      ]
-    }
+          property: "twitter:image",
+          content: this.defaultCollectionsMetaImage,
+        },
+      ],
+    };
   },
-  components
+  components,
 })
 export default class Collections extends Vue {
   private collections: Collection[] = [];
   private meta: Metadata[] = [];
   private first = 9;
   private perPage = 9;
-  private placeholder = '/koda300x300.svg';
+  private placeholder = "/koda300x300.svg";
   private currentValue = 1;
   private total = 0;
   private searchQuery: SearchQuery = {
-    search: '',
-    type: '',
-    sortBy: 'BLOCK_NUMBER_DESC',
+    search: "",
+    type: "",
+    sortBy: "BLOCK_NUMBER_DESC",
     listed: false,
   };
 
   get defaultCollectionsMetaImage(): string {
-    const url = new URL(window.location.href)
-    return (
-      `${url.protocol}//${url.hostname}/Kodadot_Card_Collections.jpg`
-    )
+    const url = new URL(window.location.href);
+    return `${url.protocol}//${url.hostname}/Kodadot_Card_Collections.jpg`;
   }
 
   get isLoading() {
-    return this.$apollo.queries.collection.loading
+    return this.$apollo.queries.collection.loading;
   }
 
   get offset() {
-    return this.currentValue * this.first - this.first
+    return this.currentValue * this.first - this.first;
   }
 
   private buildSearchParam(): Record<string, unknown>[] {
-    const params = []
+    const params = [];
 
     if (this.searchQuery.search) {
       params.push({
-        name: { likeInsensitive: `%${this.searchQuery.search}%` }
-      })
+        name: { likeInsensitive: `%${this.searchQuery.search}%` },
+      });
     }
 
-    return params
+    return params;
   }
 
-
   get exploreChain(): string {
-    return this.$store.getters.getCurrentChain
+    return this.$store.getters.getCurrentChain;
   }
 
   public async created() {
-    const apolloClient = this.exploreChain
-    this.$apollo.addSmartQuery('collection', {
+    const apolloClient = this.exploreChain;
+    this.$apollo.addSmartQuery("collection", {
       query: collectionListWithSearch,
       client: apolloClient,
       manual: true,
-      loadingKey: 'isLoading',
+      loadingKey: "isLoading",
       result: this.handleResult,
       variables: () => {
         return {
           orderBy: this.searchQuery.sortBy,
           search: this.buildSearchParam(),
-          listed: this.searchQuery.listed ? [{price: { greaterThan: '0'}}] : [],
+          listed: this.searchQuery.listed
+            ? [{ price: { greaterThan: "0" } }]
+            : [],
           first: this.first,
-          offset: this.offset
-        }
+          offset: this.offset,
+        };
       },
       update: ({ collectionEntity }) => ({
         ...collectionEntity,
-        nfts: collectionEntity.nfts.nodes
+        nfts: collectionEntity.nfts.nodes,
       }),
-    })
+    });
   }
 
   protected async handleResult({ data }: any) {
-    this.total = data.collectionEntities.totalCount
+    this.total = data.collectionEntities.totalCount;
     this.collections = data.collectionEntities.nodes.map((e: any) => ({
       ...e,
-    }))
+    }));
 
     const storedMetadata = await getMany(
       this.collections.map(({ metadata }: any) => metadata)
-    )
+    );
 
     storedMetadata.forEach(async (m, i) => {
       if (!m) {
         try {
-          const meta = await fetchCollectionMetadata(this.collections[i])
+          const meta = await fetchCollectionMetadata(this.collections[i]);
           Vue.set(this.collections, i, {
             ...this.collections[i],
             ...meta,
-            image: sanitizeIpfsUrl(meta.image || '')
-          })
-          update(this.collections[i].metadata, () => meta)
+            image: sanitizeIpfsUrl(meta.image || ""),
+          });
+          update(this.collections[i].metadata, () => meta);
         } catch (e) {
-          console.warn('[ERR] unable to get metadata')
+          console.warn("[ERR] unable to get metadata");
         }
       } else {
         Vue.set(this.collections, i, {
           ...this.collections[i],
           ...m,
-          image: sanitizeIpfsUrl(m.image || '')
-        })
+          image: sanitizeIpfsUrl(m.image || ""),
+        });
       }
-    })
+    });
 
-
-    this.prefetchPage(this.offset + this.first, this.offset + (3 * this.first))
+    this.prefetchPage(this.offset + this.first, this.offset + 3 * this.first);
   }
-
 
   public async prefetchPage(offset: number, prefetchLimit: number) {
     try {
@@ -223,63 +231,66 @@ export default class Collections extends Vue {
           first: this.first,
           offset,
         },
-      })
+      });
 
       const {
         data: {
-          collectionEntities: { nodes: collectionList }
-        }
-      } = await collections
+          collectionEntities: { nodes: collectionList },
+        },
+      } = await collections;
 
-      const storedPromise = getMany(collectionList.map(({ metadata }: any) => metadata))
+      const storedPromise = getMany(
+        collectionList.map(({ metadata }: any) => metadata)
+      );
 
-      const storedMetadata = await storedPromise
+      const storedMetadata = await storedPromise;
 
       storedMetadata.forEach(async (m, i) => {
         if (!m) {
           try {
-            const meta = await fetchCollectionMetadata(collectionList[i])
-            update(collectionList[i].metadata, () => meta)
+            const meta = await fetchCollectionMetadata(collectionList[i]);
+            update(collectionList[i].metadata, () => meta);
           } catch (e) {
-            console.warn('[ERR] unable to get metadata')
+            console.warn("[ERR] unable to get metadata");
           }
         }
-      })
+      });
     } catch (e: any) {
-      console.warn('[PREFETCH] Unable fo fetch', offset, e.message)
+      console.warn("[PREFETCH] Unable fo fetch", offset, e.message);
     } finally {
       if (offset <= prefetchLimit) {
-        this.prefetchPage(offset + this.first, prefetchLimit)
+        this.prefetchPage(offset + this.first, prefetchLimit);
       }
     }
-
   }
 
   get results(): CollectionWithMeta[] {
-    return this.collections.filter((collection: any) => collection.nfts.nodes.length) as CollectionWithMeta[]
+    return this.collections.filter(
+      (collection: any) => collection.nfts.nodes.length
+    ) as CollectionWithMeta[];
   }
 
   setFreezeframe() {
-    document.addEventListener('lazybeforeunveil', async e => {
-      const target = e.target as Image
-      const type = target.dataset.type as string
-      const isGif = type === 'image/gif'
+    document.addEventListener("lazybeforeunveil", async (e) => {
+      const target = e.target as Image;
+      const type = target.dataset.type as string;
+      const isGif = type === "image/gif";
 
       if (isGif && !target.ffInitialized) {
         new Freezeframe(target, {
           trigger: false,
           overlay: true,
-          warnings: false
-        })
+          warnings: false,
+        });
 
-        target.ffInitialized = true
+        target.ffInitialized = true;
       }
-    })
+    });
   }
 
   onError(e: Event) {
-    const target = e.target as Image
-    target.src = this.placeholder
+    const target = e.target as Image;
+    target.src = this.placeholder;
   }
 }
 </script>
@@ -287,6 +298,12 @@ export default class Collections extends Vue {
 <style lang="scss">
 .card-image__burned {
   filter: blur(7px);
+}
+
+.card_outside {
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 21px;
 }
 
 .collections {
@@ -363,10 +380,14 @@ export default class Collections extends Vue {
     padding-top: 10px;
 
     .card {
-      border-radius: 8px;
+      border: 3px solid #ffffff;
+      box-sizing: border-box;
+      filter: drop-shadow(-10px 4px 20px rgba(0, 0, 0, 0.25));
+      border-radius: 21px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0px 0px 10px 0.5px #d32e79;
+      background: transparent;
+      // box-shadow: 0px 0px 10px 0.5px #d32e79;
 
       &-image {
         .ff-canvas {
