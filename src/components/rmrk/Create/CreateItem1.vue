@@ -54,11 +54,11 @@
 
         <div class="mb-5">
           <p class="collection_label mb-1">
-            {{ $i18n.t("No. of Editions") }}
+            {{ $t("mint.nft.editions.NoofEditions") }}
           </p>
           <b-numberinput
             v-model="vEdition"
-            placeholder="1 is minumum"
+            :placeholder="$t('mint.nft.editions.placeholder')"
             expanded
             :min="1"
             :max="clickableMax"
@@ -68,16 +68,16 @@
         <div class="columns">
           <div class="column">
             <p class="collection_label mb-1">
-              {{ $i18n.t("Tags") }}
+              {{ $t("mint.nft.tags.name") }}
             </p>
             <AttributeTagInput
               v-model="vTags"
-              placeholder="Get discovered easier through tags"
+              :placeholder="$t('mint.nft.tags.placeholder')"
             />
           </div>
           <div class="column">
             <p class="collection_label mb-1">
-              {{ $i18n.t("Price") }}
+              {{ $t("mint.nft.price") }}
             </p>
             <BalanceInput @input="updateMeta" expanded />
           </div>

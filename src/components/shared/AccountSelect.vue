@@ -1,5 +1,5 @@
 <template>
-  <b-field grouped :label="account ? $t('navbar.Account') : $t('navbar.PleaseSelectAccount')">
+  <b-field grouped :label="account ? $t('Navbar.Account') : $t('Navbar.PleaseSelectAccount')">
     <b-select placeholder="Select account" v-model="account" expanded>
       <option
         v-for="option in options"

@@ -3,11 +3,11 @@
     <Loader v-model="isLoading" :status="status" />
     <div>
       <p class="title is-size-3">
-        {{ $t("context") }}
+        {{ $t("mint.collection.create collection") }}
       </p>
       <div class="columns">
         <div class="column">
-          <p class="collection_head">Collection Cover Image</p>
+          <p class="collection_head"> {{ $t("mint.collection.collection cover image") }}</p>
           <MetadataUpload
             v-model="image"
             label="File Types: PNG, JPEG, GIF, SVG"
@@ -86,7 +86,7 @@
               :loading="isLoading"
               outlined
             >
-              {{ $t("create collection") }}
+              {{ $t("mint.collection.create collection") }}
             </b-button>
           </b-field>
           <!-- <b-field>
@@ -249,7 +249,7 @@ export default class CreateNewCollection extends Mixins(
             );
 
             this.isLoading = false;
-            this.$router.push("/"); 
+            this.$router.push("/");
           },
           (dispatchError) => {
             execResultValue(tx);
