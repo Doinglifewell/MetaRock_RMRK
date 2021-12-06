@@ -4,7 +4,9 @@
     <div v-if="reSelectAccount">
       <div class="hero">
         <div class="hero-body">
-          <p class="head-text">Please select your account.</p>
+          <p class="head-text">
+            {{ $t("Mint.ChooseCollection.Please select your account") }}
+          </p>
         </div>
       </div>
     </div>
@@ -12,27 +14,30 @@
       <div class="hero">
         <div class="hero-body">
           <p class="head-text">
-            You didn't create any collections. Please create collection.
+            {{ $t("Mint.ChooseCollection.createCollectionMessage") }}
           </p>
           <b-button
             tag="router-link"
             to="/rmrk/createCollection"
             type="is-primary"
             class="mb-5"
-            >Create Collection</b-button
+          >
+            {{ $t("Mint.ChooseCollection.Create Collection") }}</b-button
           >
         </div>
       </div>
     </div>
     <div v-else>
       <div>
-        <p class="head-text column pl-0">Create / Choose Collection</p>
+        <p class="head-text column pl-0">
+          {{ $t("Mint.ChooseCollection.Create / Choose Collection") }}
+        </p>
         <b-button
           tag="router-link"
           to="/rmrk/createCollection"
           type="is-primary"
           class="mb-5"
-          >Create Collection</b-button
+          >{{ $t("Mint.ChooseCollection.Create Collection") }}</b-button
         >
       </div>
       <div>
@@ -57,13 +62,6 @@
                         customClass="collection__image-wrapper"
                       />
                     </div>
-                    <!-- <div class="card-content">
-                    <CollectionDetail
-                      :nfts="collection.nfts.nodes"
-                      :name="collection.name"
-                    />
-                  <b-skeleton :active="isLoading"> </b-skeleton>
-                </div> -->
                   </div>
                   <div class="level mt-5">
                     <p class="level-item has-text-centered collection-name">
