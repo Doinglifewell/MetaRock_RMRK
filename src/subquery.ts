@@ -9,7 +9,7 @@ export const Kusama = new ApolloClient({
 export const Crab = new ApolloClient({
   name: 'subquery',
   cache: new InMemoryCache(),
-  uri: 'https://api.subquery.network/sq/TopCodeBeast/polkarock_crab_subql__VG9wQ'
+  uri: 'https://api.subquery.network/sq/TopCodeBeast/metarock_crab_subql__VG9wQ'
 })
 
 export const Pangolin = new ApolloClient({

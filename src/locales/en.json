@@ -407,6 +407,7 @@
     "ConnectWallet": "Connect Wallet",
     "ChangeAccount": "Change account",
     "Account": "Account",
+    "PleaseSelectAccount": "Please Select Account.",
     "InstallDesktopWalletExtension" : " Install Desktop Wallet Extension.",  
     "InstallChromeWalletExtension" : "Install Chrome Wallet Extension.",
     "InstallFirefoxWalletExtension" : "Install Firefox Wallet Extension."
@@ -429,9 +430,10 @@
     "Digtal Asset": "Digtal Asset",
     "Physical Asset": "Physical Asset",
     "Simple NFT": "Simple NFT",
+    "Please choose chain":"Please choose chain!",
     "ChooseCollection": {
       "Please select your account": "Please select your account.",
-      "You didn't create any collections. Please create collection": "You didn't create any collections. Please create collection.",
+      "createCollectionMessage": "You didn't create any collections. Please create collection.",
       "Create / Choose Collection": "Create / Choose Collection",
       "Create Collection": "Create Collection"
     },

@@ -69,7 +69,6 @@
       aria-role="menuitem"
     >
       <AccountSelect
-        :label="$t('navbar.Account')"
         v-model="account"
         :tooltipVisible="false"
       />

@@ -4,7 +4,7 @@
       <Loader v-model="checkLoading" />
       <div class="container">
         <div class="columns is-mobile">
-          <p class="head-text column">Choose Chain</p>
+          <p class="head-text column">{{ $t("Mint.Choose Chain") }}</p>
         </div>
         <div class="columns is-mobile">
           <div class="column">
@@ -48,20 +48,33 @@
       </div>
       <div class="container mt-5">
         <div class="columns is-mobile">
-          <p class="head-text column">What would you like to create ?</p>
+          <p class="head-text column">
+            {{ $t("Mint.What would you like to create") }}
+          </p>
         </div>
         <div class="columns is-mobile">
           <div class="column">
-            <b-button type="is-primary " class="mr-3 mt-2" @click="createNFT(1)"
-              >Digital Asset</b-button
+            <b-button
+              type="is-primary "
+              class="mr-3 mt-2"
+              @click="createNFT(1)"
+              >{{ $t("Mint.Digtal Asset") }}</b-button
             >
-            <b-button type="is-primary " class="mr-3 mt-2" @click="createNFT(2)"
-              >Physical Asset</b-button
+            <b-button
+              type="is-primary "
+              class="mr-3 mt-2"
+              @click="createNFT(2)"
+              >{{ $t("Mint.Physical Asset") }}</b-button
             >
-            <b-button type="is-primary " class="mr-3 mt-2" @click="createNFT(3)"
-              >Simple NFT</b-button
+            <b-button
+              type="is-primary "
+              class="mr-3 mt-2"
+              @click="createNFT(3)"
+              >{{ $t("Mint.Simple NFT") }}</b-button
             >
-            <p v-if="null_chian" class="null_chain">Please choose chain!</p>
+            <p v-if="null_chian" class="null_chain">
+              {{ $t("Mint.Please choose chain!") }}
+            </p>
           </div>
         </div>
       </div>
@@ -84,7 +97,7 @@ export default class ChooseNFT extends Vue {
   public switch_chain: string = "Choose";
   public null_chian = false;
   public checkLoading = false;
-  
+
   public switchCreateChain(data: string) {
     this.switch_chain = data;
   }

@@ -1,5 +1,5 @@
 <template>
-  <b-field grouped :label="label">
+  <b-field grouped :label="account ? $t('navbar.Account') : $t('navbar.PleaseSelectAccount')">
     <b-select placeholder="Select account" v-model="account" expanded>
       <option
         v-for="option in options"
@@ -28,7 +28,6 @@ export default class AccountSelect extends Mixins(WithKeyring) {
   private tooltip = "Owner's address of minted art";
   @Prop({ default: "" }) public value!: string | KeyringAccount;
   @Prop() public asKeyring!: boolean;
-  @Prop({ default: "Account" }) public label!: boolean;
   @Prop({ default: true }) tooltipVisible!: boolean;
 
   get options() {
