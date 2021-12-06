@@ -223,7 +223,7 @@
       "toast": "Sorry we are still building."
     },
     "ChooseCollection": {
-      "Please select your account": "Please select your account.",
+      "Please select your account": "Please connect your wallet and select your account.",
       "createCollectionMessage": "You didn't create any collections. Please create collection.",
       "Create / Choose Collection": "Create / Choose Collection",
       "Create Collection": "Create Collection"
