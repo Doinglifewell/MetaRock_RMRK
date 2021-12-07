@@ -34,7 +34,8 @@ export default class MediaResolver extends Vue {
   @Prop() public mimeType!: string;
 
   get resolveComponent() {
-    return resolveMedia(this.mimeType) + SUFFIX
+      if (resolveMedia(this.mimeType) == "Text") return ModelMedia;
+    return resolveMedia(this.mimeType) + SUFFIX;
   }
 
   // get visible() {
