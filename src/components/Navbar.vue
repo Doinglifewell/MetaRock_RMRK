@@ -13,8 +13,8 @@
           src="/MetaRock_Logo.png"
           alt="First NFT market explorer"
           class="logo__img"
-          width="100"
-          height="100"
+          width="80"
+          height="64"
         />
       </b-navbar-item>
     </template>

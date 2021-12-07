@@ -302,6 +302,10 @@ body {
 
   a {
     color: $white;
+    &:hover {
+      color: white;
+      font-weight: 800;
+    }
   }
 
   .message.is-primary {
@@ -331,7 +335,8 @@ body {
   .navbar-menu {
     a:hover,
     a:active,
-    a:focus a::selection {
+    a:focus, a::selection {
+      color: $white;
       background: $head-background;
     }
     .navbar-end {
