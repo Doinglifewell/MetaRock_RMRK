@@ -90,7 +90,7 @@ body {
   }
   .button {
     // text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     // transition: all 0.3s;
     // color: $scheme-invert;
     // box-shadow: 0px 0px 3px 0.3px $white!important;
@@ -111,7 +111,7 @@ body {
       &:focus {
         border-color: white;
         color: white;
-        background-color: $primary;
+        background-color: $head-background;
       }
     }
     &.is-inverte {
@@ -120,12 +120,20 @@ body {
       color: $white;
       &:hover,
       &:focus {
-        color: $white;
-        background-color: $primary;
+        border-color: white;
+        color: $head-background;
+        background-color: $white;
       }
     }
   }
 
+  .button.is-primary:focus:not(:active),
+  .button.is-primary.is-focused:not(:active),
+  .button.is-inverte:focus:not(:active),
+  .button.is-inverte.is-focused:not(:active) {
+    box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
   .button.is-primary.is-outlined {
     background-color: #fff;
     border-color: #fff;

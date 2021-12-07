@@ -9,9 +9,9 @@
       ar-modes="webxr scene-viewer quick-look"
       shadow-intensity="1"
     >
-    <!-- <button slot="ar-button" id="ar-button">
+    <button slot="ar-button" id="ar-button">
       Activate AR
-    </button> -->
+    </button>
     </model-viewer>
   </div>
 </template>
