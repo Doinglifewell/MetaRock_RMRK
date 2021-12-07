@@ -5,7 +5,7 @@
         <b-field class="column is-6 mb-0">
           <p class="search-bar-text">{{exploreChain}} Network</p>
         </b-field>
-        <b-field class="column is-1 mb-0">
+        <!-- <b-field class="column is-1 mb-0">
           <b-button tag="router-link" to="/rmrk/gallery" type="is-primary"
             >NFTs</b-button
           >
@@ -14,7 +14,7 @@
           <b-button tag="router-link" to="/rmrk/collections" type="is-inverte"
             >Collections</b-button
           >
-        </b-field>
+        </b-field> -->
       </div>
       <div class="columns">
         <b-field class="column is-2 mb-0">
@@ -25,7 +25,7 @@
         <b-field class="column is-2 mb-0">
           <b-button type="is-inverte" @click="toast()">Digital Assets</b-button>
         </b-field>
-        <b-field class="column is-5 mb-0">
+        <b-field class="column is-3 mb-0">
           <b-input
             placeholder="Search..."
             type="search"

@@ -65,7 +65,7 @@ body {
     }
   }
   .dropdown .dropdown-menu .has-link a {
-    color: #2e0ef4;
+    color: $button-text;
   }
 
   .dropdown-menu .dropdown-item .field {
@@ -75,14 +75,14 @@ body {
     }
     .field-body span select {
       background: white !important;
-      color: #2e0ef4;
+      color: $button-text;
       font-weight: 600;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
       border-radius: 10px;
     }
     .field-body span select option {
       background: white !important;
-      color: #2e0ef4;
+      color: $button-text;
       font-weight: 600;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
       border-radius: 10px;
@@ -106,7 +106,7 @@ body {
     &.is-primary {
       border-color: $white;
       background-color: $white;
-      color: #2e0ef4;
+      color: $button-text;
       &:hover,
       &:focus {
         border-color: white;
@@ -133,12 +133,12 @@ body {
   .button.is-inverte.is-focused:not(:active) {
     box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.3);
   }
-  
+
   .button.is-primary.is-outlined {
     background-color: #fff;
     border-color: #fff;
     box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.3);
-    color: #2e0ef4;
+    color: $button-text;
     border-radius: 16px;
   }
   .button.is-primary.is-outlined[disabled],
@@ -191,14 +191,35 @@ body {
     border-radius: 16px;
   }
 
+  .control {
+    input[type="search"] {
+      background: white;
+      color: $button-text;
+      box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.5);
+      border-radius: 16px;
+      font-weight: 600;
+    }
+    span {
+      color: purple;
+    }
+    select{
+      background: white;
+      color: $button-text;
+      font-weight: 600;
+    }
+    .select:not(.is-multiple):not(.is-loading)::after{
+      border-color: $button-text;
+    }
+  }
+
   .select {
     &:not(.is-multiple):not(.is-loading):hover::after {
-      border-color: $primary;
+      border-color: $button-text;
     }
 
     select {
       option {
-        color: #2e0ef4 !important;
+        color: $button-text !important;
       }
     }
   }
@@ -222,7 +243,7 @@ body {
 
   .notices .toast.is-white {
     background: $white;
-    color: #2e0ef4;
+    color: $button-text;
     font-weight: bold;
     border-radius: 11px;
   }
@@ -242,7 +263,7 @@ body {
   }
   .carousel .carousel-arrow span {
     background: white;
-    color: #2e0ef4;
+    color: $button-text;
     border: white;
   }
 
