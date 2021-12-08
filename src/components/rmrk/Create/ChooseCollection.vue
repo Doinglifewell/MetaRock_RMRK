@@ -13,6 +13,12 @@
     <div v-else-if="!isLoading && total == 0">
       <div class="hero">
         <div class="hero-body">
+          <img
+            :src="exploreChain"
+            alt="current network"
+            width="300"
+            height="80"
+          />
           <p class="head-text">
             {{ $t("Mint.ChooseCollection.createCollectionMessage") }}
           </p>
@@ -29,6 +35,12 @@
     </div>
     <div v-else>
       <div>
+        <img
+          :src="exploreChain"
+          alt="current network"
+          width="300"
+          height="80"
+        />
         <p class="head-text column pl-0">
           {{ $t("Mint.ChooseCollection.Create / Choose Collection") }}
         </p>
@@ -160,6 +172,10 @@ export default class ChooseCollection extends Vue {
   get defaultCollectionsMetaImage(): string {
     const url = new URL(window.location.href);
     return `${url.protocol}//${url.hostname}/Kodadot_Card_Collections.jpg`;
+  }
+  
+  get exploreChain(): string {
+    return "/" + this.$store.getters.getCurrentChain + ".png";
   }
 
   get isLoading() {

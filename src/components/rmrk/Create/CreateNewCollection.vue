@@ -2,12 +2,15 @@
   <div class="collections container">
     <Loader v-model="isLoading" :status="status" />
     <div>
+      <img :src="exploreChain" alt="current network" width="300" height="80" class="mb-5" />
       <p class="title is-size-3">
         {{ $t("mint.collection.create collection") }}
       </p>
       <div class="columns">
         <div class="column">
-          <p class="collection_head"> {{ $t("mint.collection.collection cover image") }}</p>
+          <p class="collection_head">
+            {{ $t("mint.collection.collection cover image") }}
+          </p>
           <MetadataUpload
             v-model="image"
             label="File Types: PNG, JPEG, GIF, SVG"
@@ -141,6 +144,10 @@ export default class CreateNewCollection extends Mixins(
   private password = "";
   private hasSupport = false;
   protected unlimited = true;
+
+  get exploreChain(): string {
+    return "/" + this.$store.getters.getCurrentChain + ".png";
+  }
 
   get accountId() {
     return this.$store.getters.getAuthAddress;

@@ -3,6 +3,20 @@
     <Loader :value="isLoading" />
     <Search v-bind.sync="searchQuery"> </Search>
     <div>
+      <div class="card_outside p-3">
+        <b-carousel>
+          <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
+            <div class="container">
+              <b-image
+                :src="carousel.src"
+                alt="Featured product"
+                ratio="3by1"
+                class="feature_image"
+              />
+            </div>
+          </b-carousel-item>
+        </b-carousel>
+      </div>
       <div class="columns is-multiline">
         <div
           class="column is-4"
@@ -18,22 +32,22 @@
               tag="div"
               class="collection-card__skeleton"
             > -->
-              <div class="p-1">
-                <div class="card collection-card p-3">
-                  <div class="card-image">
-                    <BasicImage
-                      :src="collection.image"
-                      :alt="collection.name"
-                      customClass="collection__image-wrapper"
-                    />
-                  </div>
-                </div>
-                <div class="level mt-5">
-                  <p class="level-item has-text-centered collection-name">
-                    {{ collection.name }}
-                  </p>
+            <div class="p-1">
+              <div class="card collection-card p-3">
+                <div class="card-image">
+                  <BasicImage
+                    :src="collection.image"
+                    :alt="collection.name"
+                    customClass="collection__image-wrapper"
+                  />
                 </div>
               </div>
+              <div class="level mt-5">
+                <p class="level-item has-text-centered collection-name">
+                  {{ collection.name }}
+                </p>
+              </div>
+            </div>
             <!-- </router-link> -->
           </div>
         </div>
@@ -130,6 +144,11 @@ export default class Collections extends Vue {
     sortBy: "BLOCK_NUMBER_DESC",
     listed: false,
   };
+  public carousels = [
+    { src: "/Asset01.png" },
+    { src: "/Asset02.png" },
+    { src: "/Asset03.png" },
+  ];
 
   get defaultCollectionsMetaImage(): string {
     const url = new URL(window.location.href);
@@ -266,7 +285,7 @@ export default class Collections extends Vue {
     // return this.collections.filter(
     //   (collection: any) => collection.nfts.nodes.length
     // ) as CollectionWithMeta[];
-    return this.collections as CollectionWithMeta[]
+    return this.collections as CollectionWithMeta[];
   }
 
   setFreezeframe() {

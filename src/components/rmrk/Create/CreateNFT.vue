@@ -2,6 +2,7 @@
   <div class="container">
     <div>
       <Loader v-model="isLoading" :status="status" />
+      <img :src="exploreChain" alt="current network" width="300" height="80" class="mb-5" />
       <!-- <b-field>
         <Auth />
       </b-field> -->
@@ -143,6 +144,10 @@ export default class CreateNFT extends Mixins(
 
   get accountId() {
     return this.$store.getters.getAuthAddress;
+  }
+
+  get exploreChain(): string {
+    return "/" + this.$store.getters.getCurrentChain + ".png";
   }
 
   get createChain(): string {
