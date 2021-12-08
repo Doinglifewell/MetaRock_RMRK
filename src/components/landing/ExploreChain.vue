@@ -8,7 +8,42 @@
         </div>
         <div class="columns is-mobile">
           <div class="column">
-            <b-button
+            <b-dropdown aria-role="list">
+              <template #trigger>
+                <b-button
+                  label="Choose Chain"
+                  type="is-primary"
+                  icon-right="caret-down"
+                />
+              </template>
+              <b-dropdown-item
+                aria-role="listitem"
+                @click="switchExploreChain('Kusama')"
+                >Kusama</b-dropdown-item
+              >
+              <b-dropdown-item
+                aria-role="listitem"
+              @click="toast('Darwinia')"
+                >Darwinia</b-dropdown-item
+              >
+              <b-dropdown-item
+                aria-role="listitem"
+                @click="switchExploreChain('Crab')"
+                >Crab</b-dropdown-item
+              >
+              <b-dropdown-item
+                aria-role="listitem"
+                @click="switchExploreChain('Pangolin')"
+                >Pangolin</b-dropdown-item
+              >
+              <b-dropdown-item @click="toast('Moonbeam')" aria-role="listitem"
+                >Moonbeam</b-dropdown-item
+              >
+              <b-dropdown-item @click="toast('Ethereum')" aria-role="listitem"
+                >Ethereum</b-dropdown-item
+              >
+            </b-dropdown>
+            <!-- <b-button
               @click="switchExploreChain('Kusama')"
               type="is-primary"
               class="mr-3 mt-2"
@@ -43,7 +78,7 @@
               type="is-primary"
               class="mr-3 mt-2"
               >Ethereum</b-button
-            >
+            > -->
           </div>
         </div>
       </div>
