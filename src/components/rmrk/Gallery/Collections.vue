@@ -1,9 +1,8 @@
 <template>
   <div class="collections container">
     <Loader :value="isLoading" />
-    <Search v-bind.sync="searchQuery">
-    </Search>
-
+    <Search v-bind.sync="searchQuery"> </Search>
+    {{ total }}
     <div>
       <div class="columns is-multiline">
         <div
@@ -121,9 +120,9 @@ const components = {
 export default class Collections extends Vue {
   private collections: Collection[] = [];
   private meta: Metadata[] = [];
-  private first = 9;
-  private perPage = 9;
-  private placeholder = "/koda300x300.svg";
+  private first = 6;
+  private perPage = 6;
+  private placeholder = "/placeholder.png";
   private currentValue = 1;
   private total = 0;
   private searchQuery: SearchQuery = {
@@ -135,7 +134,7 @@ export default class Collections extends Vue {
 
   get defaultCollectionsMetaImage(): string {
     const url = new URL(window.location.href);
-    return `${url.protocol}//${url.hostname}/Kodadot_Card_Collections.jpg`;
+    return `${url.protocol}//${url.hostname}/favicon.png`;
   }
 
   get isLoading() {
@@ -163,10 +162,9 @@ export default class Collections extends Vue {
   }
 
   public async created() {
-    const apolloClient = this.exploreChain;
     this.$apollo.addSmartQuery("collection", {
       query: collectionListWithSearch,
-      client: apolloClient,
+      client: this.exploreChain,
       manual: true,
       loadingKey: "isLoading",
       result: this.handleResult,
@@ -231,6 +229,7 @@ export default class Collections extends Vue {
           first: this.first,
           offset,
         },
+        client: this.exploreChain,
       });
 
       const {
@@ -265,9 +264,10 @@ export default class Collections extends Vue {
   }
 
   get results(): CollectionWithMeta[] {
-    return this.collections.filter(
-      (collection: any) => collection.nfts.nodes.length
-    ) as CollectionWithMeta[];
+    // return this.collections.filter(
+    //   (collection: any) => collection.nfts.nodes.length
+    // ) as CollectionWithMeta[];
+    return this.collections as CollectionWithMeta[]
   }
 
   setFreezeframe() {

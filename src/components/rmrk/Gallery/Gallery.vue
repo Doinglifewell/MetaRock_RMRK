@@ -45,10 +45,10 @@
                     <p class="level-item has-text-centered collection-name">
                       <Money :value="nft.price" inline />
                     </p>
-                  </div>
                   <!-- <span v-if="nft.price > 0" class="card-image__price">
                     <Money :value="nft.price" inline />
                   </span> -->
+                  </div>
                 </div>
               </router-link>
             </div>
@@ -161,11 +161,10 @@ export default class Gallery extends Vue {
   }
 
   public async created() {
-    const apolloClient = this.exploreChain;
     this.$apollo.addSmartQuery("nfts", {
       query: nftListWithSearch,
       manual: true,
-      client: apolloClient,
+      client: this.exploreChain,
       // update: ({ nFTEntities }) => nFTEntities.nodes,
       loadingKey: "isLoading",
       result: this.handleResult,
@@ -223,6 +222,7 @@ export default class Gallery extends Vue {
     try {
       const nfts = this.$apollo.query({
         query: nftListWithSearch,
+        client: this.exploreChain,
         variables: {
           first: this.first,
           offset,
