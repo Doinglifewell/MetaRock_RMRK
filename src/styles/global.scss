@@ -346,6 +346,13 @@ body {
     }
   }
 
+
+  .feature_image{
+    img{
+      object-fit: none !important;
+    }
+  }
+
   .orientation {
     perspective: 30em;
   }

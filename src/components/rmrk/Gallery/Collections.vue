@@ -2,7 +2,6 @@
   <div class="collections container">
     <Loader :value="isLoading" />
     <Search v-bind.sync="searchQuery"> </Search>
-    {{ total }}
     <div>
       <div class="columns is-multiline">
         <div
@@ -11,14 +10,14 @@
           :key="collection.id"
         >
           <div class="card_outside p-5">
-            <router-link
+            <!-- <router-link
               :to="{
                 name: 'collectionDetail',
                 params: { id: collection.id },
               }"
               tag="div"
               class="collection-card__skeleton"
-            >
+            > -->
               <div class="p-1">
                 <div class="card collection-card p-3">
                   <div class="card-image">
@@ -35,7 +34,7 @@
                   </p>
                 </div>
               </div>
-            </router-link>
+            <!-- </router-link> -->
           </div>
         </div>
       </div>

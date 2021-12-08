@@ -2,7 +2,12 @@
   <div class="content">
     <div class="columns">
       <b-field class="column is-6 mb-0">
-        <p class="search-bar-text">{{ exploreChain }} Network</p>
+        <img
+          :src="exploreChain"
+          alt="current network"
+          width="300"
+          height="80"
+        />
       </b-field>
       <b-field class="column is-1 mb-0">
         <b-button tag="router-link" to="/rmrk/gallery" type="is-inverte"
@@ -93,7 +98,7 @@ export default class SearchBar extends Vue {
   }
 
   get exploreChain(): string {
-    return this.$store.getters.getCurrentChain;
+    return "/" + this.$store.getters.getCurrentChain + ".png";
   }
 
   get vListed(): boolean {

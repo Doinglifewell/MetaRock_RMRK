@@ -2,24 +2,41 @@
   <div class="gallery container">
     <Loader :value="isLoading" />
     <!-- TODO: Make it work with graphql -->
-    <Search v-bind.sync="searchQuery"/>
+    <Search v-bind.sync="searchQuery" />
     <div>
-      <!-- <div>
-        <b-image
+      <div class="card_outside p-3">
+        <b-carousel>
+          <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
+            <div class="container">
+              <b-image
+                :src="carousel.src"
+                alt="Featured product"
+                ratio="3by1"
+                class="feature_image"
+              />
+
+            </div>
+          </b-carousel-item>
+        </b-carousel>
+        <!-- <img
           src="/Asset01.png"
-          alt="First NFT market explorer on Kusama and Polkadot"
-          ratio="1by1"
-        />
-      </div> -->
+          alt="current network"
+          width="1675"
+          height="525"
+        /> -->
+        <!-- <b-image src="/Asset01.png" alt="Featured product" ratio="4by2" class="feature_image"/>
+        <b-image src="/Asset02.png" alt="Featured product" ratio="4by2" class="feature_image"/>
+        <b-image src="/Asset03.png" alt="Featured product" ratio="4by2" class="feature_image"/> -->
+      </div>
       <div class="columns is-multiline">
         <div class="column is-4" v-for="nft in results" :key="nft.id">
           <div class="card_outside p-5">
             <div class="card nft-card">
               <router-link
-              :to="{ name: 'nftDetail', params: { id: nft.id } }"
-              tag="div"
-              class="nft-card__skeleton"
-            >
+                :to="{ name: 'nftDetail', params: { id: nft.id } }"
+                tag="div"
+                class="nft-card__skeleton"
+              >
                 <div class="card-image">
                   <span v-if="nft.emoteCount" class="card-image__emotes">
                     <b-icon icon="heart" />
@@ -32,10 +49,7 @@
                     :alt="nft.name"
                     customClass="gallery__image-wrapper"
                   /> -->
-                  <GalleryNewItem
-                   :srcId ="nft.id"
-                   :src="nft.image"
-                  />
+                  <GalleryNewItem :srcId="nft.id" :src="nft.image" />
                   <div class="level mt-5 mb-1">
                     <p class="level-item has-text-centered collection-name">
                       {{ nft.name }}
@@ -45,7 +59,7 @@
                     <p class="level-item has-text-centered collection-name">
                       <Money :value="nft.price" inline />
                     </p>
-                  <!-- <span v-if="nft.price > 0" class="card-image__price">
+                    <!-- <span v-if="nft.price > 0" class="card-image__price">
                     <Money :value="nft.price" inline />
                   </span> -->
                   </div>
@@ -93,7 +107,7 @@ const components = {
   Pagination: () => import("./Pagination.vue"),
   Loader: () => import("@/components/shared/Loader.vue"),
   BasicImage: () => import("@/components/shared/view/BasicImage.vue"),
-  GalleryNewItem: () => import("./GalleryNewItem.vue")
+  GalleryNewItem: () => import("./GalleryNewItem.vue"),
 };
 
 @Component<Gallery>({
@@ -142,6 +156,11 @@ export default class Gallery extends Vue {
   private placeholder = "/placeholder.png";
   private currentValue = 1;
   private total = 0;
+  public carousels = [
+    { src: "/Asset01.png" },
+    { src: "/Asset02.png" },
+    { src: "/Asset03.png" },
+  ];
 
   get defaultGalleryMetaImage(): string {
     const url = new URL(window.location.href);

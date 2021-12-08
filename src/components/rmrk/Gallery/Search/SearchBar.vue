@@ -10,7 +10,7 @@
             height="80"
           />
         </b-field>
-        <!-- <b-field class="column is-1 mb-0">
+        <b-field class="column is-1 mb-0">
           <b-button tag="router-link" to="/rmrk/gallery" type="is-primary"
             >NFTs</b-button
           >
@@ -19,7 +19,7 @@
           <b-button tag="router-link" to="/rmrk/collections" type="is-inverte"
             >Collections</b-button
           >
-        </b-field> -->
+        </b-field>
       </div>
       <div class="columns">
         <b-field class="column is-2 mb-0">
@@ -44,22 +44,30 @@
           <Sort :value="sortBy" @input="updateSortBy" />
         </b-field> -->
       </div>
-      <div class="columns">
-        <b-field class="column is-10 mb-0">
-          <b-button type="is-inverte" class="chain-button"
-            >Drawings and Paintings</b-button
-          >
-          <b-button type="is-inverte" class="chain-button">Jewellery</b-button>
-          <b-button type="is-inverte" class="chain-button">Fashion</b-button>
-          <b-button type="is-inverte" class="chain-button">Sculpture</b-button>
-          <b-button type="is-inverte" class="chain-button"
-            >Architecture</b-button
-          >
-        </b-field>
-        <b-field class="column is-2 mb-0">
+      <div  class="columns">
+        <div class="column is-8 mb-0">
+          <div class="columns">
+            <b-button type="is-inverte" class="column chain-button"
+              >Drawings and Paintings</b-button
+            >
+            <b-button type="is-inverte" class="column chain-button"
+              >Jewellery</b-button
+            >
+            <b-button type="is-inverte" class="column chain-button"
+              >Fashion</b-button
+            >
+            <b-button type="is-inverte" class="column chain-button"
+              >Sculpture</b-button
+            >
+            <b-button type="is-inverte" class="column chain-button"
+              >Architecture</b-button
+            >
+          </div>
+        </div>
+        <div class="column is-offset-2 mb-0">
           <Sort :value="sortBy" @input="updateSortBy" />
-        </b-field>
-      </div>
+        </div>
+      </div >
     </div>
   </div>
 </template>
