@@ -1,12 +1,5 @@
 <template>
-  <b-navbar
-    fixed-top
-    spaced
-    wrapper-class="container"
-    close-on-click
-    transparent
-    style="background: #6200e9"
-  >
+  <b-navbar spaced wrapper-class="container" close-on-click transparent>
     <template #brand>
       <b-navbar-item tag="router-link" :to="{ path: '/' }" class="logo">
         <img
@@ -39,7 +32,8 @@
           tag="router-link"
           :to="{ path: '/chooseNFT' }"
           type="is-inverte"
-          >  {{ $t("Navbar.CreateNFT") }}</b-button
+        >
+          {{ $t("Navbar.CreateNFT") }}</b-button
         >
       </b-navbar-item>
       <b-navbar-item>
@@ -69,15 +63,15 @@ export default class NavbarMenu extends Vue {}
 @import "@/styles/variables";
 
 .navbar {
+  background: #6200e9 !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
   &.is-spaced {
     & > .container {
       .navbar-menu {
         margin-right: 0;
         background: $head-background;
       }
-      // .is-active {
-      //   background: $head-background;
-      // }
     }
   }
 
@@ -101,8 +95,5 @@ export default class NavbarMenu extends Vue {}
   .burger {
     margin-right: 0.5rem;
   }
-  // .navbar-dropdown{
-  //   box-shadow: 0px 0px 5px 0.5px #d32e79 !important;
-  // }
 }
 </style>

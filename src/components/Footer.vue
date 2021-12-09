@@ -90,6 +90,7 @@ export default class Footer extends Vue {
 
 .footer {
   &__wrapper {
+    height: 93px !important;
     display: flex;
     justify-content: space-between;
     align-items: center;

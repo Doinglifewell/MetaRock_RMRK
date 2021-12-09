@@ -7,7 +7,7 @@
     "
     style="background:linear-gradient(#6200E9, #1B003B);"  >
     <Navbar v-if="isNavbarVisible" />
-    <main class="is-flex-grow-1 mt-6">
+    <main class="is-flex-grow-1 mt-2">
       <router-view />
     </main>
     <Footer />
