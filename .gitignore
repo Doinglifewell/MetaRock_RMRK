@@ -1,5 +1,6 @@
 dist
 functions/
+src-functions/pinata.json
 yarn.lock
 data_ksmcc2/
 
