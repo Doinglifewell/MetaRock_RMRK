@@ -19,7 +19,7 @@
       </b-navbar-item>
     </template>
     <template v-slot:start class="start">
-      <b-navbar-item tag="router-link" :to="{ path: '/' }">
+      <b-navbar-item tag="router-link" :to="{ path: '/mySpace' }">
         {{ $t("Navbar.MySpace") }}
       </b-navbar-item>
       <b-navbar-item tag="router-link" :to="{ path: '/exploreChain' }">

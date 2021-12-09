@@ -8,6 +8,7 @@ import Rmrk from '@/router/rmrk'
 import Profile from '@/router/profile'
 
 const Landing = () => import('@/components/landing/Landing.vue')
+const MySpace = () => import('@/components/landing/MySpace.vue')
 const GetStarted = () => import('@/components/landing/GetStarted.vue')
 const ChooseNFT = () => import('@/components/landing/ChooseNFT.vue')
 const ExploreChain = () => import('@/components/landing/ExploreChain.vue')
@@ -33,6 +34,11 @@ export default new Router({
       path: '/',
       name: 'landing',
       component: Landing,
+    },
+    {
+      path: '/mySpace',
+      name: 'mySpace',
+      component: MySpace,
     },
     {
       path: '/getStarted',
