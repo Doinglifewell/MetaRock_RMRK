@@ -64,8 +64,6 @@ export default class NavbarMenu extends Vue {}
 
 .navbar {
   background: #6200e9 !important;
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
   &.is-spaced {
     & > .container {
       .navbar-menu {

@@ -90,12 +90,12 @@ export default class Footer extends Vue {
 
 .footer {
   &__wrapper {
-    height: 93px !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    padding: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
     height: 135px;
 
     @include desktop {

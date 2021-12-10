@@ -23,7 +23,7 @@
             </p>
           </div>
         </div>
-        <div class="columns">
+        <div class="columns mt-6">
           <b-field class="column is-2 mb-0">
             <b-button type="is-primary" @click="toast()"
               >Physical Assets</b-button
@@ -35,7 +35,7 @@
             >
           </b-field>
         </div>
-        <div class="columns">
+        <div class="columns level">
           <div class="column is-8 mb-0">
             <div class="columns">
               <b-button type="is-inverte" class="column chain-button"
@@ -55,8 +55,189 @@
               >
             </div>
           </div>
-          <div class="column is-offset-2 mb-0">
-            <b-button type="is-primary">Arrange Space</b-button>
+          <div class="column level-right is-offset-2 mb-0">
+            <b-button class="level-item myspace-arragne-btn" type="is-primary"
+              >Arrange Space</b-button
+            >
+          </div>
+        </div>
+        <div
+          class="columns"
+          style="
+            filter: drop-shadow(-10px 4px 20px rgba(0, 0, 0, 0.25));
+            border-radius: 15px;
+          "
+        >
+          <img
+            src="/myspace1.png"
+            alt="First NFT market explorer"
+            class="logo__img"
+            width="1600"
+            height="400"
+          />
+        </div>
+        <div class="columns mt-6 level">
+          <div class="column is-2 mb-0">
+            <p style="font-size: 20px; font-weight: 600">Physical Assets</p>
+          </div>
+          <div class="column is-3 mb-0">
+            <p style="font-size: 20px">Drawings and Paintings</p>
+          </div>
+          <div class="column level-right is-offset-5 mb-0">
+            <b-button type="is-primary" class="level-item myspace-arragne-btn"
+              >Arrange Space</b-button
+            >
+          </div>
+        </div>
+        <div
+          class="columns"
+          style="
+            background: #5d45c0;
+            box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+          "
+        >
+          <div class="column is-one-fifth">
+            <img
+              src="/myspace2.png"
+              alt="First NFT market explorer"
+              width="261"
+              height="362"
+              style="border-radius: 20px"
+            />
+            <p class="myspace-item-text">Name</p>
+            <p class="myspace-item-text">Collection Name</p>
+            <p class="myspace-item-text">Price</p>
+          </div>
+          <div class="column is-one-fifth">
+            <img
+              src="/myspace2.png"
+              alt="First NFT market explorer"
+              width="261"
+              height="362"
+              style="border-radius: 20px"
+            />
+            <p class="myspace-item-text">Name</p>
+            <p class="myspace-item-text">Collection Name</p>
+            <p class="myspace-item-text">Price</p>
+          </div>
+          <div class="column is-one-fifth">
+            <img
+              src="/myspace2.png"
+              alt="First NFT market explorer"
+              width="261"
+              height="362"
+              style="border-radius: 20px"
+            />
+            <p class="myspace-item-text">Name</p>
+            <p class="myspace-item-text">Collection Name</p>
+            <p class="myspace-item-text">Price</p>
+          </div>
+          <div class="column is-one-fifth">
+            <img
+              src="/myspace2.png"
+              alt="First NFT market explorer"
+              width="261"
+              height="362"
+              style="border-radius: 20px"
+            />
+            <p class="myspace-item-text">Name</p>
+            <p class="myspace-item-text">Collection Name</p>
+            <p class="myspace-item-text">Price</p>
+          </div>
+          <div class="column is-one-fifth">
+            <img
+              src="/myspace2.png"
+              alt="First NFT market explorer"
+              width="261"
+              height="362"
+              style="border-radius: 20px"
+            />
+            <p class="myspace-item-text">Name</p>
+            <p class="myspace-item-text">Collection Name</p>
+            <p class="myspace-item-text">Price</p>
+          </div>
+        </div>
+        <div class="columns mt-6 level">
+          <div class="column is-2 mb-0">
+            <p style="font-size: 20px; font-weight: 600">Physical Assets</p>
+          </div>
+          <div class="column is-3 mb-0">
+            <p style="font-size: 20px">Drawings and Paintings</p>
+          </div>
+          <div class="column level-right is-offset-6 mb-0">
+            <b-button class="level-item myspace-arragne-btn" type="is-primary"
+              >View All</b-button
+            >
+          </div>
+        </div>
+        <div
+          class="columns"
+          style="
+            background: #5d45c0;
+            box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+          "
+        >
+          <div class="column is-one-fifth">
+            <img
+              src="/myspace2.png"
+              alt="First NFT market explorer"
+              width="261"
+              height="362"
+              style="border-radius: 20px"
+            />
+            <p class="myspace-item-text">Name</p>
+            <p class="myspace-item-text">Collection Name</p>
+            <p class="myspace-item-text">Price</p>
+          </div>
+          <div class="column is-one-fifth">
+            <img
+              src="/myspace2.png"
+              alt="First NFT market explorer"
+              width="261"
+              height="362"
+              style="border-radius: 20px"
+            />
+            <p class="myspace-item-text">Name</p>
+            <p class="myspace-item-text">Collection Name</p>
+            <p class="myspace-item-text">Price</p>
+          </div>
+          <div class="column is-one-fifth">
+            <img
+              src="/myspace2.png"
+              alt="First NFT market explorer"
+              width="261"
+              height="362"
+              style="border-radius: 20px"
+            />
+            <p class="myspace-item-text">Name</p>
+            <p class="myspace-item-text">Collection Name</p>
+            <p class="myspace-item-text">Price</p>
+          </div>
+          <div class="column is-one-fifth">
+            <img
+              src="/myspace2.png"
+              alt="First NFT market explorer"
+              width="261"
+              height="362"
+              style="border-radius: 20px"
+            />
+            <p class="myspace-item-text">Name</p>
+            <p class="myspace-item-text">Collection Name</p>
+            <p class="myspace-item-text">Price</p>
+          </div>
+          <div class="column is-one-fifth">
+            <img
+              src="/myspace2.png"
+              alt="First NFT market explorer"
+              width="261"
+              height="362"
+              style="border-radius: 20px"
+            />
+            <p class="myspace-item-text">Name</p>
+            <p class="myspace-item-text">Collection Name</p>
+            <p class="myspace-item-text">Price</p>
           </div>
         </div>
       </div>
@@ -89,5 +270,14 @@ export default class MySpace extends Vue {
 @import "@/styles/variables";
 .profile-text {
   font-size: 40px;
+}
+.myspace-item-text {
+  font-size: 20px;
+}
+
+.myspace-arragne-btn {
+  @include desktop {
+    margin-left: auto;
+  }
 }
 </style>
