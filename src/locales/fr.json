@@ -33,7 +33,7 @@
     },
     "SearchBar": {
       "toast": "Désolé, nous construisons actuellement un outil d'analyse rmrk2.0 pour afficher les NFT.",
-      "Digtal Asset": "Actif numérique",
+      "Digital Asset": "Actif numérique",
       "Physical Asset": "Actif physique",
       "nfts" : "NFTs",
       "collections" : "Collections",
@@ -48,7 +48,7 @@
     "ChooseNFT": {
       "Choose Chain": "Choisissez la chaîne",
       "What would you like to create": "Que voudriez-vous créer ?",
-      "Digtal Asset": "Actif numérique",
+      "Digital Asset": "Actif numérique",
       "Physical Asset": "Actif physique",
       "Simple NFT": "NFT simple",
       "Please choose chain": "Veuillez choisir la chaîne!",

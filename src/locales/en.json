@@ -209,8 +209,8 @@
       "toast": "Sorry, we are building to connect {0} network."
     },
     "SearchBar": {
-      "toast": "Sorry, we are currently building a rmrk2.0 scan tool to view the NFTs.",
-      "Digtal Asset": "Digtal Asset",
+      "toast": "Sorry, we are currently building an rmrk2.0 scan tool to view the NFTs.",
+      "Digital Asset": "Digital Asset",
       "Physical Asset": "Physical Asset",
       "nfts" : "NFTs",
       "collections" : "Collections",
@@ -225,7 +225,7 @@
     "ChooseNFT": {
       "Choose Chain": "Choose Chain",
       "What would you like to create": "What would you like to create?",
-      "Digtal Asset": "Digtal Asset",
+      "Digital Asset": "Digital Asset",
       "Physical Asset": "Physical Asset",
       "Simple NFT": "Simple NFT",
       "Please choose chain": "Please choose chain!",
@@ -253,7 +253,7 @@
     "estimated": "Transaction fees will cost about",
     "success": "Congrats to your new NFT(s)",
     "shareWithFriends": "Share {0} with your friends",
-    "unlimited": "Unlimited items in in your collection",
+    "unlimited": "Unlimited items in your collection",
     "nfsw": "Explicit content (NSFW)",
     "transform": "Transform commands in NFT",
     "expert": {
@@ -287,7 +287,7 @@
       "create nft": "Create NFT",
       "NFTimage": "NFT Image",
       "coverImage": {
-        "label": " The Cover image for your NFT | Optional"
+        "label": "The Cover image for your NFT | Optional"
       },
       "name": {
         "label": "NFT Name",

@@ -60,7 +60,7 @@
               type="is-primary "
               class="mr-3 mt-2"
               @click="createNFT(1)"
-              >{{ $t("Mint.ChooseNFT.Digtal Asset") }}</b-button
+              >{{ $t("Mint.ChooseNFT.Digital Asset") }}</b-button
             >
             <b-button
               type="is-primary "

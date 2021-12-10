@@ -28,7 +28,7 @@
           >
         </b-field>
         <b-field class="column is-2 mb-0">
-          <b-button type="is-inverte" @click="toast()">{{ $t("Explore.SearchBar.Digtal Asset")}}</b-button>
+          <b-button type="is-inverte" @click="toast()">{{ $t("Explore.SearchBar.Digital Asset")}}</b-button>
         </b-field>
         <b-field class="column is-3 mb-0">
           <b-input
