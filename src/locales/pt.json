@@ -1,83 +1,83 @@
 {
   "Navbar": {
-    "MySpace": "My Space",
-    "Explore": "Explore",
-    "Info": "Info",
-    "CreateNFT": "Create NFT",
-    "ConnectWallet": "Connect Wallet",
-    "ChangeAccount": "Change account",
-    "Account": "Account",
-    "PleaseSelectAccount": "Please Select Account.",
-    "InstallDesktopWalletExtension": " Install Desktop Wallet Extension.",
-    "InstallChromeWalletExtension": "Install Chrome Wallet Extension.",
-    "InstallFirefoxWalletExtension": "Install Firefox Wallet Extension."
+    "MySpace": "Meu espaço",
+    "Explore": "Explorar",
+    "Info": "Informações",
+    "CreateNFT": "Criar NFT",
+    "ConnectWallet": "Carteira de conexão",
+    "ChangeAccount": "Mudar de conta",
+    "Account": "Conta",
+    "PleaseSelectAccount": "Selecione a conta.",
+    "InstallDesktopWalletExtension": "Instale a extensão Desktop Wallet.",
+    "InstallChromeWalletExtension": "Instalar Chrome Wallet Extension.",
+    "InstallFirefoxWalletExtension": "Instalar Firefox Wallet Extension."
   },
   "Footer": {
     "MetaRock": "© 2021 Meta Rock",
-    "Privacy Policy": "Privacy Policy",
-    "Terms and Conditions": "Terms and Conditions"
+    "Privacy Policy": "Política de Privacidade",
+    "Terms and Conditions": "Termos e Condições"
   },
   "Landing": {
-    "HomeText": "Enabling assets to be teleported into the metaverse",
-    "GetStarted": "Get Started"
+    "HomeText": "Permitindo que ativos sejam teletransportados para o metaverso",
+    "GetStarted": "Começar"
   },
   "GetStarted": {
-    "Which one are you": "Which one are you?",
-    "Creater": "Creater",
+    "Which one are you": "Qual é você?",
+    "Creater": "Criador",
     "Collecter": "Collecter"
   },
   "Explore": {
     "Choose Chain": "Choose Chain",
     "ExploreChain": {
-      "toast": "Sorry, we are building to connect {0} network."
+      "toast": "Desculpe, estamos construindo para conectar {0} rede."
     },
     "SearchBar": {
-      "toast": "Sorry, we are currently building an rmrk2.0 scan tool to view the NFTs.",
-      "Digital Asset": "Digital Asset",
-      "Physical Asset": "Physical Asset",
+      "toast": "Desculpe, no momento estamos construindo uma ferramenta de varredura rmrk2.0 para visualizar os NFTs.",
+      "Digital Asset": "Ativo digital",
+      "Physical Asset": "Ativo Físico",
       "nfts" : "NFTs",
-      "collections" : "Collections",
-      "Drawings and Paintings": "Drawings and Paintings",
-      "Jewellery" : "Jewellery",
-      "Fashion" : "Fashion",
-      "Sculpture" : "Sculpture",
-      "Architecture" : "Architecture"
+      "collections" : "Coleções",
+      "Drawings and Paintings": "Desenhos e pinturas",
+      "Jewellery" : "Joalharia",
+      "Fashion" : "Moda",
+      "Sculpture" : "Escultura",
+      "Architecture" : "Arquitetura"
     }
   },
   "Mint": {
     "ChooseNFT": {
       "Choose Chain": "Choose Chain",
-      "What would you like to create": "What would you like to create?",
-      "Digital Asset": "Digital Asset",
-      "Physical Asset": "Physical Asset",
-      "Simple NFT": "Simple NFT",
-      "Please choose chain": "Please choose chain!",
-      "toast": "Sorry, we are still building."
+      "What would you like to create": "O que você gostaria de criar?",
+      "Digital Asset": "Ativo digital",
+      "Physical Asset": "Ativo Físico",
+      "Simple NFT": "NFT Simples",
+      "Please choose chain": "Por favor, escolha a corrente!",
+      "toast": "Desculpe, ainda estamos construindo."
     },
     "ChooseCollection": {
-      "Please select your account": "Please connect your wallet and select your account.",
-      "createCollectionMessage": "You didn't create any collections. Please create collection.",
-      "Create / Choose Collection": "Create / Choose Collection",
-      "Create Collection": "Create Collection"
+      "Please select your account": "Conecte sua carteira e selecione sua conta.",
+      "createCollectionMessage": "Você não criou nenhuma coleção. Por favor, crie uma coleção.",
+      "Create / Choose Collection": "Criar / escolher coleção",
+      "Create Collection": "Criar coleção"
     }
   },
   "sort": {
-    "BLOCK_NUMBER_DESC": "Recent mints",
-    "BLOCK_NUMBER_ASC": "Old mints",
-    "UPDATED_AT_DESC": "Last interacted",
-    "UPDATED_AT_ASC": "Long time no interaction",
-    "PRICE_DESC": "Price descending",
-    "PRICE_ASC": "Price ascending",
-    "listed": "BUY NOW"
+    "BLOCK_NUMBER_DESC": "Menta recentes",
+    "BLOCK_NUMBER_ASC": "Antigas mentas",
+    "UPDATED_AT_DESC": "Última interação",
+    "UPDATED_AT_ASC": "Há muito tempo sem interação",
+    "PRICE_DESC": "Preço decrescente",
+    "PRICE_ASC": "Preço ascendente",
+    "listed": "COMPRE AGORA"
   },
   "mint": {
-    "submit": "Click to create NFT(s)",
-    "estimate": "Show me the transaction fees",
-    "estimated": "Transaction fees will cost about",
-    "success": "Congrats to your new NFT(s)",
-    "shareWithFriends": "Share {0} with your friends",
-    "unlimited": "Unlimited items in your collection",
-    "nfsw": "Explicit content (NSFW)",
+    "submit": "Clique para criar NFT (s)",
+    "estimate": "Mostre-me as taxas de transação",
+    "estimated": "As taxas de transação custarão cerca de",
+    "success": "Parabéns aos seus novos NFT (s)",
+    "shareWithFriends": "Compartilhe {0} com seus amigos",
+    "unlimited": "Itens ilimitados em sua coleção",
+    "nfsw": "Itens ilimitados em sua coleção",
     "transform": "Transform commands in NFT",
     "expert": {
       "show": "Show advanced settings",
@@ -88,61 +88,61 @@
       "sync": "Sync editions to {0}"
     },
     "collection": {
-      "create collection": "Create Collection",
-      "collection cover image": "Collection Cover Image",
+      "create collection": "Criar coleção",
+      "collection cover image": "Imagem da capa da coleção",
       "name": {
-        "label": "Collection Name",
-        "placeholder": "Enter collection name",
-        "message": "Name of your collection. It will be visible in the gallery"
+        "label": "Nome da coleção",
+        "placeholder": "Digite o nome da coleção",
+        "message": "Nome da sua coleção. Será visível na galeria"
       },
       "description": {
-        "label": "Description | Optional",
-        "placeholder": "Enter collection description",
-        "message": "Description of your collection. Markdown is supported"
+        "label": "Descrição | Opcional",
+        "placeholder": "Insira a descrição da coleção",
+        "message": "Descrição de sua coleção. Markdown é compatível"
       },
       "symbol": {
-        "label": "Symbol (short name)",
-        "placeholder": "3-5 character long name",
-        "message": "The symbol which is attributed to the NFT: for an example, Kusama is labeled as KSM"
+        "label": "Símbolo (nome abreviado)",
+        "placeholder": "nome de 3 a 5 caracteres",
+        "message": "O símbolo que é atribuído ao NFT: por exemplo, Kusama é rotulado como KSM"
       }
     },
     "nft": {
-      "create nft": "Create NFT",
+      "create nft": "Criar NFT",
       "NFTimage": "NFT Image",
       "coverImage": {
-        "label": "The Cover image for your NFT | Optional"
+        "label": "A imagem da capa do seu NFT | Opcional"
       },
       "name": {
-        "label": "NFT Name",
-        "placeholder": "Enter NFT name",
-        "message": "Name of your NFT. It will be visible in the gallery"
+        "label": "Nome NFT",
+        "placeholder": "Insira o nome NFT",
+        "message": "Nome do seu NFT. Será visível na galeria"
       },
       "description": {
-        "label": "NFT description | Optional",
-        "placeholder": "Enter NFT description",
-        "message": "Description of your NFT. Markdown is supported"
+        "label": "descrição NFT | Opcional",
+        "placeholder": "Insira a descrição NFT",
+        "message": "Descrição de seu NFT. Markdown é suportado"
       },
       "editions": {
-        "NoofEditions": "No. of Editions",
-        "placeholder": "1 is minumum"
+        "NoofEditions": "Nº de edições",
+        "placeholder": "1 é o mínimo"
       },
       "tags": {
         "name": "Tags",
-        "placeholder": "Get discovered easier through tags"
+        "placeholder": "Seja descoberto mais facilmente por meio de tags"
       },
-      "price": "Price"
+      "price": "Preço"
     }
   },
   "loader": {
-    "casting": "(1/3) Casting the tx to blockchain",
-    "finalized": "(3/3) Finalized",
-    "block": "(2/3) Transaction in block",
-    "pinImage": "Pinning Image",
-    "pinMeta": "Pinning Metadata",
-    "constructTx": "Constructing transaction",
-    "sign": "Waiting for response from singer",
-    "ipfs": "Uploading data to IPFS",
-    "arweave": "Storing data via PermaFrost",
-    "uploading": "({0}/{1}) Uploading data to IPFS"
-  }
+    "casting": "(1/3) Transmitindo o tx para blockchain",
+    "finalized": "(3/3) Finalizado",
+    "block": "(2/3) Transação em bloco",
+    "pinImage": "Fixando imagem",
+    "pinMeta": "Fixando metadados",
+    "constructTx": "Construindo a transação",
+    "sign": "Aguardando resposta do cantor",
+    "ipfs": "Fazendo upload de dados para IPFS",
+    "arweave": "Armazenando dados via PermaFrost",
+    "uploading": "({0} / {1}) Enviando dados para IPFS"
+  } 
 }
