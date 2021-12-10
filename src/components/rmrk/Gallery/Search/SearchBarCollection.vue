@@ -98,7 +98,7 @@ export default class SearchBar extends Vue {
   }
 
   get exploreChain(): string {
-    return "/" + this.$store.getters.getCurrentChain + ".png";
+    return "/" + this.$store.getters.getExploreChain + ".png";
   }
 
   get vListed(): boolean {

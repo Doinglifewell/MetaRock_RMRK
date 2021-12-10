@@ -331,7 +331,7 @@ export default class CreateToken extends Mixins(
             //   this.navigateToDetail(mint[0], blockNumber);
             // }
 
-            this.$router.push("/");
+            this.$router.push("/").catch(()=>{});;
 
           },
           (dispatchError) => {

@@ -133,14 +133,15 @@ export default class ExploreChain extends Vue {
       NETWORK_ENDPOINTS[data].option
     );
 
-    this.$store.subscribeAction(
-      ({ type, payload }: ChangeUrlAction, _: any) => {
-        if (type === "setApiUrl" && payload) {
-          this.$store.commit("setLoading", true);
-          Api().connect(payload, NETWORK_ENDPOINTS[data].option);
-        }
-      }
-    );
+    // this.$store.subscribeAction(
+    //   ({ type, payload }: ChangeUrlAction, _: any) => {
+    //     if (type === "setApiUrl" && payload) {
+    //       console.log("subscribeAction")
+    //       this.$store.commit("setLoading", true);
+    //       Api().connect(payload, NETWORK_ENDPOINTS[data].option);
+    //     }
+    //   }
+    // );
 
     Api().on("connect", async (api: any) => {
       const { chainSS58, chainDecimals, chainTokens } = api.registry;
@@ -158,8 +159,8 @@ export default class ExploreChain extends Vue {
         genesisHash: genesisHash || "",
       });
       this.checkLoading = false;
-      this.$store.commit("setExplorer", { chain: data });
-      this.$router.push("/rmrk/gallery");
+      this.$store.commit('setExploreChain', data);
+      this.$router.push("/rmrk/gallery").catch(() => {});
     });
     Api().on("error", async (error: Error) => {
       this.$store.commit("setError", error);

@@ -175,7 +175,7 @@ export default class ChooseCollection extends Vue {
   }
   
   get exploreChain(): string {
-    return "/" + this.$store.getters.getCurrentChain + ".png";
+    return "/" + this.$store.getters.getCreateChain + ".png";
   }
 
   get isLoading() {

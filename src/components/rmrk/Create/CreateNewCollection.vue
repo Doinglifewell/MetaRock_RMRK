@@ -146,7 +146,7 @@ export default class CreateNewCollection extends Mixins(
   protected unlimited = true;
 
   get exploreChain(): string {
-    return "/" + this.$store.getters.getCurrentChain + ".png";
+    return "/" + this.$store.getters.getCreateChain + ".png";
   }
 
   get accountId() {
@@ -256,7 +256,7 @@ export default class CreateNewCollection extends Mixins(
             );
 
             this.isLoading = false;
-            this.$router.push("/");
+            this.$router.push("/").catch(()=>{});;
           },
           (dispatchError) => {
             execResultValue(tx);

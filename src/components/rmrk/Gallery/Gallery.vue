@@ -167,11 +167,11 @@ export default class Gallery extends Vue {
   }
 
   get exploreChain(): string {
-    return this.$store.getters.getCurrentChain;
+    return this.$store.getters.getExploreChain;
   }
 
   public async created() {
-    this.$apollo.addSmartQuery("nfts", {
+     this.$apollo.addSmartQuery("nfts", {
       query: nftListWithSearch,
       manual: true,
       client: this.exploreChain,

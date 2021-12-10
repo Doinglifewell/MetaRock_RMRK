@@ -173,6 +173,7 @@ export default new Vuex.Store({
       ]
     },
     createChain : 'Kusama',
+    exploreChain : 'Kusama',
     explorerOptions: {},
     development: {},
     error: null,
@@ -218,6 +219,9 @@ export default new Vuex.Store({
     setCreateChain(state: any, data) {
       state.createChain = data
     },
+    setExploreChain(state: any, data) {
+      state.exploreChain = data
+    },
   },
   actions: {
     setFiatPrice({ commit }: any, data) {
@@ -228,6 +232,9 @@ export default new Vuex.Store({
     },
     setCreateChain({ commit }: any, data) {
       commit('setCreateChain', data)
+    },
+    setExploreChain({ commit }: any, data) {
+      commit('setExploreChain', data)
     },
   },
   getters: {
@@ -240,6 +247,7 @@ export default new Vuex.Store({
     getIndexer: ({ indexer }) => indexer,
     getLayoutClass: ({ layoutClass }) => layoutClass,
     getCreateChain: ({ createChain }) => createChain,
+    getExploreChain: ({ exploreChain }) => exploreChain,
   },
   modules: {
     // setting: SettingModule,

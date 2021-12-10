@@ -147,7 +147,7 @@ export default class CreateNFT extends Mixins(
   }
 
   get exploreChain(): string {
-    return "/" + this.$store.getters.getCurrentChain + ".png";
+    return "/" + this.$store.getters.getCreateChain + ".png";
   }
 
   get createChain(): string {

@@ -151,7 +151,7 @@ export default class Collections extends Vue {
 
 
   get exploreChain(): string {
-    return this.$store.getters.getCurrentChain
+    return this.$store.getters.getExploreChain
   }
 
   public async created() {
