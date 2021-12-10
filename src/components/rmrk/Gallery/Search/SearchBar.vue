@@ -12,23 +12,23 @@
         </b-field>
         <b-field class="column is-1 mb-0">
           <b-button tag="router-link" to="/rmrk/gallery" type="is-primary"
-            >NFTs</b-button
+            >{{ $t("Explore.SearchBar.nfts")}}</b-button
           >
         </b-field>
         <b-field class="column is-1 mb-0">
           <b-button tag="router-link" to="/rmrk/collections" type="is-inverte"
-            >Collections</b-button
+            >{{ $t("Explore.SearchBar.collections")}}</b-button
           >
         </b-field>
       </div>
       <div class="columns">
         <b-field class="column is-2 mb-0">
           <b-button type="is-primary" @click="toast()"
-            >Physical Assets</b-button
+            >{{ $t("Explore.SearchBar.Physical Asset")}}</b-button
           >
         </b-field>
         <b-field class="column is-2 mb-0">
-          <b-button type="is-inverte" @click="toast()">Digital Assets</b-button>
+          <b-button type="is-inverte" @click="toast()">{{ $t("Explore.SearchBar.Digtal Asset")}}</b-button>
         </b-field>
         <b-field class="column is-3 mb-0">
           <b-input
@@ -44,30 +44,32 @@
           <Sort :value="sortBy" @input="updateSortBy" />
         </b-field> -->
       </div>
-      <div  class="columns">
+      <div class="columns level pt-0">
         <div class="column is-8 mb-0">
           <div class="columns">
             <b-button type="is-inverte" class="column chain-button"
-              >Drawings and Paintings</b-button
+              >{{ $t("Explore.SearchBar.Drawings and Paintings")}}</b-button
             >
             <b-button type="is-inverte" class="column chain-button"
-              >Jewellery</b-button
+              >{{ $t("Explore.SearchBar.Jewellery")}}</b-button
             >
             <b-button type="is-inverte" class="column chain-button"
-              >Fashion</b-button
+              >{{ $t("Explore.SearchBar.Fashion")}}</b-button
             >
             <b-button type="is-inverte" class="column chain-button"
-              >Sculpture</b-button
+              >{{ $t("Explore.SearchBar.Sculpture")}}</b-button
             >
             <b-button type="is-inverte" class="column chain-button"
-              >Architecture</b-button
+              >{{ $t("Explore.SearchBar.Architecture")}}</b-button
             >
           </div>
         </div>
-        <div class="column is-offset-2 mb-0">
-          <Sort :value="sortBy" @input="updateSortBy" />
+        <div class="column level-right is-offset-1 mb-0">
+          <div class="level-item myspace-arragne-btn">
+            <Sort :value="sortBy" @input="updateSortBy" />
+          </div>
         </div>
-      </div >
+      </div>
     </div>
   </div>
 </template>
@@ -202,5 +204,11 @@ input[type="search"] {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.myspace-arragne-btn {
+  @include desktop {
+    margin-left: auto;
+  }
 }
 </style>

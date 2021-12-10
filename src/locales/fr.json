@@ -12,6 +12,11 @@
     "InstallChromeWalletExtension": "Installez l'extension de portefeuille Chrome.",
     "InstallFirefoxWalletExtension": "Installez l'extension de portefeuille Firefox."
   },
+  "Footer": {
+    "MetaRock": "© 2021 Meta Rock",
+    "Privacy Policy": "Politique de confidentialité",
+    "Terms and Conditions": "Termes et conditions"
+  },
   "Landing": {
     "HomeText": "Permettre aux actifs d'être téléportés dans le métaverse",
     "GetStarted": "Commencer"
@@ -27,7 +32,118 @@
       "toast": "Désolé, nous construisons pour connecter le réseau."
     },
     "SearchBar": {
-      "toast": "Désolé, nous construisons actuellement un outil d'analyse rmrk2.0 pour afficher les NFT."
+      "toast": "Désolé, nous construisons actuellement un outil d'analyse rmrk2.0 pour afficher les NFT.",
+      "Digtal Asset": "Actif numérique",
+      "Physical Asset": "Actif physique",
+      "nfts" : "NFTs",
+      "collections" : "Collections",
+      "Drawings and Paintings": "Dessins et peintures",
+      "Jewellery" : "Bijoux",
+      "Fashion" : "Mode",
+      "Sculpture" : "Sculpture",
+      "Architecture" : "Architecture"
     }
+  },
+  "Mint": {
+    "ChooseNFT": {
+      "Choose Chain": "Choisissez la chaîne",
+      "What would you like to create": "Que voudriez-vous créer ?",
+      "Digtal Asset": "Actif numérique",
+      "Physical Asset": "Actif physique",
+      "Simple NFT": "NFT simple",
+      "Please choose chain": "Veuillez choisir la chaîne!",
+      "toast": "Désolé, nous sommes toujours en train de construire."
+
+    },
+    "ChooseCollection": {
+      "Please select your account": "Veuillez connecter votre portefeuille et sélectionner votre compte.",
+      "createCollectionMessage": "Vous n'avez créé aucune collection. Veuillez créer une collection.",
+      "Create / Choose Collection": "Créer / Choisir une collection",
+      "Create Collection": "Créer une collection"
+    }
+  },
+  "sort": {
+    "BLOCK_NUMBER_DESC": "Menthes récentes",
+    "BLOCK_NUMBER_ASC": "Menthes anciennes",
+    "UPDATED_AT_DESC": "Dernière interaction",
+    "UPDATED_AT_ASC": "Longtemps sans interaction",
+    "PRICE_DESC": "Prix décroissant",
+    "PRICE_ASC": "Prix croissant",
+    "listed": "ACHETER MAINTENANT"
+  },
+  "mint": {
+    "submit": "Cliquez pour créer des NFT",
+    "estimate": "Montrez-moi les frais de transaction",
+    "estimated": "Les frais de transaction coûteront environ",
+    "success": "Félicitations à vos nouveaux NFT",
+    "shareWithFriends": "Partagez {0} avec vos amis",
+    "unlimited": "Articles illimités dans votre collection",
+    "nfsw": "Contenu explicite (NSFW)",
+    "transform": "Transformer les commandes en NFT",
+    "expert": {
+      "show": "Show advanced settings",
+      "hide": "Hide advanced settings",
+      "count": "Currently matched {0} adresses",
+      "countGlitch": "You have more adresses than available editions. This can cause a problem. Consider to set EDITION field to at least to {0}",
+      "postfix": "Add hashtag and index after the name (e.g #1)",
+      "sync": "Sync editions to {0}"
+    },
+    "collection": {
+      "create collection": "Créer une collection",
+      "collection cover image": "Image de couverture de la collection",
+      "name": {
+        "label": "Nom de la collection",
+        "placeholder": "Entrez le nom de la collection",
+        "message": "Nom de votre collection. Il sera visible dans la galerie."
+      },
+      "description": {
+        "label": "Descriptif | Optionnel",
+        "placeholder": "Entrer la description de la collection",
+        "message": "Description de votre collection. La démarque est prise en charge."
+      },
+      "symbol": {
+        "label": "Symbole (nom court)",
+        "placeholder": "Nom de 3 à 5 caractères",
+        "message": "Le symbole qui est attribué au NFT : par exemple, Kusama est étiqueté KSM"
+      }
+    },
+    "nft": {
+      "create nft": "Créer NFT",
+      "NFTimage": "Image NFT",
+      "coverImage": {
+        "label": "L'image de couverture pour votre NFT | Optionnel"
+      },
+      "name": {
+        "label": "Nom NFT",
+        "placeholder": "Entrez le nom NFT",
+        "message": "Nom de votre NFT. Il sera visible dans la galerie."
+      },
+      "description": {
+        "label": "Description du NFT | Optionnel",
+        "placeholder": "Entrez la description NFT",
+        "message": "Description de votre NFT. La démarque est prise en charge"
+      },
+      "editions": {
+        "NoofEditions": "Nombre d'éditions",
+        "placeholder": "1 est le minimum"
+      },
+      "tags": {
+        "name": "Mots clés",
+        "placeholder": "Soyez découvert plus facilement grâce aux balises"
+      },
+      "price": "Prix"
+    }
+  },
+  "loader": {
+    "casting": "(1/3) Convertir le tx en blockchain",
+    "finalized": "(3/3) Finalisé",
+    "block": "(2/3) Transaction en bloc",
+    "pinImage": "Épingler une image",
+    "pinMeta": "Épingler des métadonnées",
+    "constructTx": "Transaction de construction",
+    "sign": "En attente de réponse du chanteur",
+    "ipfs": "Téléchargement de données vers IPFS",
+    "arweave": "Stockage des données via PermaFrost",
+    "uploading": "({0}/{1}) Téléchargement de données vers IPFS "
   }
 }

@@ -11,7 +11,7 @@
             <b-dropdown aria-role="list">
               <template #trigger>
                 <b-button
-                  label="Choose Chain"
+                  :label="$t('Explore.Choose Chain')"
                   type="is-primary"
                   icon-right="caret-down"
                 />
@@ -21,9 +21,7 @@
                 @click="switchExploreChain('Kusama')"
                 >Kusama</b-dropdown-item
               >
-              <b-dropdown-item
-                aria-role="listitem"
-              @click="toast('Darwinia')"
+              <b-dropdown-item aria-role="listitem" @click="toast('Darwinia')"
                 >Darwinia</b-dropdown-item
               >
               <b-dropdown-item
@@ -99,13 +97,13 @@ export default class ExploreChain extends Vue {
   public checkLoading = false;
 
   public toast(chain: string) {
-    const msg : string| any = i18n.t("Explore.ExploreChain.toast", [chain]);
+    const msg: string | any = i18n.t("Explore.ExploreChain.toast", [chain]);
     this.$buefy.toast.open({
       duration: 2000,
       message: msg,
       pauseOnHover: true,
-      type: 'is-white',
-      position: 'is-top-right',
+      type: "is-white",
+      position: "is-top-right",
     });
   }
 

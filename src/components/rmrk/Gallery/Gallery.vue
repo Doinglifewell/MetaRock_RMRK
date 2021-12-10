@@ -18,15 +18,6 @@
             </div>
           </b-carousel-item>
         </b-carousel>
-        <!-- <img
-          src="/Asset01.png"
-          alt="current network"
-          width="1675"
-          height="525"
-        /> -->
-        <!-- <b-image src="/Asset01.png" alt="Featured product" ratio="4by2" class="feature_image"/>
-        <b-image src="/Asset02.png" alt="Featured product" ratio="4by2" class="feature_image"/>
-        <b-image src="/Asset03.png" alt="Featured product" ratio="4by2" class="feature_image"/> -->
       </div>
       <div class="columns is-multiline">
         <div class="column is-4" v-for="nft in results" :key="nft.id">

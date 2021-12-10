@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <p class="title is-size-3">Create NFT</p>
+    <p class="title is-size-3">   {{ $t("mint.nft.create nft") }}</p>
     <div class="columns">
       <div class="column">
         <div>
-          <p class="collection_head mb-1">NFTImage</p>
+          <p class="collection_head mb-1">{{ $t("mint.nft.NFTimage") }}</p>
           <MetadataUpload
             v-model="vFile"
             label="File Types: BMP, GIF, JPEG, PNG, SVG, TIFF, WEBP, MP4, OGV, QUICKTIME, WEBM, GLB, FLAC, MP3, JSON"
@@ -14,7 +14,7 @@
         </div>
         <div class="mt-6" v-if="secondaryFileVisible">
           <p class="collection_head mb-1">
-            The Cover image for your NFT | Optional
+            {{ $t("mint.nft.coverImage.label") }}
           </p>
           <MetadataUpload
             v-model="vSecondFile"

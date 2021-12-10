@@ -97,12 +97,14 @@ const components = {
   components,
 })
 export default class ChooseNFT extends Vue {
-  public switch_chain: string = "Choose";
+  public switch_chain: string | any = i18n.t("Mint.ChooseNFT.Choose Chain");
+  public switch_chain_num = 0;
   public null_chian = false;
   public checkLoading = false;
 
   public switchCreateChain(data: string) {
     this.switch_chain = data;
+    this.switch_chain_num = 1;
   }
 
   public toast() {
@@ -137,7 +139,7 @@ export default class ChooseNFT extends Vue {
     }
     if (type != 3) {
       this.toast();
-    } else if (this.switch_chain == "Choose") {
+    } else if (!this.switch_chain_num) {
       // this.null_chian = true;
       const msg: string | any = i18n.t("Mint.ChooseNFT.Please choose chain");
       this.$buefy.toast.open({

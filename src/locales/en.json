@@ -209,7 +209,16 @@
       "toast": "Sorry, we are building to connect {0} network."
     },
     "SearchBar": {
-      "toast": "Sorry, we are currently building a rmrk2.0 scan tool to view the NFTs."
+      "toast": "Sorry, we are currently building a rmrk2.0 scan tool to view the NFTs.",
+      "Digtal Asset": "Digtal Asset",
+      "Physical Asset": "Physical Asset",
+      "nfts" : "NFTs",
+      "collections" : "Collections",
+      "Drawings and Paintings": "Drawings and Paintings",
+      "Jewellery" : "Jewellery",
+      "Fashion" : "Fashion",
+      "Sculpture" : "Sculpture",
+      "Architecture" : "Architecture"
     }
   },
   "Mint": {
@@ -220,7 +229,7 @@
       "Physical Asset": "Physical Asset",
       "Simple NFT": "Simple NFT",
       "Please choose chain": "Please choose chain!",
-      "toast": "Sorry we are still building."
+      "toast": "Sorry, we are still building."
     },
     "ChooseCollection": {
       "Please select your account": "Please connect your wallet and select your account.",
@@ -275,6 +284,11 @@
       }
     },
     "nft": {
+      "create nft": "Create NFT",
+      "NFTimage": "NFT Image",
+      "coverImage": {
+        "label": " The Cover image for your NFT | Optional"
+      },
       "name": {
         "label": "NFT Name",
         "placeholder": "Enter NFT name",
