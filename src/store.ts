@@ -11,10 +11,10 @@ const vuexLocalStorage = new VuexPersist({
   storage: window.sessionStorage,
 })
 
-interface ChangeUrlAction {
-  type: string;
-  payload: string;
-}
+// interface ChangeUrlAction {
+//   type: string;
+//   payload: string;
+// }
 
 // const apiPlugin = (store: any) => {
 //   const { getInstance: Api } = Connector
@@ -67,11 +67,6 @@ export default new Vuex.Store({
     chainProperties: {},
     explorer: {},
     lang: {},
-    indexer: {
-      indexerHealthy: true,
-      lastProcessedHeight: undefined,
-      lastProcessedTimestamp: undefined,
-    },
     language: {
       userLang: process.env.VUE_APP_I18N_LOCALE || 'en',
       langsFlags: [
@@ -217,9 +212,6 @@ export default new Vuex.Store({
     setFiatPrice(state: any, data) {
       state.fiatPrice = Object.assign({}, state.fiatPrice, data)
     },
-    setIndexerStatus(state: any, data) {
-      state.indexer = Object.assign({}, state.indexer, data)
-    },
     setLayoutClass(state: any, data) {
       state.layoutClass = data
     },
@@ -230,9 +222,6 @@ export default new Vuex.Store({
   actions: {
     setFiatPrice({ commit }: any, data) {
       commit('setFiatPrice', data)
-    },
-    upateIndexerStatus({ commit }: any, data) {
-      commit('setIndexerStatus', data)
     },
     setLayoutClass({ commit }: any, data) {
       commit('setLayoutClass', data)
