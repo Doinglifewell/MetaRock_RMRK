@@ -46,29 +46,29 @@ import { showNotification } from './utils/notification'
   }
 })
 export default class Dashboard extends Vue {
-  // get chainProperties() {
-  //   return this.$store.getters.getChainProperties
-  // }
+  get chainProperties() {
+    return this.$store.getters.getChainProperties
+  }
 
-  // get ss58Format(): number {
-  //   return this.chainProperties?.ss58Format
-  // }
+  get ss58Format(): number {
+    return this.chainProperties?.ss58Format
+  }
 
-  // public async loadKeyring(): Promise<void> {
-  //   const isDevelopment = process.env.VUE_APP_KEYRING === 'true'
-  //   keyring.loadAll({
-  //     ss58Format: correctFormat(this.ss58Format),
-  //     type: 'sr25519',
-  //     isDevelopment
-  //   })
-  // }
+  public async loadKeyring(): Promise<void> {
+    const isDevelopment = process.env.VUE_APP_KEYRING === 'true'
+    keyring.loadAll({
+      ss58Format: correctFormat(this.ss58Format),
+      type: 'sr25519',
+      isDevelopment
+    })
+  }
 
-  // public async mountWasmCrypto(): Promise<void> {
-  //   await cryptoWaitReady()
-  //   console.log('wasmCrypto loaded')
-  //   this.loadKeyring()
-  //   this.$store.commit('keyringLoaded')
-  // }
+  public async mountWasmCrypto(): Promise<void> {
+    await cryptoWaitReady()
+    console.log('wasmCrypto loaded')
+    this.loadKeyring()
+    this.$store.commit('keyringLoaded')
+  }
 
   // public async getKsmPrice(): Promise<void> {
   //   try {
@@ -86,7 +86,7 @@ export default class Dashboard extends Vue {
   // }
 
   public mounted(): void {
-    // this.mountWasmCrypto()
+    this.mountWasmCrypto()
     // this.fetchIndexer()
     // this.getKsmPrice()
   }
