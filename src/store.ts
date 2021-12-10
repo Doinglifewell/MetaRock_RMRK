@@ -253,7 +253,7 @@ export default new Vuex.Store({
     getCreateChain: ({ createChain }) => createChain,
   },
   modules: {
-    setting: SettingModule,
+    // setting: SettingModule,
     identity: IdentityModule,
   },
   // plugins: [vuexLocalStorage.plugin, apiPlugin, myPlugin ],

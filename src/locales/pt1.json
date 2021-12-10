@@ -1,0 +1,148 @@
+{
+  "Navbar": {
+    "MySpace": "Meu espaço",
+    "Explore": "Explorar",
+    "Info": "Informações",
+    "CreateNFT": "Criar NFT",
+    "ConnectWallet": "Carteira de conexão",
+    "ChangeAccount": "Mudar de conta",
+    "Account": "Conta",
+    "PleaseSelectAccount": "Selecione a conta.",
+    "InstallDesktopWalletExtension": "Instale a extensão Desktop Wallet.",
+    "InstallChromeWalletExtension": "Instalar Chrome Wallet Extension.",
+    "InstallFirefoxWalletExtension": "Instalar Firefox Wallet Extension."
+  },
+  "Footer": {
+    "MetaRock": "© 2021 Meta Rock",
+    "Privacy Policy": "Política de Privacidade",
+    "Terms and Conditions": "Termos e Condições"
+  },
+  "Landing": {
+    "HomeText": "Permitindo que ativos sejam teletransportados para o metaverso",
+    "GetStarted": "Começar"
+  },
+  "GetStarted": {
+    "Which one are you": "Qual é você?",
+    "Creater": "Criador",
+    "Collecter": "Collecter"
+  },
+  "Explore": {
+    "Choose Chain": "Choose Chain",
+    "ExploreChain": {
+      "toast": "Desculpe, estamos construindo para conectar {0} rede."
+    },
+    "SearchBar": {
+      "toast": "Desculpe, no momento estamos construindo uma ferramenta de varredura rmrk2.0 para visualizar os NFTs.",
+      "Digital Asset": "Ativo digital",
+      "Physical Asset": "Ativo Físico",
+      "nfts" : "NFTs",
+      "collections" : "Coleções",
+      "Drawings and Paintings": "Desenhos e pinturas",
+      "Jewellery" : "Joalharia",
+      "Fashion" : "Moda",
+      "Sculpture" : "Escultura",
+      "Architecture" : "Arquitetura"
+    }
+  },
+  "Mint": {
+    "ChooseNFT": {
+      "Choose Chain": "Choose Chain",
+      "What would you like to create": "O que você gostaria de criar?",
+      "Digital Asset": "Ativo digital",
+      "Physical Asset": "Ativo Físico",
+      "Simple NFT": "NFT Simples",
+      "Please choose chain": "Por favor, escolha a corrente!",
+      "toast": "Desculpe, ainda estamos construindo."
+    },
+    "ChooseCollection": {
+      "Please select your account": "Conecte sua carteira e selecione sua conta.",
+      "createCollectionMessage": "Você não criou nenhuma coleção. Por favor, crie uma coleção.",
+      "Create / Choose Collection": "Criar / escolher coleção",
+      "Create Collection": "Criar coleção"
+    }
+  },
+  "sort": {
+    "BLOCK_NUMBER_DESC": "Menta recentes",
+    "BLOCK_NUMBER_ASC": "Antigas mentas",
+    "UPDATED_AT_DESC": "Última interação",
+    "UPDATED_AT_ASC": "Há muito tempo sem interação",
+    "PRICE_DESC": "Preço decrescente",
+    "PRICE_ASC": "Preço ascendente",
+    "listed": "COMPRE AGORA"
+  },
+  "mint": {
+    "submit": "Clique para criar NFT (s)",
+    "estimate": "Mostre-me as taxas de transação",
+    "estimated": "As taxas de transação custarão cerca de",
+    "success": "Parabéns aos seus novos NFT (s)",
+    "shareWithFriends": "Compartilhe {0} com seus amigos",
+    "unlimited": "Itens ilimitados em sua coleção",
+    "nfsw": "Itens ilimitados em sua coleção",
+    "transform": "Transform commands in NFT",
+    "expert": {
+      "show": "Show advanced settings",
+      "hide": "Hide advanced settings",
+      "count": "Currently matched {0} adresses",
+      "countGlitch": "You have more adresses than available editions. This can cause a problem. Consider to set EDITION field to at least to {0}",
+      "postfix": "Add hashtag and index after the name (e.g #1)",
+      "sync": "Sync editions to {0}"
+    },
+    "collection": {
+      "create collection": "Criar coleção",
+      "collection cover image": "Imagem da capa da coleção",
+      "name": {
+        "label": "Nome da coleção",
+        "placeholder": "Digite o nome da coleção",
+        "message": "Nome da sua coleção. Será visível na galeria"
+      },
+      "description": {
+        "label": "Descrição | Opcional",
+        "placeholder": "Insira a descrição da coleção",
+        "message": "Descrição de sua coleção. Markdown é compatível"
+      },
+      "symbol": {
+        "label": "Símbolo (nome abreviado)",
+        "placeholder": "nome de 3 a 5 caracteres",
+        "message": "O símbolo que é atribuído ao NFT: por exemplo, Kusama é rotulado como KSM"
+      }
+    },
+    "nft": {
+      "create nft": "Criar NFT",
+      "NFTimage": "NFT Image",
+      "coverImage": {
+        "label": "A imagem da capa do seu NFT | Opcional"
+      },
+      "name": {
+        "label": "Nome NFT",
+        "placeholder": "Insira o nome NFT",
+        "message": "Nome do seu NFT. Será visível na galeria"
+      },
+      "description": {
+        "label": "descrição NFT | Opcional",
+        "placeholder": "Insira a descrição NFT",
+        "message": "Descrição de seu NFT. Markdown é suportado"
+      },
+      "editions": {
+        "NoofEditions": "Nº de edições",
+        "placeholder": "1 é o mínimo"
+      },
+      "tags": {
+        "name": "Tags",
+        "placeholder": "Seja descoberto mais facilmente por meio de tags"
+      },
+      "price": "Preço"
+    }
+  },
+  "loader": {
+    "casting": "(1/3) Transmitindo o tx para blockchain",
+    "finalized": "(3/3) Finalizado",
+    "block": "(2/3) Transação em bloco",
+    "pinImage": "Fixando imagem",
+    "pinMeta": "Fixando metadados",
+    "constructTx": "Construindo a transação",
+    "sign": "Aguardando resposta do cantor",
+    "ipfs": "Fazendo upload de dados para IPFS",
+    "arweave": "Armazenando dados via PermaFrost",
+    "uploading": "({0} / {1}) Enviando dados para IPFS"
+  } 
+}
