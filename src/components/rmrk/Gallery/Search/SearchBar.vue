@@ -6,8 +6,8 @@
           <img
             :src="exploreChain"
             alt="current network"
-            width="300"
-            height="80"
+            width="200"
+            height="60"
           />
         </b-field>
       </div>
@@ -28,7 +28,7 @@
           </b-field>
         </b-field>
 
-        <b-field class="column is-4 mb-0">
+        <b-field class="column is-5 mb-0">
           <b-field class="column center-mobile-view">
             <b-input
               placeholder="Search..."
