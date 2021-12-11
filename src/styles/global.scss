@@ -368,6 +368,16 @@ body {
     box-shadow: -10px 4px 20px rgba(0, 0, 0, 0.25);
   }
 
+  .pagination-previous, .pagination-next, .pagination-link{
+    &.hover,
+    &.focus{
+      color:white;
+    }
+    &.active{
+      color: $button-text;
+    }
+  }
+
   .title,
   .card-header-title {
     color: $text !important;

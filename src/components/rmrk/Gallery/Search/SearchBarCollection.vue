@@ -1,57 +1,75 @@
 <template>
-  <div class="content">
-    <div class="columns">
-      <b-field class="column is-6 mb-0">
-        <img
-          :src="exploreChain"
-          alt="current network"
-          width="300"
-          height="80"
-        />
-      </b-field>
-      <b-field class="column is-1 mb-0">
-        <b-button tag="router-link" to="/rmrk/gallery" type="is-inverte"
-          >NFTs</b-button
-        >
-      </b-field>
-      <b-field class="column is-1 mb-0">
-        <b-button tag="router-link" to="/rmrk/collections" type="is-primary"
-          >Collections</b-button
-        >
-      </b-field>
-    </div>
-    <div class="columns">
-      <b-field class="column is-2 mb-0">
-        <b-button type="is-primary" @click="toast()">Physical Assets</b-button>
-      </b-field>
-      <b-field class="column is-2 mb-0">
-        <b-button type="is-inverte" @click="toast()">Digital Assets</b-button>
-      </b-field>
-      <b-field expanded class="control column is-3 mb-0">
-        <b-input
-          placeholder="Search..."
-          type="search"
-          v-model="searchQuery"
-          icon="search"
-          expanded
-        >
-        </b-input>
-      </b-field>
-    </div>
-
-    <div class="columns">
-      <b-field class="column is-10 mb-0">
-        <b-button type="is-inverte" class="chain-button"
-          >Drawings and Paintings</b-button
-        >
-        <b-button type="is-inverte" class="chain-button">Jewellery</b-button>
-        <b-button type="is-inverte" class="chain-button">Fashion</b-button>
-        <b-button type="is-inverte" class="chain-button">Sculpture</b-button>
-        <b-button type="is-inverte" class="chain-button">Architecture</b-button>
-      </b-field>
-      <b-field class="column is-2 mb-0">
-        <Sort class="control" :value="sortBy" @input="updateSortBy" />
-      </b-field>
+  <div class="card mb-3 mt-5">
+    <div class="card-content p-0">
+      <div class="columns">
+        <b-field class="column is-6 mb-0">
+          <img
+            :src="exploreChain"
+            alt="current network"
+            width="300"
+            height="80"
+          />
+        </b-field>
+        <b-field class="column is-1 mb-0">
+          <b-button tag="router-link" to="/rmrk/gallery" type="is-inverte"
+            >{{ $t("Explore.SearchBar.nfts")}}</b-button
+          >
+        </b-field>
+        <b-field class="column is-1 mb-0">
+          <b-button tag="router-link" to="/rmrk/collections" type="is-primary"
+            >{{ $t("Explore.SearchBar.collections")}}</b-button
+          >
+        </b-field>
+      </div>
+      <div class="columns">
+        <b-field class="column is-2 mb-0">
+          <b-button type="is-primary" @click="toast()"
+            >{{ $t("Explore.SearchBar.Physical Asset")}}</b-button
+          >
+        </b-field>
+        <b-field class="column is-2 mb-0">
+          <b-button type="is-inverte" @click="toast()">{{ $t("Explore.SearchBar.Digital Asset")}}</b-button>
+        </b-field>
+        <b-field class="column is-3 mb-0">
+          <b-input
+            placeholder="Search..."
+            type="search"
+            v-model="searchQuery"
+            icon="search"
+            expanded
+          >
+          </b-input>
+        </b-field>
+        <!-- <b-field class="column is-3 mb-0">
+          <Sort :value="sortBy" @input="updateSortBy" />
+        </b-field> -->
+      </div>
+      <div class="columns level pt-0">
+        <div class="column is-8 mb-0">
+          <div class="columns">
+            <b-button type="is-inverte" class="column chain-button"
+              >{{ $t("Explore.SearchBar.Drawings and Paintings")}}</b-button
+            >
+            <b-button type="is-inverte" class="column chain-button"
+              >{{ $t("Explore.SearchBar.Jewellery")}}</b-button
+            >
+            <b-button type="is-inverte" class="column chain-button"
+              >{{ $t("Explore.SearchBar.Fashion")}}</b-button
+            >
+            <b-button type="is-inverte" class="column chain-button"
+              >{{ $t("Explore.SearchBar.Sculpture")}}</b-button
+            >
+            <b-button type="is-inverte" class="column chain-button"
+              >{{ $t("Explore.SearchBar.Architecture")}}</b-button
+            >
+          </div>
+        </div>
+        <div class="column level-right is-offset-1 mb-0">
+          <div class="level-item myspace-arragne-btn">
+            <Sort :value="sortBy" @input="updateSortBy" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -159,11 +177,7 @@ export default class SearchBar extends Vue {
     this.$router
       .replace({
         name: String(this.$route.name),
-        query: {
-          ...this.$route.query,
-          search: this.searchQuery,
-          [key]: value,
-        },
+        query: { ...this.$route.query, search: this.searchQuery, [key]: value },
       })
       .catch(console.warn /*Navigation Duplicate err fix later */);
   }
@@ -172,11 +186,11 @@ export default class SearchBar extends Vue {
 
 <style scoped lang="scss">
 @import "@/styles/variables";
-
 input[type="search"] {
   background: white;
   color: #2e0ef4;
 }
+
 .card {
   box-shadow: none;
   background: transparent;
@@ -190,5 +204,11 @@ input[type="search"] {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.myspace-arragne-btn {
+  @include desktop {
+    margin-left: auto;
+  }
 }
 </style>
