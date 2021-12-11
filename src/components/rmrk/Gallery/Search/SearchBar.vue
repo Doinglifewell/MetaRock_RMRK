@@ -1,8 +1,8 @@
 <template>
   <div class="card mb-3 mt-5">
     <div class="card-content p-0">
-      <div class="columns">
-        <b-field class="column is-6 mb-0">
+      <div class="columns mb-0 pt-0">
+        <b-field class="column is-6 mb-0 center-mobile-view">
           <img
             :src="exploreChain"
             alt="current network"
@@ -10,82 +10,41 @@
             height="80"
           />
         </b-field>
-        <b-field class="column is-2 mb-0">
-          <div class="columns is-mobile">
-            <b-field class="column">
-              <b-button
-                tag="router-link"
-                to="/rmrk/gallery"
-                type="is-primary"
-                >{{ $t("Explore.SearchBar.nfts") }}</b-button
-              >
-            </b-field>
-            <b-field class="column">
-              <b-button
-                tag="router-link"
-                to="/rmrk/collections"
-                type="is-inverte"
-                >{{ $t("Explore.SearchBar.collections") }}</b-button
-              >
-            </b-field>
-          </div>
-        </b-field>
       </div>
       <div class="columns">
         <b-field class="column is-4 mb-0">
-          <div class="columns is-mobile">
-            <b-field class="column">
-              <b-button type="is-primary" @click="toast()">{{
-                $t("Explore.SearchBar.Physical Asset")
-              }}</b-button>
-            </b-field>
-            <b-field class="column">
-              <b-button type="is-inverte" @click="toast()">{{
-                $t("Explore.SearchBar.Digital Asset")
-              }}</b-button>
-            </b-field>
-          </div>
+          <b-field class="column center-mobile-view">
+            <b-button tag="router-link" to="/rmrk/gallery" type="is-primary">{{
+              $t("Explore.SearchBar.nfts")
+            }}</b-button>
+          </b-field>
+          <b-field class="column center-mobile-view">
+            <b-button
+              tag="router-link"
+              to="/rmrk/collections"
+              type="is-inverte"
+              >{{ $t("Explore.SearchBar.collections") }}</b-button
+            >
+          </b-field>
         </b-field>
 
-        <b-field class="column is-3 mb-0">
-          <b-input
-            placeholder="Search..."
-            type="search"
-            v-model="searchQuery"
-            icon="search"
-            expanded
-          >
-          </b-input>
+        <b-field class="column is-4 mb-0">
+          <b-field class="column center-mobile-view">
+            <b-input
+              placeholder="Search..."
+              type="search"
+              v-model="searchQuery"
+              icon="search"
+              expanded
+            >
+            </b-input>
+          </b-field>
         </b-field>
-        <!-- <b-field class="column is-3 mb-0">
-          <Sort :value="sortBy" @input="updateSortBy" />
-        </b-field> -->
-      </div>
-      <div class="columns level pt-0">
-        <div class="column is-8 mb-0">
-          <div class="columns">
-            <b-button type="is-inverte" class="column chain-button">{{
-              $t("Explore.SearchBar.Drawings and Paintings")
-            }}</b-button>
-            <b-button type="is-inverte" class="column chain-button">{{
-              $t("Explore.SearchBar.Jewellery")
-            }}</b-button>
-            <b-button type="is-inverte" class="column chain-button">{{
-              $t("Explore.SearchBar.Fashion")
-            }}</b-button>
-            <b-button type="is-inverte" class="column chain-button">{{
-              $t("Explore.SearchBar.Sculpture")
-            }}</b-button>
-            <b-button type="is-inverte" class="column chain-button">{{
-              $t("Explore.SearchBar.Architecture")
-            }}</b-button>
-          </div>
-        </div>
-        <div class="column level-right is-offset-1 mb-0">
-          <div class="level-item myspace-arragne-btn">
+        <b-field class="column is-3 mb-0">
+          <b-field class="column center-mobile-view">
             <Sort :value="sortBy" @input="updateSortBy" />
-          </div>
-        </div>
+          </b-field>
+        </b-field>
       </div>
     </div>
   </div>

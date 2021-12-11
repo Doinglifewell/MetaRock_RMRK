@@ -382,4 +382,10 @@ body {
   .card-header-title {
     color: $text !important;
   }
+
+  .center-mobile-view{
+    @include mobile {
+      text-align: center !important;
+    }
+  }
 }
