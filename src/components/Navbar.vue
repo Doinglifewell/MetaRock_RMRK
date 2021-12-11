@@ -24,7 +24,7 @@
     </template>
 
     <template v-slot:end>
-      <b-navbar-item>
+      <b-navbar-item class="pl-1">
         <LocaleChanger />
       </b-navbar-item>
       <b-navbar-item>
@@ -36,7 +36,7 @@
           {{ $t("Navbar.CreateNFT") }}</b-button
         >
       </b-navbar-item>
-      <b-navbar-item>
+      <b-navbar-item class="pl-0">
         <NavbarProfileDropdown />
       </b-navbar-item>
     </template>

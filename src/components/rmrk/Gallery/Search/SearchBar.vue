@@ -10,26 +10,43 @@
             height="80"
           />
         </b-field>
-        <b-field class="column is-1 mb-0">
-          <b-button tag="router-link" to="/rmrk/gallery" type="is-primary"
-            >{{ $t("Explore.SearchBar.nfts")}}</b-button
-          >
-        </b-field>
-        <b-field class="column is-1 mb-0">
-          <b-button tag="router-link" to="/rmrk/collections" type="is-inverte"
-            >{{ $t("Explore.SearchBar.collections")}}</b-button
-          >
+        <b-field class="column is-2 mb-0">
+          <div class="columns is-mobile">
+            <b-field class="column">
+              <b-button
+                tag="router-link"
+                to="/rmrk/gallery"
+                type="is-primary"
+                >{{ $t("Explore.SearchBar.nfts") }}</b-button
+              >
+            </b-field>
+            <b-field class="column">
+              <b-button
+                tag="router-link"
+                to="/rmrk/collections"
+                type="is-inverte"
+                >{{ $t("Explore.SearchBar.collections") }}</b-button
+              >
+            </b-field>
+          </div>
         </b-field>
       </div>
       <div class="columns">
-        <b-field class="column is-2 mb-0">
-          <b-button type="is-primary" @click="toast()"
-            >{{ $t("Explore.SearchBar.Physical Asset")}}</b-button
-          >
+        <b-field class="column is-4 mb-0">
+          <div class="columns is-mobile">
+            <b-field class="column">
+              <b-button type="is-primary" @click="toast()">{{
+                $t("Explore.SearchBar.Physical Asset")
+              }}</b-button>
+            </b-field>
+            <b-field class="column">
+              <b-button type="is-inverte" @click="toast()">{{
+                $t("Explore.SearchBar.Digital Asset")
+              }}</b-button>
+            </b-field>
+          </div>
         </b-field>
-        <b-field class="column is-2 mb-0">
-          <b-button type="is-inverte" @click="toast()">{{ $t("Explore.SearchBar.Digital Asset")}}</b-button>
-        </b-field>
+
         <b-field class="column is-3 mb-0">
           <b-input
             placeholder="Search..."
@@ -47,21 +64,21 @@
       <div class="columns level pt-0">
         <div class="column is-8 mb-0">
           <div class="columns">
-            <b-button type="is-inverte" class="column chain-button"
-              >{{ $t("Explore.SearchBar.Drawings and Paintings")}}</b-button
-            >
-            <b-button type="is-inverte" class="column chain-button"
-              >{{ $t("Explore.SearchBar.Jewellery")}}</b-button
-            >
-            <b-button type="is-inverte" class="column chain-button"
-              >{{ $t("Explore.SearchBar.Fashion")}}</b-button
-            >
-            <b-button type="is-inverte" class="column chain-button"
-              >{{ $t("Explore.SearchBar.Sculpture")}}</b-button
-            >
-            <b-button type="is-inverte" class="column chain-button"
-              >{{ $t("Explore.SearchBar.Architecture")}}</b-button
-            >
+            <b-button type="is-inverte" class="column chain-button">{{
+              $t("Explore.SearchBar.Drawings and Paintings")
+            }}</b-button>
+            <b-button type="is-inverte" class="column chain-button">{{
+              $t("Explore.SearchBar.Jewellery")
+            }}</b-button>
+            <b-button type="is-inverte" class="column chain-button">{{
+              $t("Explore.SearchBar.Fashion")
+            }}</b-button>
+            <b-button type="is-inverte" class="column chain-button">{{
+              $t("Explore.SearchBar.Sculpture")
+            }}</b-button>
+            <b-button type="is-inverte" class="column chain-button">{{
+              $t("Explore.SearchBar.Architecture")
+            }}</b-button>
           </div>
         </div>
         <div class="column level-right is-offset-1 mb-0">
