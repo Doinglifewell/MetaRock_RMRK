@@ -60,10 +60,8 @@ Vue.filter('shortAddress', shortAddress);
 (window as any).S = { get, set, getMany };
 
 (async () => {
-  // await createInstance(keyInfo, getPrefixByStoreUrl());
   await enableExtension()
 })()
-// Connector.createInstance(store.state.setting.apiUrl);
 Vue.prototype.$http = Connector.getInstance()
 
 
